@@ -1,0 +1,372 @@
+/**
+ * Design tokens — source de vérité.
+ *
+ * Brand (inchangé entre thèmes) : ivoire, sable, terracotta, or, bleu nuit texte.
+ * Narration : variables --hero-* et --phase-* inversées selon data-theme.
+ *
+ * Thèmes : contemplation | lumiere
+ */
+
+:root {
+  /* ── Brand partagée ── */
+  --background: oklch(0.971 0.006 75.4);
+  --foreground: oklch(0.364 0.054 263);
+  --card: oklch(0.985 0.004 78);
+  --card-foreground: oklch(0.364 0.054 263);
+  /* Texte secondaire dans les cartes (surchargé par phase si besoin) */
+  --card-muted-foreground: oklch(0.5 0.038 258);
+  --surface-elevated: oklch(0.99 0.003 80);
+  --popover: oklch(0.99 0.003 80);
+  --popover-foreground: oklch(0.364 0.054 263);
+
+  --primary: oklch(0.7 0.082 47.5);
+  --primary-foreground: oklch(0.985 0.005 75);
+  --secondary: oklch(0.89 0.033 74.8);
+  --secondary-foreground: oklch(0.364 0.054 263);
+  --muted: oklch(0.945 0.01 76);
+  --muted-foreground: oklch(0.5 0.038 258);
+  --accent: oklch(0.935 0.018 72);
+  --accent-foreground: oklch(0.364 0.054 263);
+
+  --luminous: oklch(0.792 0.098 84);
+  --luminous-foreground: oklch(0.32 0.045 70);
+  --highlight: var(--luminous);
+  --highlight-foreground: var(--luminous-foreground);
+
+  --destructive: oklch(0.55 0.16 28);
+  --border: oklch(0.88 0.018 76);
+  --input: oklch(0.88 0.018 76);
+  --ring: oklch(0.7 0.082 47.5);
+
+  --chart-1: oklch(0.7 0.082 47.5);
+  --chart-2: oklch(0.792 0.098 84);
+  --chart-3: oklch(0.89 0.033 74.8);
+  --chart-4: oklch(0.5 0.038 258);
+  --chart-5: oklch(0.364 0.054 263);
+
+  --sidebar: oklch(0.971 0.006 75.4);
+  --sidebar-foreground: oklch(0.364 0.054 263);
+  --sidebar-primary: oklch(0.7 0.082 47.5);
+  --sidebar-primary-foreground: oklch(0.985 0.005 75);
+  --sidebar-accent: oklch(0.89 0.033 74.8);
+  --sidebar-accent-foreground: oklch(0.364 0.054 263);
+  --sidebar-border: oklch(0.88 0.018 76);
+  --sidebar-ring: oklch(0.7 0.082 47.5);
+
+  --radius: 1rem;
+  --content-max: 72rem;
+  --content-narrow: 40rem;
+  --section-space: clamp(3.5rem, 7vw, 8rem);
+  --section-space-sm: clamp(2.25rem, 4vw, 4.5rem);
+
+  --duration-fast: 180ms;
+  --duration-normal: 450ms;
+  --duration-slow: 750ms;
+  --duration-theme: 800ms;
+  --ease-out: cubic-bezier(0.22, 1, 0.36, 1);
+  --ease-in-out: cubic-bezier(0.45, 0, 0.55, 1);
+
+  --shadow-soft: 0 1px 2px oklch(0.364 0.054 263 / 0.03),
+    0 6px 20px oklch(0.364 0.054 263 / 0.05);
+  --shadow-elevated: 0 2px 4px oklch(0.364 0.054 263 / 0.03),
+    0 14px 36px oklch(0.364 0.054 263 / 0.07);
+  --shadow-glow: 0 0 48px oklch(0.792 0.098 84 / 0.22);
+
+  /* Palette narrative (référence) */
+  --night-deep: oklch(0.266 0.051 287.3);
+  --night: oklch(0.283 0.064 270.7);
+  --night-mid: oklch(0.328 0.067 276.4);
+  --night-soft: oklch(0.403 0.06 293.7);
+  --dusk-cool: oklch(0.48 0.045 310);
+  --dusk-mid: oklch(0.55 0.045 310);
+  --dusk-warm: oklch(0.72 0.04 50);
+  --dawn: oklch(0.88 0.03 75);
+  --ivory: oklch(0.971 0.006 75.4);
+  --ivory-muted: oklch(0.88 0.015 80);
+
+  --star-gold: oklch(0.85 0.08 85);
+  --star-ivory: oklch(0.94 0.01 90);
+  --star-blue: oklch(0.78 0.04 260);
+
+  /* Transition thème */
+  --theme-duration: 800ms;
+}
+
+/* ═══════════════════════════════════════════
+   CONTEMPLATION — nuit → lumière
+   ═══════════════════════════════════════════ */
+html[data-theme="contemplation"] {
+  --nav-bg-top: color-mix(in oklch, var(--night-deep) 55%, transparent);
+  --nav-fg-top: var(--ivory);
+  --nav-border-top: color-mix(in oklch, var(--ivory) 10%, transparent);
+  --nav-hover-top: color-mix(in oklch, var(--ivory) 10%, transparent);
+
+  --hero-fg: var(--ivory);
+  --hero-muted: color-mix(in oklch, var(--ivory) 68%, transparent);
+  --hero-caption: color-mix(in oklch, var(--ivory) 55%, transparent);
+  --hero-atmosphere: radial-gradient(
+      90% 70% at 18% 15%,
+      color-mix(in oklch, var(--luminous) 12%, transparent),
+      transparent 52%
+    ),
+    radial-gradient(
+      70% 55% at 88% 10%,
+      color-mix(in oklch, var(--night-soft) 55%, transparent),
+      transparent 50%
+    ),
+    radial-gradient(
+      60% 50% at 70% 90%,
+      color-mix(in oklch, var(--primary) 10%, transparent),
+      transparent 55%
+    ),
+    linear-gradient(165deg, var(--night-deep) 0%, var(--night) 42%, var(--night-mid) 100%);
+  --hero-panel-bg: color-mix(in oklch, var(--night-deep) 70%, transparent);
+  --hero-panel-ring: color-mix(in oklch, var(--ivory) 12%, transparent);
+  --hero-panel-fill: radial-gradient(
+      65% 50% at 48% 36%,
+      color-mix(in oklch, var(--luminous) 16%, transparent),
+      transparent 60%
+    ),
+    linear-gradient(170deg, var(--night) 0%, var(--night-mid) 100%);
+  --hero-decor: color-mix(in oklch, var(--ivory) 28%, transparent);
+  --hero-star-opacity: 1;
+  --hero-halo-secondary: night;
+  --hero-outline-border: color-mix(in oklch, var(--ivory) 35%, transparent);
+  --hero-outline-fg: var(--ivory);
+  --hero-outline-hover-bg: color-mix(in oklch, var(--ivory) 8%, transparent);
+  --hero-outline-hover-border: color-mix(in oklch, var(--ivory) 55%, transparent);
+  --hero-visual-caption: color-mix(in oklch, var(--ivory) 55%, transparent);
+  --hero-visual-title: color-mix(in oklch, var(--ivory) 85%, transparent);
+  --hero-tagline: "Nuit · silence · présence";
+
+  --starfield-opacity: 1;
+  --starfield-section-opacity: 0.8;
+
+  /* Phases : 1 nuit → 5 lumière */
+  --phase-1-bg: linear-gradient(180deg, var(--night-mid) 0%, oklch(0.34 0.06 280) 100%);
+  --phase-1-fg: var(--ivory);
+  --phase-1-muted: color-mix(in oklch, var(--ivory) 72%, transparent);
+  --phase-1-accent: color-mix(in oklch, var(--luminous) 70%, var(--ivory));
+  --phase-1-stars: 0.85;
+  /* Surfaces cartes (ivoire lisible sur fond nocturne) */
+  --phase-1-panel: oklch(0.97 0.008 75);
+  --phase-1-panel-fg: oklch(0.364 0.054 263);
+  --phase-1-panel-muted: oklch(0.48 0.04 258);
+  --phase-1-panel-soft: oklch(0.94 0.012 76);
+  --phase-1-panel-elevated: oklch(0.99 0.004 78);
+  --phase-1-panel-border: oklch(0.364 0.054 263 / 0.1);
+
+  --phase-2-bg: linear-gradient(
+    180deg,
+    oklch(0.34 0.06 280) 0%,
+    oklch(0.4 0.055 295) 55%,
+    var(--dusk-cool) 100%
+  );
+  --phase-2-fg: var(--ivory);
+  --phase-2-muted: color-mix(in oklch, var(--ivory) 70%, transparent);
+  --phase-2-accent: color-mix(in oklch, var(--luminous) 65%, var(--ivory));
+  --phase-2-stars: 0.55;
+  --phase-2-panel: oklch(0.97 0.008 75);
+  --phase-2-panel-fg: oklch(0.364 0.054 263);
+  --phase-2-panel-muted: oklch(0.48 0.04 258);
+  --phase-2-panel-soft: oklch(0.94 0.012 76);
+  --phase-2-panel-elevated: oklch(0.99 0.004 78);
+  --phase-2-panel-border: oklch(0.364 0.054 263 / 0.1);
+
+  --phase-3-bg: linear-gradient(
+    180deg,
+    var(--dusk-mid) 0%,
+    var(--dusk-warm) 45%,
+    oklch(0.86 0.03 70) 100%
+  );
+  --phase-3-fg: var(--foreground);
+  --phase-3-muted: var(--muted-foreground);
+  --phase-3-accent: var(--primary);
+  --phase-3-stars: 0.25;
+  --phase-3-panel: var(--card);
+  --phase-3-panel-fg: var(--card-foreground);
+  --phase-3-panel-muted: var(--muted-foreground);
+  --phase-3-panel-soft: var(--muted);
+  --phase-3-panel-elevated: var(--surface-elevated);
+  --phase-3-panel-border: var(--border);
+
+  --phase-4-bg: linear-gradient(
+    180deg,
+    var(--dawn) 0%,
+    oklch(0.92 0.025 72) 50%,
+    var(--secondary) 100%
+  );
+  --phase-4-fg: var(--foreground);
+  --phase-4-muted: var(--muted-foreground);
+  --phase-4-accent: var(--primary);
+  --phase-4-stars: 0;
+  --phase-4-panel: var(--card);
+  --phase-4-panel-fg: var(--card-foreground);
+  --phase-4-panel-muted: var(--muted-foreground);
+  --phase-4-panel-soft: var(--muted);
+  --phase-4-panel-elevated: var(--surface-elevated);
+  --phase-4-panel-border: var(--border);
+
+  --phase-5-bg: var(--background);
+  --phase-5-fg: var(--foreground);
+  --phase-5-muted: var(--muted-foreground);
+  --phase-5-accent: var(--primary);
+  --phase-5-stars: 0;
+  --phase-5-panel: var(--card);
+  --phase-5-panel-fg: var(--card-foreground);
+  --phase-5-panel-muted: var(--muted-foreground);
+  --phase-5-panel-soft: var(--muted);
+  --phase-5-panel-elevated: var(--surface-elevated);
+  --phase-5-panel-border: var(--border);
+
+  /* CTA secondaires hors hero (lisibles sur fond clair ou sombre) */
+  --cta-secondary-border: var(--border);
+  --cta-secondary-fg: var(--foreground);
+  --cta-secondary-bg: var(--card);
+  --cta-secondary-hover-bg: var(--muted);
+
+  --breath-1-bg: oklch(0.34 0.06 280);
+  --breath-2-bg: linear-gradient(180deg, var(--dusk-cool), var(--dusk-mid));
+  --breath-3-bg: linear-gradient(180deg, oklch(0.86 0.03 70), oklch(0.9 0.028 72));
+  --breath-decor: color-mix(in oklch, var(--ivory) 40%, transparent);
+}
+
+/* ═══════════════════════════════════════════
+   LUMIÈRE — lumière → nuit (même identité, ordre inversé)
+   ═══════════════════════════════════════════ */
+html[data-theme="lumiere"] {
+  --nav-bg-top: color-mix(in oklch, var(--background) 75%, transparent);
+  --nav-fg-top: var(--foreground);
+  --nav-border-top: color-mix(in oklch, var(--border) 60%, transparent);
+  --nav-hover-top: color-mix(in oklch, var(--foreground) 6%, transparent);
+
+  --hero-fg: var(--foreground);
+  --hero-muted: var(--muted-foreground);
+  --hero-caption: color-mix(in oklch, var(--foreground) 45%, transparent);
+  --hero-atmosphere: radial-gradient(
+      90% 70% at 18% 15%,
+      color-mix(in oklch, var(--luminous) 18%, transparent),
+      transparent 52%
+    ),
+    radial-gradient(
+      70% 55% at 88% 10%,
+      color-mix(in oklch, var(--secondary) 55%, transparent),
+      transparent 50%
+    ),
+    radial-gradient(
+      60% 50% at 70% 90%,
+      color-mix(in oklch, var(--primary) 8%, transparent),
+      transparent 55%
+    ),
+    linear-gradient(165deg, var(--ivory) 0%, oklch(0.95 0.012 75) 50%, var(--dawn) 100%);
+  --hero-panel-bg: color-mix(in oklch, var(--secondary) 50%, var(--card));
+  --hero-panel-ring: color-mix(in oklch, var(--border) 70%, transparent);
+  --hero-panel-fill: radial-gradient(
+      65% 50% at 48% 36%,
+      color-mix(in oklch, var(--luminous) 14%, transparent),
+      transparent 60%
+    ),
+    linear-gradient(170deg, var(--card) 0%, var(--secondary) 100%);
+  --hero-decor: color-mix(in oklch, var(--foreground) 14%, transparent);
+  --hero-star-opacity: 0.06;
+  --hero-outline-border: color-mix(in oklch, var(--border) 90%, transparent);
+  --hero-outline-fg: var(--foreground);
+  --hero-outline-hover-bg: var(--muted);
+  --hero-outline-hover-border: color-mix(in oklch, var(--primary) 35%, transparent);
+  --hero-visual-caption: var(--muted-foreground);
+  --hero-visual-title: color-mix(in oklch, var(--foreground) 80%, transparent);
+
+  --starfield-opacity: 0.05;
+  --starfield-section-opacity: 0.08;
+
+  /* Phases : 1 lumière → 5 nuit */
+  --phase-1-bg: var(--background);
+  --phase-1-fg: var(--foreground);
+  --phase-1-muted: var(--muted-foreground);
+  --phase-1-accent: var(--primary);
+  --phase-1-stars: 0;
+  --phase-1-panel: var(--card);
+  --phase-1-panel-fg: var(--card-foreground);
+  --phase-1-panel-muted: var(--muted-foreground);
+  --phase-1-panel-soft: var(--muted);
+  --phase-1-panel-elevated: var(--surface-elevated);
+  --phase-1-panel-border: var(--border);
+
+  --phase-2-bg: linear-gradient(
+    180deg,
+    var(--dawn) 0%,
+    oklch(0.9 0.028 72) 50%,
+    oklch(0.82 0.035 55) 100%
+  );
+  --phase-2-fg: var(--foreground);
+  --phase-2-muted: var(--muted-foreground);
+  --phase-2-accent: var(--primary);
+  --phase-2-stars: 0.08;
+  --phase-2-panel: var(--card);
+  --phase-2-panel-fg: var(--card-foreground);
+  --phase-2-panel-muted: var(--muted-foreground);
+  --phase-2-panel-soft: var(--muted);
+  --phase-2-panel-elevated: var(--surface-elevated);
+  --phase-2-panel-border: var(--border);
+
+  --phase-3-bg: linear-gradient(
+    180deg,
+    oklch(0.86 0.03 70) 0%,
+    var(--dusk-warm) 40%,
+    var(--dusk-mid) 100%
+  );
+  --phase-3-fg: var(--foreground);
+  --phase-3-muted: var(--muted-foreground);
+  --phase-3-accent: var(--primary);
+  --phase-3-stars: 0.2;
+  --phase-3-panel: var(--card);
+  --phase-3-panel-fg: var(--card-foreground);
+  --phase-3-panel-muted: var(--muted-foreground);
+  --phase-3-panel-soft: var(--muted);
+  --phase-3-panel-elevated: var(--surface-elevated);
+  --phase-3-panel-border: var(--border);
+
+  --phase-4-bg: linear-gradient(
+    180deg,
+    var(--dusk-cool) 0%,
+    oklch(0.4 0.055 295) 50%,
+    oklch(0.34 0.06 280) 100%
+  );
+  --phase-4-fg: var(--ivory);
+  --phase-4-muted: color-mix(in oklch, var(--ivory) 70%, transparent);
+  --phase-4-accent: color-mix(in oklch, var(--luminous) 65%, var(--ivory));
+  --phase-4-stars: 0.55;
+  --phase-4-panel: oklch(0.97 0.008 75);
+  --phase-4-panel-fg: oklch(0.364 0.054 263);
+  --phase-4-panel-muted: oklch(0.48 0.04 258);
+  --phase-4-panel-soft: oklch(0.94 0.012 76);
+  --phase-4-panel-elevated: oklch(0.99 0.004 78);
+  --phase-4-panel-border: oklch(0.364 0.054 263 / 0.1);
+
+  --phase-5-bg: linear-gradient(180deg, oklch(0.34 0.06 280) 0%, var(--night) 100%);
+  --phase-5-fg: var(--ivory);
+  --phase-5-muted: color-mix(in oklch, var(--ivory) 72%, transparent);
+  --phase-5-accent: color-mix(in oklch, var(--luminous) 70%, var(--ivory));
+  --phase-5-stars: 0.85;
+  --phase-5-panel: oklch(0.97 0.008 75);
+  --phase-5-panel-fg: oklch(0.364 0.054 263);
+  --phase-5-panel-muted: oklch(0.48 0.04 258);
+  --phase-5-panel-soft: oklch(0.94 0.012 76);
+  --phase-5-panel-elevated: oklch(0.99 0.004 78);
+  --phase-5-panel-border: oklch(0.364 0.054 263 / 0.1);
+
+  --cta-secondary-border: color-mix(in oklch, var(--ivory) 35%, transparent);
+  --cta-secondary-fg: var(--ivory);
+  --cta-secondary-bg: color-mix(in oklch, var(--ivory) 8%, transparent);
+  --cta-secondary-hover-bg: color-mix(in oklch, var(--ivory) 14%, transparent);
+
+  --breath-1-bg: oklch(0.94 0.01 75);
+  --breath-2-bg: linear-gradient(180deg, oklch(0.82 0.035 55), var(--dusk-mid));
+  --breath-3-bg: linear-gradient(180deg, var(--dusk-cool), oklch(0.34 0.06 280));
+  --breath-decor: color-mix(in oklch, var(--foreground) 25%, transparent);
+}
+
+/* Fallback avant script : contemplation */
+html:not([data-theme]) {
+  color-scheme: dark;
+}

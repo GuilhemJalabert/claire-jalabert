@@ -1,26 +1,627 @@
 @import "tailwindcss";
+@import "tw-animate-css";
+@import "shadcn/tailwind.css";
+@import "../styles/tokens.css";
+@import "../styles/motion.css";
 
-:root {
-  --background: #ffffff;
-  --foreground: #171717;
-}
+@custom-variant dark (&:is(.dark *));
 
 @theme inline {
   --color-background: var(--background);
   --color-foreground: var(--foreground);
-  --font-sans: var(--font-geist-sans);
-  --font-mono: var(--font-geist-mono);
+  --color-card: var(--card);
+  --color-card-foreground: var(--card-foreground);
+  --color-card-muted-foreground: var(--card-muted-foreground);
+  --color-popover: var(--popover);
+  --color-popover-foreground: var(--popover-foreground);
+  --color-primary: var(--primary);
+  --color-primary-foreground: var(--primary-foreground);
+  --color-secondary: var(--secondary);
+  --color-secondary-foreground: var(--secondary-foreground);
+  --color-muted: var(--muted);
+  --color-muted-foreground: var(--muted-foreground);
+  --color-accent: var(--accent);
+  --color-accent-foreground: var(--accent-foreground);
+  --color-luminous: var(--luminous);
+  --color-luminous-foreground: var(--luminous-foreground);
+  --color-highlight: var(--highlight);
+  --color-highlight-foreground: var(--highlight-foreground);
+  --color-surface-elevated: var(--surface-elevated);
+  --color-night-deep: var(--night-deep);
+  --color-night: var(--night);
+  --color-night-mid: var(--night-mid);
+  --color-night-soft: var(--night-soft);
+  --color-dawn: var(--dawn);
+  --color-ivory: var(--ivory);
+  --color-destructive: var(--destructive);
+  --color-border: var(--border);
+  --color-input: var(--input);
+  --color-ring: var(--ring);
+  --color-chart-1: var(--chart-1);
+  --color-chart-2: var(--chart-2);
+  --color-chart-3: var(--chart-3);
+  --color-chart-4: var(--chart-4);
+  --color-chart-5: var(--chart-5);
+  --color-sidebar: var(--sidebar);
+  --color-sidebar-foreground: var(--sidebar-foreground);
+  --color-sidebar-primary: var(--sidebar-primary);
+  --color-sidebar-primary-foreground: var(--sidebar-primary-foreground);
+  --color-sidebar-accent: var(--sidebar-accent);
+  --color-sidebar-accent-foreground: var(--sidebar-accent-foreground);
+  --color-sidebar-border: var(--sidebar-border);
+  --color-sidebar-ring: var(--sidebar-ring);
+
+  --font-sans: var(--font-sans);
+  --font-display: var(--font-display);
+  --font-heading: var(--font-display);
+
+  --radius-sm: calc(var(--radius) * 0.6);
+  --radius-md: calc(var(--radius) * 0.8);
+  --radius-lg: var(--radius);
+  --radius-xl: calc(var(--radius) * 1.4);
+  --radius-2xl: calc(var(--radius) * 1.8);
+  --radius-3xl: calc(var(--radius) * 2.2);
+  --radius-4xl: calc(var(--radius) * 2.6);
+
+  --shadow-soft: var(--shadow-soft);
+  --shadow-elevated: var(--shadow-elevated);
+  --shadow-glow: var(--shadow-glow);
+
+  --container-content: var(--content-max);
+  --spacing-section: var(--section-space);
+  --spacing-section-sm: var(--section-space-sm);
+
+  --animate-fade-in: fade-in var(--duration-normal) var(--ease-out) both;
+  --animate-fade-up: fade-up var(--duration-normal) var(--ease-out) both;
+  --animate-halo-breathe: halo-breathe 14s ease-in-out infinite;
+  --animate-glow-pulse: glow-pulse 12s ease-in-out infinite;
+  --animate-soft-drift: soft-drift 18s ease-in-out infinite;
 }
 
-@media (prefers-color-scheme: dark) {
-  :root {
-    --background: #0a0a0a;
-    --foreground: #ededed;
+@keyframes fade-in {
+  from {
+    opacity: 0;
+  }
+  to {
+    opacity: 1;
   }
 }
 
-body {
-  background: var(--background);
-  color: var(--foreground);
-  font-family: Arial, Helvetica, sans-serif;
+@keyframes fade-up {
+  from {
+    opacity: 0;
+    transform: translateY(0.75rem);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
 }
+
+@layer base {
+  * {
+    @apply border-border outline-ring/50;
+  }
+
+  html {
+    @apply scroll-smooth font-sans;
+  }
+
+  body {
+    @apply bg-background text-foreground antialiased;
+    font-feature-settings: "kern" 1, "liga" 1;
+    transition:
+      background-color var(--theme-duration) var(--ease-in-out),
+      color var(--theme-duration) var(--ease-in-out);
+  }
+
+  ::selection {
+    background: color-mix(in oklch, var(--primary) 26%, transparent);
+    color: var(--foreground);
+  }
+
+  :focus-visible {
+    @apply outline-none ring-2 ring-ring/55 ring-offset-2 ring-offset-background;
+  }
+
+  @media (prefers-reduced-motion: reduce) {
+    html {
+      scroll-behavior: auto;
+    }
+
+    *,
+    *::before,
+    *::after {
+      animation-duration: 0.01ms !important;
+      animation-iteration-count: 1 !important;
+      transition-duration: 0.01ms !important;
+    }
+  }
+}
+
+@layer utilities {
+  .font-display {
+    font-family: var(--font-display), ui-serif, Georgia, serif;
+  }
+
+  .font-heading {
+    font-family: var(--font-display), ui-serif, Georgia, serif;
+  }
+
+  .text-display {
+    @apply font-display text-[2.5rem] leading-[1.12] font-medium tracking-[-0.02em] sm:text-5xl md:text-6xl lg:text-[4.25rem];
+  }
+
+  .text-h1 {
+    @apply font-display text-[2rem] leading-[1.15] font-medium tracking-[-0.018em] sm:text-4xl md:text-[2.75rem];
+  }
+
+  .text-h2 {
+    @apply font-display text-[1.625rem] leading-snug font-medium tracking-[-0.015em] sm:text-3xl md:text-[2.125rem];
+  }
+
+  .text-h3 {
+    @apply font-display text-xl leading-snug font-medium tracking-[-0.01em] sm:text-2xl;
+  }
+
+  .text-body {
+    @apply text-base leading-[1.7] sm:text-lg sm:leading-[1.75];
+  }
+
+  .text-small {
+    @apply text-sm leading-relaxed;
+  }
+
+  .text-caption {
+    @apply text-[0.6875rem] leading-normal font-medium tracking-[0.12em] uppercase;
+  }
+
+  .surface-elevated {
+    background-color: var(--surface-elevated);
+  }
+
+  .surface-secondary {
+    background-color: var(--secondary);
+  }
+
+  .surface-muted {
+    background-color: var(--muted);
+  }
+
+  .shadow-soft {
+    box-shadow: var(--shadow-soft);
+  }
+
+  .shadow-elevated {
+    box-shadow: var(--shadow-elevated);
+  }
+
+  .shadow-glow {
+    box-shadow: var(--shadow-glow);
+  }
+
+  /* Hero — tokens de thème */
+  .hero-atmosphere {
+    color: var(--hero-fg);
+    background: var(--hero-atmosphere);
+    transition:
+      background var(--theme-duration) var(--ease-in-out),
+      color var(--theme-duration) var(--ease-in-out);
+  }
+
+  .hero-atmosphere .text-muted-foreground {
+    color: var(--hero-muted);
+  }
+
+  .hero-atmosphere .text-caption {
+    color: var(--hero-caption);
+  }
+
+  .hero-title {
+    color: var(--hero-fg);
+  }
+
+  .hero-panel {
+    background: var(--hero-panel-bg);
+    box-shadow: var(--shadow-elevated);
+    transition:
+      background var(--theme-duration) var(--ease-in-out),
+      box-shadow var(--theme-duration) var(--ease-in-out);
+  }
+
+  .hero-panel-ring {
+    box-shadow: inset 0 0 0 1px var(--hero-panel-ring);
+  }
+
+  .hero-panel-fill {
+    background: var(--hero-panel-fill);
+    transition: background var(--theme-duration) var(--ease-in-out);
+  }
+
+  .hero-decor {
+    color: var(--hero-decor);
+  }
+
+  .hero-visual-caption {
+    color: var(--hero-visual-caption);
+  }
+
+  .hero-visual-title {
+    color: var(--hero-visual-title);
+  }
+
+  .hero-starfield {
+    opacity: var(--hero-star-opacity);
+    transition: opacity var(--theme-duration) var(--ease-in-out);
+  }
+
+  .btn-hero-outline {
+    border-color: var(--hero-outline-border) !important;
+    background: transparent !important;
+    color: var(--hero-outline-fg) !important;
+  }
+
+  .btn-hero-outline:hover {
+    border-color: var(--hero-outline-hover-border) !important;
+    background: var(--hero-outline-hover-bg) !important;
+  }
+
+  /*
+   * Atmosphères narratives — un seul système de surfaces.
+   * Chaque phase pose --atm-* puis remappe les tokens shadcn Card.
+   * Sur fond sombre : panneaux ivoire + encre bleu nuit (lisibilité garantie).
+   */
+  .atmosphere-phase-1,
+  .atmosphere-phase-2,
+  .atmosphere-phase-3,
+  .atmosphere-phase-4,
+  .atmosphere-phase-5 {
+    transition:
+      background var(--theme-duration) var(--ease-in-out),
+      color var(--theme-duration) var(--ease-in-out);
+  }
+
+  .atmosphere-phase-1 {
+    --atm-fg: var(--phase-1-fg);
+    --atm-muted: var(--phase-1-muted);
+    --atm-accent: var(--phase-1-accent);
+    --atm-stars: var(--phase-1-stars);
+    --atm-panel: var(--phase-1-panel);
+    --atm-panel-fg: var(--phase-1-panel-fg);
+    --atm-panel-muted: var(--phase-1-panel-muted);
+    --atm-panel-soft: var(--phase-1-panel-soft);
+    --atm-panel-elevated: var(--phase-1-panel-elevated);
+    --atm-panel-border: var(--phase-1-panel-border);
+    color: var(--atm-fg);
+    background: var(--phase-1-bg);
+  }
+
+  .atmosphere-phase-2 {
+    --atm-fg: var(--phase-2-fg);
+    --atm-muted: var(--phase-2-muted);
+    --atm-accent: var(--phase-2-accent);
+    --atm-stars: var(--phase-2-stars);
+    --atm-panel: var(--phase-2-panel);
+    --atm-panel-fg: var(--phase-2-panel-fg);
+    --atm-panel-muted: var(--phase-2-panel-muted);
+    --atm-panel-soft: var(--phase-2-panel-soft);
+    --atm-panel-elevated: var(--phase-2-panel-elevated);
+    --atm-panel-border: var(--phase-2-panel-border);
+    color: var(--atm-fg);
+    background: var(--phase-2-bg);
+  }
+
+  .atmosphere-phase-3 {
+    --atm-fg: var(--phase-3-fg);
+    --atm-muted: var(--phase-3-muted);
+    --atm-accent: var(--phase-3-accent);
+    --atm-stars: var(--phase-3-stars);
+    --atm-panel: var(--phase-3-panel);
+    --atm-panel-fg: var(--phase-3-panel-fg);
+    --atm-panel-muted: var(--phase-3-panel-muted);
+    --atm-panel-soft: var(--phase-3-panel-soft);
+    --atm-panel-elevated: var(--phase-3-panel-elevated);
+    --atm-panel-border: var(--phase-3-panel-border);
+    color: var(--atm-fg);
+    background: var(--phase-3-bg);
+  }
+
+  .atmosphere-phase-4 {
+    --atm-fg: var(--phase-4-fg);
+    --atm-muted: var(--phase-4-muted);
+    --atm-accent: var(--phase-4-accent);
+    --atm-stars: var(--phase-4-stars);
+    --atm-panel: var(--phase-4-panel);
+    --atm-panel-fg: var(--phase-4-panel-fg);
+    --atm-panel-muted: var(--phase-4-panel-muted);
+    --atm-panel-soft: var(--phase-4-panel-soft);
+    --atm-panel-elevated: var(--phase-4-panel-elevated);
+    --atm-panel-border: var(--phase-4-panel-border);
+    color: var(--atm-fg);
+    background: var(--phase-4-bg);
+  }
+
+  .atmosphere-phase-5 {
+    --atm-fg: var(--phase-5-fg);
+    --atm-muted: var(--phase-5-muted);
+    --atm-accent: var(--phase-5-accent);
+    --atm-stars: var(--phase-5-stars);
+    --atm-panel: var(--phase-5-panel);
+    --atm-panel-fg: var(--phase-5-panel-fg);
+    --atm-panel-muted: var(--phase-5-panel-muted);
+    --atm-panel-soft: var(--phase-5-panel-soft);
+    --atm-panel-elevated: var(--phase-5-panel-elevated);
+    --atm-panel-border: var(--phase-5-panel-border);
+    color: var(--atm-fg);
+    background: var(--phase-5-bg);
+  }
+
+  /* Remap shadcn surface tokens for the whole atmosphere */
+  [class*="atmosphere-phase-"] {
+    --card: var(--atm-panel);
+    --card-foreground: var(--atm-panel-fg);
+    --card-muted-foreground: var(--atm-panel-muted);
+    --surface-elevated: var(--atm-panel-elevated);
+  }
+
+  [class*="atmosphere-phase-"] .text-foreground:not([data-slot="button"]):not([data-slot="badge"]) {
+    color: var(--atm-fg);
+  }
+
+  [class*="atmosphere-phase-"] .text-muted-foreground {
+    color: var(--atm-muted);
+  }
+
+  [class*="atmosphere-phase-"] .text-caption,
+  [class*="atmosphere-phase-"] .text-primary\/80 {
+    color: var(--atm-accent);
+  }
+
+  [class*="atmosphere-phase-"] .starfield-layer {
+    opacity: var(--atm-stars);
+  }
+
+  /* Cartes : surface opaque + encre panel (jamais texte section clair sur fond clair) */
+  [class*="atmosphere-phase-"] [data-slot="card"] {
+    --muted: var(--atm-panel-soft);
+    --muted-foreground: var(--atm-panel-muted);
+    --border: var(--atm-panel-border);
+    --foreground: var(--atm-panel-fg);
+    color: var(--atm-panel-fg);
+  }
+
+  [class*="atmosphere-phase-"] [data-slot="card"] .text-muted-foreground,
+  [class*="atmosphere-phase-"] [data-slot="card-description"] {
+    color: var(--atm-panel-muted);
+  }
+
+  [class*="atmosphere-phase-"] [data-slot="card"] .text-card-foreground,
+  [class*="atmosphere-phase-"] [data-slot="card"] .text-foreground,
+  [class*="atmosphere-phase-"] [data-slot="card-title"] {
+    color: var(--atm-panel-fg);
+  }
+
+  /* Badges / chips : même logique de surface que les cartes */
+  [class*="atmosphere-phase-"] [data-slot="badge"][data-variant="outline"] {
+    background-color: var(--atm-panel);
+    color: var(--atm-panel-fg);
+    border-color: var(--atm-panel-border);
+  }
+
+  [class*="atmosphere-phase-"] [data-slot="badge"][data-variant="secondary"] {
+    background-color: var(--atm-panel-soft);
+    color: var(--atm-panel-fg);
+  }
+
+  /* Boutons outline/ghost : encre de section, sauf dans une carte */
+  [class*="atmosphere-phase-"] [data-slot="button"][data-variant="outline"],
+  [class*="atmosphere-phase-"] [data-slot="button"][data-variant="ghost"] {
+    color: var(--atm-fg);
+    border-color: color-mix(in oklch, var(--atm-fg) 32%, transparent);
+    background: color-mix(in oklch, var(--atm-fg) 8%, transparent);
+  }
+
+  [class*="atmosphere-phase-"] [data-slot="button"][data-variant="outline"]:hover,
+  [class*="atmosphere-phase-"] [data-slot="button"][data-variant="ghost"]:hover {
+    background: color-mix(in oklch, var(--atm-fg) 14%, transparent);
+    border-color: color-mix(in oklch, var(--atm-fg) 42%, transparent);
+  }
+
+  [class*="atmosphere-phase-"]
+    [data-slot="card"]
+    [data-slot="button"][data-variant="outline"],
+  [class*="atmosphere-phase-"]
+    [data-slot="card"]
+    [data-slot="button"][data-variant="ghost"] {
+    color: var(--atm-panel-fg);
+    border-color: color-mix(in oklch, var(--atm-panel-fg) 22%, transparent);
+    background: transparent;
+  }
+
+  [class*="atmosphere-phase-"]
+    [data-slot="card"]
+    [data-slot="button"][data-variant="outline"]:hover,
+  [class*="atmosphere-phase-"]
+    [data-slot="card"]
+    [data-slot="button"][data-variant="ghost"]:hover {
+    background: color-mix(in oklch, var(--atm-panel-fg) 6%, transparent);
+    border-color: color-mix(in oklch, var(--atm-panel-fg) 32%, transparent);
+  }
+
+  /* Liens textuels discrets (parcours fluide) */
+  .link-continue {
+    color: var(--atm-fg, var(--foreground));
+    text-underline-offset: 0.2em;
+    text-decoration-thickness: 1px;
+    text-decoration-color: color-mix(
+      in oklch,
+      var(--atm-fg, var(--foreground)) 35%,
+      transparent
+    );
+    transition:
+      color var(--duration-fast) var(--ease-out),
+      text-decoration-color var(--duration-fast) var(--ease-out);
+  }
+
+  .link-continue:hover {
+    text-decoration-line: underline;
+    text-decoration-color: color-mix(
+      in oklch,
+      var(--atm-fg, var(--foreground)) 70%,
+      transparent
+    );
+  }
+
+  .section-breath {
+    transition: background var(--theme-duration) var(--ease-in-out);
+  }
+  .section-breath-1 {
+    background: var(--breath-1-bg);
+  }
+  .section-breath-2 {
+    background: var(--breath-2-bg);
+  }
+  .section-breath-3 {
+    background: var(--breath-3-bg);
+  }
+  .breath-decor {
+    color: var(--breath-decor);
+  }
+
+  .starfield-layer {
+    transition: opacity var(--theme-duration) var(--ease-in-out);
+  }
+
+  .soft-halo-night {
+    background: radial-gradient(
+      circle,
+      color-mix(in oklch, var(--night-soft) 45%, transparent) 0%,
+      color-mix(in oklch, var(--luminous) 8%, transparent) 40%,
+      transparent 72%
+    );
+  }
+
+  .soft-halo-dusk {
+    background: radial-gradient(
+      circle,
+      color-mix(in oklch, oklch(0.75 0.05 320) 30%, transparent) 0%,
+      color-mix(in oklch, var(--primary) 12%, transparent) 45%,
+      transparent 74%
+    );
+  }
+
+  .soft-halo-gold {
+    background: radial-gradient(
+      circle,
+      color-mix(in oklch, var(--luminous) 22%, transparent) 0%,
+      color-mix(in oklch, var(--luminous) 7%, transparent) 45%,
+      transparent 72%
+    );
+  }
+
+  .soft-halo-terracotta {
+    background: radial-gradient(
+      circle,
+      color-mix(in oklch, var(--primary) 16%, transparent) 0%,
+      color-mix(in oklch, var(--primary) 5%, transparent) 48%,
+      transparent 74%
+    );
+  }
+
+  .soft-halo-ivory {
+    background: radial-gradient(
+      circle,
+      color-mix(in oklch, var(--card) 80%, white) 0%,
+      color-mix(in oklch, var(--secondary) 35%, transparent) 40%,
+      transparent 70%
+    );
+  }
+
+  .animate-halo-breathe {
+    animation: halo-breathe 14s ease-in-out infinite;
+  }
+
+  .animate-glow-pulse {
+    animation: glow-pulse 12s ease-in-out infinite;
+  }
+
+  .animate-soft-drift {
+    animation: soft-drift 18s ease-in-out infinite;
+  }
+
+  .gold-rule {
+    height: 1px;
+    width: 2.5rem;
+    background: linear-gradient(
+      90deg,
+      transparent,
+      color-mix(in oklch, var(--luminous) 55%, transparent),
+      transparent
+    );
+  }
+
+  .site-nav {
+    border-color: var(--nav-border-top);
+    background: var(--nav-bg-top);
+    color: var(--nav-fg-top);
+    transition:
+      background-color var(--theme-duration) var(--ease-in-out),
+      color var(--theme-duration) var(--ease-in-out),
+      border-color var(--theme-duration) var(--ease-in-out),
+      padding var(--duration-fast) var(--ease-out),
+      box-shadow var(--duration-fast) var(--ease-out);
+  }
+
+  .site-nav[data-scrolled="true"] {
+    border-color: color-mix(in oklch, var(--border) 40%, transparent);
+    background: color-mix(in oklch, var(--background) 92%, transparent);
+    color: var(--foreground);
+    box-shadow: var(--shadow-soft);
+  }
+
+  .fade-in-target {
+    opacity: 0;
+    transition:
+      opacity var(--duration-normal) var(--ease-out),
+      transform var(--duration-normal) var(--ease-out);
+    transition-delay: var(--fade-delay, 0ms);
+  }
+
+  .fade-in-target[data-fade="up"] {
+    transform: translateY(0.75rem);
+  }
+
+  .fade-in-target[data-visible="true"] {
+    opacity: 1;
+    transform: none;
+  }
+
+  @media (prefers-reduced-motion: reduce) {
+    .fade-in-target {
+      opacity: 1;
+      transform: none;
+      transition: none;
+    }
+
+    .hero-atmosphere,
+    .hero-panel,
+    .hero-panel-fill,
+    .hero-starfield,
+    .atmosphere-phase-1,
+    .atmosphere-phase-2,
+    .atmosphere-phase-3,
+    .atmosphere-phase-4,
+    .atmosphere-phase-5,
+    .section-breath,
+    .starfield-layer,
+    .site-nav,
+    body {
+      transition: none !important;
+    }
+  }
+}
+
+/*
+ * Variables :root shadcn par défaut : ne pas les réintroduire ici.
+ * styles/tokens.css + data-theme = source de vérité.
+ */

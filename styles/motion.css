@@ -1,0 +1,57 @@
+/**
+ * Animations contemplatives + fonds étoilés.
+ * Durées longues (8–20s), opacité très faible.
+ * Désactivées via prefers-reduced-motion (couche base globale).
+ */
+
+@keyframes halo-breathe {
+  0%,
+  100% {
+    opacity: 0.45;
+    transform: scale(1);
+  }
+  50% {
+    opacity: 0.7;
+    transform: scale(1.04);
+  }
+}
+
+@keyframes star-twinkle {
+  0%,
+  100% {
+    opacity: var(--star-opacity, 0.35);
+    filter: brightness(1);
+  }
+  35% {
+    opacity: calc(var(--star-opacity, 0.35) * 0.4);
+    filter: brightness(0.85);
+  }
+  48% {
+    opacity: calc(var(--star-opacity, 0.35) * 1.45);
+    filter: brightness(1.35);
+  }
+  62% {
+    opacity: calc(var(--star-opacity, 0.35) * 0.7);
+    filter: brightness(0.95);
+  }
+}
+
+@keyframes soft-drift {
+  0%,
+  100% {
+    transform: translate(0, 0);
+  }
+  50% {
+    transform: translate(2px, -1.5px);
+  }
+}
+
+@keyframes glow-pulse {
+  0%,
+  100% {
+    opacity: 0.55;
+  }
+  50% {
+    opacity: 1;
+  }
+}
