@@ -14,8 +14,10 @@ export const contactInfo = {
     city: "Gan",
     full: "99 rue d'Ossau, 64290 Gan",
   },
-  /** Mention du site : activité à Pau et Gan ; consultations au cabinet de Gan. */
-  locationsLabel: "Pau et Gan",
+  /** Lieu d’exercice unique. */
+  locationsLabel: "Gan",
+  modalities: "en présentiel ou par visioconférence",
+  modalitiesLabel: "En présentiel ou par visioconférence",
 } as const;
 
 export const quotes = {
@@ -32,18 +34,109 @@ export const quotes = {
 export const presentation = {
   name: "Claire Jalabert",
   title: "Psychologue clinicienne",
-  locations: "à Pau et Gan",
-  /** Points issus de la page d’accueil du site actuel. */
-  highlights: [
-    "Spécialisée dans le Haut Potentiel Intellectuel et Créatif (HPIC)",
-    "Spécialisée dans le Syndrome d’Asperger",
-    "Praticienne et chercheuse associée sur ces thématiques au CRFDP (Université de Rouen EA7475)",
-    "Accompagnement des enfants, adolescents et adultes",
-    "Relations familiales (famille et couple)",
-    "Approche transgénérationnelle",
-    "Gestion du stress",
-    "Problématiques scolaires",
+  locations: "à Gan",
+  locationsShort: "Gan",
+  /**
+   * Résumé accueil — miroir court de /a-propos.
+   * Sans formations complémentaires détaillées.
+   */
+  homeSummary: [
+    "Claire Jalabert est psychologue clinicienne à Gan. Elle accompagne les enfants, les adolescents et les adultes, avec une spécialisation dans le Haut Potentiel Intellectuel et Créatif (HPIC) et le Syndrome d’Asperger. Les consultations se déroulent au cabinet (99 rue d’Ossau) en présentiel, ou par visioconférence.",
+    "Son parcours universitaire en psychologie clinique s’enrichit d’une activité de recherche autour du Haut Potentiel, menée en lien avec le CRFDP de l’Université de Rouen.",
+    "Avant la psychologie, elle a exercé comme professeure certifiée d’histoire-géographie.",
   ],
+} as const;
+
+/**
+ * Contenu éditorial de /a-propos — source fournie pour cette page.
+ * EA 7675 uniquement pour l’intitulé du doctorat ; autres mentions CRFDP sans numéro EA.
+ */
+export const about = {
+  heroIntro: [
+    "Claire Jalabert est psychologue clinicienne à Gan. Elle accompagne les enfants, les adolescents et les adultes, notamment autour du Haut Potentiel Intellectuel et Créatif (HPIC) et du Syndrome d’Asperger. Les consultations ont lieu au cabinet, 99 rue d’Ossau, en présentiel ou par visioconférence.",
+    "Son parcours associe la pratique clinique, la recherche universitaire et une expérience antérieure dans l’enseignement.",
+  ],
+  journey: {
+    eyebrow: "Parcours",
+    title: "Entre enseignement, psychologie et recherche",
+    lead: "Claire Jalabert a d’abord enseigné l’histoire-géographie. Son chemin s’est ensuite déployé dans la psychologie clinique, jusqu’à un travail de doctorat consacré à l’enfant à Haut Potentiel intellectuel et à la dynamique familiale.",
+    teaching: {
+      title: "Professeure certifiée d’histoire-géographie",
+      body: "Un parcours antérieur dans l’enseignement, avant de s’orienter vers la psychologie clinique.",
+    },
+    studiesIntro:
+      "En psychologie, son parcours universitaire s’est construit étape après étape :",
+    studies: [
+      {
+        degree: "Licence de Psychologie",
+        place: "Université d’Angers",
+      },
+      {
+        degree: "Master de psychologie clinique",
+        place: "Université de Nantes",
+      },
+      {
+        degree: "Doctorante en Psychologie",
+        place: "Université de Rouen",
+        lab: "EA 7675 CRFDP",
+        thesis:
+          "« Dynamique familiale et fonctionnement intrasubjectif de l'enfant à Haut Potentiel intellectuel »",
+        direction: "Sous la direction de Mme Catherine Weissman-Arcache.",
+      },
+    ],
+  },
+  specializations: {
+    eyebrow: "Spécialisations",
+    title: "Domaines d’accompagnement",
+    lead: "Deux spécialités structurent particulièrement son travail clinique. D’autres domaines viennent les prolonger au quotidien.",
+    featured: [
+      {
+        title: "Haut Potentiel Intellectuel et Créatif",
+        short: "HPIC",
+        body: "Spécialisation dans le Haut Potentiel Intellectuel et Créatif (HPIC).",
+      },
+      {
+        title: "Syndrome d’Asperger",
+        short: "Asperger",
+        body: "Spécialisation dans le Syndrome d’Asperger, en lien avec la pratique clinique et la recherche au CRFDP.",
+      },
+    ],
+    others: [
+      "Enfants",
+      "Adolescents",
+      "Adultes",
+      "Relations familiales",
+      "Famille et couple",
+      "Approche transgénérationnelle",
+      "Gestion du stress",
+      "Problématiques scolaires",
+    ],
+  },
+  complementary: {
+    eyebrow: "Formations complémentaires",
+    title: "Autour du corps, du stress et de l’expression",
+    lead: "À côté du parcours universitaire, Claire Jalabert a suivi des formations qui enrichissent sa pratique clinique.",
+    items: [
+      {
+        axis: "Thérapie psychocorporelle",
+        title: "Touch for Health",
+        detail: "Formation de John Thie D.C.",
+        place: "Nantes et Tours",
+      },
+      {
+        axis: "Gestion du stress et mémorisation mentale",
+        title: "Méthode de E. et R. Kammerer et Gordon Stokes",
+        detail: null,
+        place: "Nantes",
+      },
+      {
+        axis: "Art thérapie",
+        title: "Formation avec Marie Desaulles",
+        detail: "Artiste et art thérapeute",
+        place: null,
+      },
+    ],
+  },
 } as const;
 
 export const audiences = [
@@ -72,68 +165,6 @@ export const audiences = [
     description:
       "Accompagnement des relations familiales, y compris médiation familiale.",
   },
-] as const;
-
-export const accompaniments = {
-  featured: {
-    title: "Bilan psychologique",
-    description:
-      "Bilans intellectuels et neuro-psychologiques, bilans projectifs, exploration sensorielle et outils pour le diagnostic de l’autisme — selon les besoins identifiés.",
-    href: "/accompagnements",
-  },
-  items: [
-    {
-      title: "Entretien clinique",
-      description:
-        "Écoute et échange dans un cadre contenant. Durée : 30 à 45 minutes.",
-    },
-    {
-      title: "Entretien thérapeutique enfant",
-      description:
-        "Expression du vécu et des émotions via des médiations adaptées (jeux, dessin, constructions…).",
-    },
-    {
-      title: "Entretien thérapeutique adolescent",
-      description:
-        "Accompagnement pour mieux se comprendre et traverser le vécu adolescent.",
-    },
-    {
-      title: "Entretien thérapeutique adulte",
-      description:
-        "Écoute active et bienveillante du vécu, des émotions, des besoins et des modalités relationnelles.",
-    },
-    {
-      title: "Thérapie de couple",
-      description:
-        "Travail sur la relation, ses conflits, son histoire et les liens affectifs — y compris approche transgénérationnelle.",
-    },
-    {
-      title: "Médiation familiale",
-      description: "Accompagnement des enjeux relationnels au sein de la famille.",
-    },
-    {
-      title: "Médiation scolaire",
-      description: "Soutien autour des problématiques scolaires.",
-    },
-    {
-      title: "Thérapie de groupe",
-      description:
-        "Espace collectif d’expression et d’échange (notamment groupes de parole).",
-    },
-  ],
-} as const;
-
-export const expertises = [
-  "Haut Potentiel Intellectuel / Créatif (HPIC)",
-  "Syndrome d’Asperger",
-  "Relations familiales",
-  "Thérapie de couple",
-  "Approche transgénérationnelle",
-  "Gestion du stress",
-  "Problématiques scolaires",
-  "Médiation scolaire",
-  "Bilans psychologiques",
-  "Groupes de parole",
 ] as const;
 
 /**
@@ -168,31 +199,3 @@ export const groupsOfSpeech = {
     "Dépasser un sentiment d’isolement, de jugement ou de différence",
   ],
 } as const;
-
-export const tariffs = [
-  {
-    label: "Entretien clinique (30 à 45 minutes)",
-    value: "55 €",
-  },
-  {
-    label: "Entretien couple",
-    value: "100 €",
-  },
-  {
-    label: "Bilan psychologique et intellectuel enfants et adolescents",
-    value: "Nous consulter",
-  },
-  {
-    label: "Bilan psychologique complet adulte",
-    value: "Nous consulter",
-  },
-  {
-    label: "Restitution de bilan",
-    value: "Nous consulter",
-  },
-  {
-    label:
-      "Autres prestations (bilan sensoriel, diagnostic de l’autisme ADI-R, etc.)",
-    value: "Nous consulter",
-  },
-] as const;

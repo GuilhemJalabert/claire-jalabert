@@ -11,11 +11,19 @@ type HeroProps = {
   title: string;
   /** Sous-titre sous le titre (ex. profession). */
   subtitle?: string;
+  /** Mention secondaire sous le sous-titre (ex. lieux). */
+  secondary?: string;
   /** Label discret au-dessus du titre. */
   eyebrow?: string;
   description?: string;
+  /** Description longue (plusieurs paragraphes). */
+  descriptionNode?: React.ReactNode;
   actions?: React.ReactNode;
   showVisual?: boolean;
+  /** Hero plus court (pages secondaires). */
+  compact?: boolean;
+  /** Remplace le panneau décoratif (ex. portrait). */
+  visual?: React.ReactNode;
   visualCaption?: string;
   visualTitle?: string;
   className?: string;
@@ -28,10 +36,14 @@ type HeroProps = {
 function Hero({
   title,
   subtitle,
+  secondary,
   eyebrow,
   description,
+  descriptionNode,
   actions,
   showVisual = true,
+  compact = false,
+  visual,
   visualCaption = "Cabinet",
   visualTitle = "Écoute · présence · chemin",
   className,
@@ -47,7 +59,15 @@ function Hero({
         className="right-[-14%] bottom-[-28%] size-[36rem] opacity-50"
       />
 
-      <Container className="relative grid min-h-[min(78vh,52rem)] items-center gap-12 py-[var(--section-space)] lg:grid-cols-[minmax(0,1.1fr)_minmax(0,0.9fr)] lg:gap-16">
+      <Container
+        className={cn(
+          "relative grid items-center gap-12 py-[var(--section-space)] lg:gap-16",
+          compact
+            ? "min-h-0 max-w-3xl"
+            : "min-h-[min(78vh,52rem)] lg:grid-cols-[minmax(0,1.1fr)_minmax(0,0.9fr)]",
+          !showVisual && !visual && "max-w-3xl"
+        )}
+      >
         <FadeIn className="relative flex max-w-xl flex-col gap-5 lg:max-w-none">
           {eyebrow ? <p className="text-caption">{eyebrow}</p> : null}
           <div className="flex flex-col gap-2">
@@ -59,8 +79,17 @@ function Hero({
                 {subtitle}
               </p>
             ) : null}
+            {secondary ? (
+              <p className="text-caption text-[color:var(--hero-caption)] normal-case tracking-[0.08em]">
+                {secondary}
+              </p>
+            ) : null}
           </div>
-          {description ? (
+          {descriptionNode ? (
+            <div className="text-body text-muted-foreground max-w-lg space-y-4 text-pretty">
+              {descriptionNode}
+            </div>
+          ) : description ? (
             <p className="text-body text-muted-foreground max-w-lg text-pretty">
               {description}
             </p>
@@ -71,52 +100,56 @@ function Hero({
         </FadeIn>
 
         {showVisual ? (
-          <FadeIn delay={120} className="relative hidden sm:block">
-            <div className="hero-panel hero-panel-ring relative aspect-[4/5] max-h-[28rem] w-full overflow-hidden rounded-[1.75rem]">
-              <div aria-hidden className="hero-panel-fill absolute inset-0" />
+          <FadeIn delay={120} className={cn("relative", visual ? "block" : "hidden sm:block")}>
+            {visual ? (
+              visual
+            ) : (
+              <div className="hero-panel hero-panel-ring relative aspect-[4/5] max-h-[28rem] w-full overflow-hidden rounded-[1.75rem]">
+                <div aria-hidden className="hero-panel-fill absolute inset-0" />
 
-              <div className="hero-starfield absolute inset-0">
-                <Starfield density="night" />
+                <div className="hero-starfield absolute inset-0">
+                  <Starfield density="night" />
+                </div>
+
+                <SoftHalo
+                  tone="gold"
+                  breathe
+                  className="top-[20%] left-1/2 size-64 -translate-x-1/2 opacity-45"
+                />
+                <SoftHalo
+                  tone="night"
+                  className="right-[5%] bottom-[12%] size-48 opacity-40"
+                />
+
+                <OrbitLine
+                  variant="arc"
+                  className="animate-soft-drift hero-decor absolute inset-x-[6%] top-[26%] w-[88%]"
+                />
+                <Constellation
+                  variant="quiet"
+                  className="hero-decor absolute top-[50%] right-[8%] w-[44%] opacity-80"
+                />
+
+                <Star
+                  shape="four"
+                  size={9}
+                  tone="gold"
+                  opacity={0.5}
+                  twinkle
+                  delay="2s"
+                  duration="12s"
+                  className="absolute top-[29%] left-[51%] -translate-x-1/2 -translate-y-1/2"
+                />
+
+                <div className="absolute inset-x-0 bottom-0 p-6 sm:p-8">
+                  <div className="gold-rule mb-4" />
+                  <p className="text-caption hero-visual-caption">{visualCaption}</p>
+                  <p className="font-display hero-visual-title mt-2 text-xl tracking-tight">
+                    {visualTitle}
+                  </p>
+                </div>
               </div>
-
-              <SoftHalo
-                tone="gold"
-                breathe
-                className="top-[20%] left-1/2 size-64 -translate-x-1/2 opacity-45"
-              />
-              <SoftHalo
-                tone="night"
-                className="right-[5%] bottom-[12%] size-48 opacity-40"
-              />
-
-              <OrbitLine
-                variant="arc"
-                className="animate-soft-drift hero-decor absolute inset-x-[6%] top-[26%] w-[88%]"
-              />
-              <Constellation
-                variant="quiet"
-                className="hero-decor absolute top-[50%] right-[8%] w-[44%] opacity-80"
-              />
-
-              <Star
-                shape="four"
-                size={9}
-                tone="gold"
-                opacity={0.5}
-                twinkle
-                delay="2s"
-                duration="12s"
-                className="absolute top-[29%] left-[51%] -translate-x-1/2 -translate-y-1/2"
-              />
-
-              <div className="absolute inset-x-0 bottom-0 p-6 sm:p-8">
-                <div className="gold-rule mb-4" />
-                <p className="text-caption hero-visual-caption">{visualCaption}</p>
-                <p className="font-display hero-visual-title mt-2 text-xl tracking-tight">
-                  {visualTitle}
-                </p>
-              </div>
-            </div>
+            )}
           </FadeIn>
         ) : null}
       </Container>

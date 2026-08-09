@@ -4,7 +4,6 @@ import Link from "next/link";
 import { Button } from "@/components/ui/button";
 import {
   Card,
-  CardContent,
   CardDescription,
   CardHeader,
   CardTitle,
@@ -23,18 +22,20 @@ import { OrbitLine } from "@/components/decor/orbit-line";
 import { SoftHalo } from "@/components/decor/soft-halo";
 import { Starfield } from "@/components/decor/starfield";
 import {
-  accompaniments,
   approach,
   audiences,
-  expertises,
   presentation,
   quotes,
 } from "@/lib/content";
+import {
+  accompanimentsHomeSummary,
+  accompanimentsPage,
+} from "@/lib/accompagnements";
 import { siteConfig } from "@/lib/site";
 
 export const metadata: Metadata = {
   title: {
-    absolute: `${siteConfig.name} · ${siteConfig.title} à Pau et Gan`,
+    absolute: `${siteConfig.name} · ${siteConfig.title} à Gan`,
   },
   description: siteConfig.description,
   openGraph: {
@@ -51,7 +52,7 @@ export default function HomePage() {
         title={presentation.name}
         subtitle={presentation.title}
         description={`Psychologue clinicienne ${presentation.locations}. Accompagnement des enfants, adolescents, adultes, couples et familles — notamment autour du Haut Potentiel Intellectuel et Créatif et du Syndrome d’Asperger.`}
-        visualCaption="Pau · Gan"
+        visualCaption="Gan"
         visualTitle="Cabinet de psychologie"
         actions={
           <>
@@ -59,7 +60,7 @@ export default function HomePage() {
               <Link href="#rdv">Prendre rendez-vous</Link>
             </Button>
             <Button size="lg" variant="outline" className="btn-hero-outline" asChild>
-              <Link href="#accompagnements">Découvrir les accompagnements</Link>
+              <Link href="/accompagnements">Découvrir les accompagnements</Link>
             </Button>
           </>
         }
@@ -107,19 +108,22 @@ export default function HomePage() {
                 title={presentation.name}
                 description={`${presentation.title} ${presentation.locations}.`}
               />
-              <ul className="flex flex-col gap-3">
-                {presentation.highlights.map((item) => (
-                  <li
-                    key={item}
-                    className="text-small text-muted-foreground border-border/40 border-l pl-4"
+              <div className="flex flex-col gap-4">
+                {presentation.homeSummary.map((paragraph) => (
+                  <p
+                    key={paragraph}
+                    className="text-small text-muted-foreground text-pretty sm:text-base sm:leading-relaxed"
                   >
-                    {item}
-                  </li>
+                    {paragraph}
+                  </p>
                 ))}
-              </ul>
+              </div>
               <p className="pt-1">
-                <Link href="/a-propos" className="link-continue text-small font-medium">
-                  En savoir plus
+                <Link
+                  href="/a-propos"
+                  className="link-continue text-small font-medium"
+                >
+                  Découvrir son parcours
                 </Link>
               </p>
             </FadeIn>
@@ -148,81 +152,55 @@ export default function HomePage() {
         </Container>
       </Section>
 
-      {/* 5. Accompagnements */}
+      {/* 5. Accompagnements — aperçu uniquement */}
       <Section
         id="accompagnements"
         atmosphere="phase-3"
         className="relative scroll-mt-24 overflow-hidden"
       >
         <Starfield density="sparse" />
-        <Container className="relative flex flex-col gap-12">
+        <Container className="relative flex flex-col gap-10">
           <SectionHeading
             eyebrow="Accompagnements"
-            title="Les suivis proposés"
-            description="Une sélection des accompagnements présentés sur le site — composition volontairement asymétrique."
+            title={accompanimentsHomeSummary.title}
+            description={accompanimentsHomeSummary.lead}
           />
 
-          <FadeIn className="grid gap-5 md:grid-cols-12">
-            <Card variant="editorial" className="md:col-span-7">
-              <CardHeader>
-                <CardTitle className="text-2xl sm:text-3xl">
-                  {accompaniments.featured.title}
-                </CardTitle>
-                <CardDescription className="text-base">
-                  {accompaniments.featured.description}
-                </CardDescription>
-              </CardHeader>
-              <CardContent>
-                <Link
-                  href="/accompagnements"
-                  className="link-continue text-small font-medium"
-                >
-                  Voir tous les accompagnements
-                </Link>
-              </CardContent>
-            </Card>
-
-            <Card variant="elevated" className="md:col-span-5">
-              <CardHeader>
-                <CardTitle>{accompaniments.items[0].title}</CardTitle>
-                <CardDescription>
-                  {accompaniments.items[0].description}
-                </CardDescription>
-              </CardHeader>
-            </Card>
-
-            {accompaniments.items.slice(1, 5).map((item) => (
-              <Card
-                key={item.title}
-                variant="soft"
-                className="md:col-span-6"
-                size="sm"
-              >
+          <FadeIn className="grid gap-4 sm:grid-cols-2 lg:grid-cols-3">
+            {accompanimentsHomeSummary.items.map((item) => (
+              <Card key={item.title} variant="soft" className="h-full" size="sm">
                 <CardHeader>
                   <CardTitle>{item.title}</CardTitle>
-                  <CardDescription>{item.description}</CardDescription>
+                  <CardDescription className="text-pretty">
+                    {item.description}
+                  </CardDescription>
+                  {"href" in item && item.href ? (
+                    <Link
+                      href={item.href}
+                      className="link-continue text-small font-medium pt-1"
+                    >
+                      {accompanimentsHomeSummary.assessmentsLinkLabel}
+                    </Link>
+                  ) : null}
                 </CardHeader>
               </Card>
             ))}
           </FadeIn>
 
-          <FadeIn className="border-border/40 flex flex-col gap-4 border-t pt-8">
-            <p className="text-caption text-muted-foreground">Également proposés</p>
-            <ul className="text-small text-muted-foreground grid gap-2 sm:grid-cols-2 lg:grid-cols-3">
-              {accompaniments.items.slice(5).map((item) => (
-                <li key={item.title} className="flex flex-col gap-0.5">
-                  <span className="text-foreground font-medium">{item.title}</span>
-                  <span>{item.description}</span>
-                </li>
-              ))}
-            </ul>
-          </FadeIn>
+          <p>
+            <Link
+              href={accompanimentsHomeSummary.ctaHref}
+              className="link-continue text-small font-medium"
+            >
+              {accompanimentsHomeSummary.ctaLabel}
+            </Link>
+          </p>
         </Container>
       </Section>
 
-      {/* 6. Expertises */}
+      {/* 6. Domaines — aperçu */}
       <Section
-        id="expertises"
+        id="domaines"
         atmosphere="phase-4"
         className="relative scroll-mt-24 overflow-hidden"
       >
@@ -233,23 +211,26 @@ export default function HomePage() {
         <Container className="relative flex flex-col gap-10">
           <div className="grid gap-8 lg:grid-cols-[1fr_1.2fr] lg:items-end">
             <SectionHeading
-              eyebrow="Expertises"
-              title="Domaines d’accompagnement"
-              description="Thématiques mises en avant sur le site actuel."
+              eyebrow={accompanimentsPage.domains.eyebrow}
+              title={accompanimentsPage.domains.title}
+              description={accompanimentsPage.domains.lead}
             />
             <p className="text-body text-muted-foreground max-w-md text-pretty lg:justify-self-end lg:text-right">
               Chaque parcours est singulier. Ces domaines indiquent les
-              orientations du cabinet, sans préjuger de la demande.
+              orientations du cabinet.
             </p>
           </div>
           <FadeIn className="flex flex-wrap gap-2.5">
-            {expertises.map((label) => (
+            {accompanimentsPage.domains.items.map((label) => (
               <ExpertiseCard key={label} label={label} />
             ))}
           </FadeIn>
           <p>
-            <Link href="/expertises" className="link-continue text-small font-medium">
-              Explorer les expertises
+            <Link
+              href="/accompagnements#domaines"
+              className="link-continue text-small font-medium"
+            >
+              Voir les domaines d’accompagnement
             </Link>
           </p>
         </Container>

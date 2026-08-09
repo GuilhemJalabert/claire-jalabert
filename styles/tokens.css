@@ -96,10 +96,15 @@
    CONTEMPLATION — nuit → lumière
    ═══════════════════════════════════════════ */
 html[data-theme="contemplation"] {
-  --nav-bg-top: color-mix(in oklch, var(--night-deep) 55%, transparent);
+  /* Nav verre dépoli — haut de page (hero nuit) */
+  --nav-bg-top: color-mix(in oklch, var(--night-deep) 42%, transparent);
   --nav-fg-top: var(--ivory);
-  --nav-border-top: color-mix(in oklch, var(--ivory) 10%, transparent);
+  --nav-border-top: color-mix(in oklch, var(--ivory) 14%, transparent);
   --nav-hover-top: color-mix(in oklch, var(--ivory) 10%, transparent);
+  /* Nav verre dépoli — scroll / pages internes */
+  --nav-bg-scrolled: color-mix(in oklch, var(--background) 68%, transparent);
+  --nav-fg-scrolled: var(--foreground);
+  --nav-border-scrolled: color-mix(in oklch, var(--border) 50%, transparent);
 
   --hero-fg: var(--ivory);
   --hero-muted: color-mix(in oklch, var(--ivory) 68%, transparent);
@@ -159,8 +164,9 @@ html[data-theme="contemplation"] {
   --phase-2-bg: linear-gradient(
     180deg,
     oklch(0.34 0.06 280) 0%,
-    oklch(0.4 0.055 295) 55%,
-    var(--dusk-cool) 100%
+    oklch(0.4 0.055 295) 40%,
+    var(--dusk-cool) 75%,
+    var(--dusk-mid) 100%
   );
   --phase-2-fg: var(--ivory);
   --phase-2-muted: color-mix(in oklch, var(--ivory) 70%, transparent);
@@ -192,9 +198,10 @@ html[data-theme="contemplation"] {
 
   --phase-4-bg: linear-gradient(
     180deg,
-    var(--dawn) 0%,
-    oklch(0.92 0.025 72) 50%,
-    var(--secondary) 100%
+    oklch(0.86 0.03 70) 0%,
+    var(--dawn) 40%,
+    oklch(0.92 0.025 72) 72%,
+    var(--background) 100%
   );
   --phase-4-fg: var(--foreground);
   --phase-4-muted: var(--muted-foreground);
@@ -235,10 +242,13 @@ html[data-theme="contemplation"] {
    LUMIÈRE — lumière → nuit (même identité, ordre inversé)
    ═══════════════════════════════════════════ */
 html[data-theme="lumiere"] {
-  --nav-bg-top: color-mix(in oklch, var(--background) 75%, transparent);
+  --nav-bg-top: color-mix(in oklch, var(--background) 62%, transparent);
   --nav-fg-top: var(--foreground);
-  --nav-border-top: color-mix(in oklch, var(--border) 60%, transparent);
+  --nav-border-top: color-mix(in oklch, var(--border) 45%, transparent);
   --nav-hover-top: color-mix(in oklch, var(--foreground) 6%, transparent);
+  --nav-bg-scrolled: color-mix(in oklch, var(--background) 68%, transparent);
+  --nav-fg-scrolled: var(--foreground);
+  --nav-border-scrolled: color-mix(in oklch, var(--border) 50%, transparent);
 
   --hero-fg: var(--foreground);
   --hero-muted: var(--muted-foreground);
@@ -294,8 +304,9 @@ html[data-theme="lumiere"] {
 
   --phase-2-bg: linear-gradient(
     180deg,
-    var(--dawn) 0%,
-    oklch(0.9 0.028 72) 50%,
+    var(--background) 0%,
+    var(--dawn) 35%,
+    oklch(0.9 0.028 72) 70%,
     oklch(0.82 0.035 55) 100%
   );
   --phase-2-fg: var(--foreground);
@@ -311,8 +322,8 @@ html[data-theme="lumiere"] {
 
   --phase-3-bg: linear-gradient(
     180deg,
-    oklch(0.86 0.03 70) 0%,
-    var(--dusk-warm) 40%,
+    oklch(0.82 0.035 55) 0%,
+    var(--dusk-warm) 42%,
     var(--dusk-mid) 100%
   );
   --phase-3-fg: var(--foreground);
@@ -328,8 +339,9 @@ html[data-theme="lumiere"] {
 
   --phase-4-bg: linear-gradient(
     180deg,
-    var(--dusk-cool) 0%,
-    oklch(0.4 0.055 295) 50%,
+    var(--dusk-mid) 0%,
+    var(--dusk-cool) 35%,
+    oklch(0.4 0.055 295) 70%,
     oklch(0.34 0.06 280) 100%
   );
   --phase-4-fg: var(--ivory);

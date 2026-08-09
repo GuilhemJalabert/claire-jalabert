@@ -200,6 +200,46 @@
     box-shadow: var(--shadow-glow);
   }
 
+  /* Surfaces verre — pages premium (cards / CTA) */
+  .surface-glass {
+    background: color-mix(in oklch, var(--card) 72%, transparent);
+    -webkit-backdrop-filter: blur(18px) saturate(1.3);
+    backdrop-filter: blur(18px) saturate(1.3);
+    box-shadow:
+      0 1px 0 color-mix(in oklch, var(--ivory) 55%, transparent) inset,
+      var(--shadow-soft);
+  }
+
+  .surface-glass-strong {
+    background: color-mix(in oklch, var(--card) 82%, transparent);
+    -webkit-backdrop-filter: blur(22px) saturate(1.35);
+    backdrop-filter: blur(22px) saturate(1.35);
+    box-shadow:
+      0 1px 0 color-mix(in oklch, var(--ivory) 60%, transparent) inset,
+      var(--shadow-elevated);
+  }
+
+  .card-premium {
+    transition:
+      transform var(--duration-fast) var(--ease-out),
+      box-shadow var(--duration-fast) var(--ease-out),
+      border-color var(--duration-fast) var(--ease-out),
+      background-color var(--duration-fast) var(--ease-out);
+  }
+
+  .card-premium:hover {
+    transform: translateY(-3px);
+    box-shadow: var(--shadow-elevated);
+  }
+
+  @media (prefers-reduced-motion: reduce) {
+    .card-premium,
+    .card-premium:hover {
+      transform: none;
+      transition: none;
+    }
+  }
+
   /* Hero — tokens de thème */
   .hero-atmosphere {
     color: var(--hero-fg);
@@ -564,19 +604,24 @@
     border-color: var(--nav-border-top);
     background: var(--nav-bg-top);
     color: var(--nav-fg-top);
+    -webkit-backdrop-filter: blur(18px) saturate(1.35);
+    backdrop-filter: blur(18px) saturate(1.35);
     transition:
       background-color var(--theme-duration) var(--ease-in-out),
       color var(--theme-duration) var(--ease-in-out),
       border-color var(--theme-duration) var(--ease-in-out),
       padding var(--duration-fast) var(--ease-out),
-      box-shadow var(--duration-fast) var(--ease-out);
+      box-shadow var(--duration-fast) var(--ease-out),
+      backdrop-filter var(--duration-fast) var(--ease-out);
   }
 
   .site-nav[data-scrolled="true"] {
-    border-color: color-mix(in oklch, var(--border) 40%, transparent);
-    background: color-mix(in oklch, var(--background) 92%, transparent);
-    color: var(--foreground);
-    box-shadow: var(--shadow-soft);
+    border-color: var(--nav-border-scrolled);
+    background: var(--nav-bg-scrolled);
+    color: var(--nav-fg-scrolled);
+    -webkit-backdrop-filter: blur(20px) saturate(1.4);
+    backdrop-filter: blur(20px) saturate(1.4);
+    box-shadow: 0 1px 0 color-mix(in oklch, var(--foreground) 4%, transparent);
   }
 
   .fade-in-target {

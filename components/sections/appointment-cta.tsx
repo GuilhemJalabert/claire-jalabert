@@ -74,6 +74,7 @@ function AppointmentCTA({
               <br />
               {contactInfo.address.postalCode} {contactInfo.address.city}
             </p>
+            <p>{contactInfo.modalitiesLabel}</p>
           </div>
         </FadeIn>
       </Container>

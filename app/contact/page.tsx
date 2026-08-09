@@ -1,4 +1,5 @@
 import type { Metadata } from "next";
+import Link from "next/link";
 import { MailIcon, MapPinIcon, PhoneIcon } from "lucide-react";
 
 import { Button } from "@/components/ui/button";
@@ -8,6 +9,7 @@ import { Section } from "@/components/layout/section";
 import { SectionHeading } from "@/components/sections/section-heading";
 import { FadeIn } from "@/components/motion/fade-in";
 import { contactInfo } from "@/lib/content";
+import { accompanimentsContactMention } from "@/lib/accompagnements";
 
 export const metadata: Metadata = {
   title: "Contact",
@@ -22,7 +24,7 @@ export default function ContactPage() {
           as="h1"
           eyebrow="Contact"
           title="Prendre rendez-vous"
-          description="Les consultations et bilans se font au cabinet de Gan."
+          description="Les consultations se déroulent au cabinet de Gan, en présentiel ou par visioconférence."
         />
 
         <FadeIn className="flex flex-col gap-6">
@@ -64,14 +66,23 @@ export default function ContactPage() {
                 {contactInfo.address.full}
               </p>
               <p className="text-small text-muted-foreground">
-                Activité mentionnée à {contactInfo.locationsLabel} ·
-                consultations au cabinet de Gan
+                Consultations {contactInfo.modalities}
               </p>
             </div>
           </div>
         </FadeIn>
 
         <Separator className="bg-border/50" />
+
+        <p className="text-small text-muted-foreground text-pretty">
+          {accompanimentsContactMention.body}{" "}
+          <Link
+            href={accompanimentsContactMention.ctaHref}
+            className="link-continue font-medium"
+          >
+            {accompanimentsContactMention.ctaLabel}
+          </Link>
+        </p>
 
         <div className="flex flex-col gap-3 sm:flex-row">
           <Button size="lg" variant="warm" asChild>

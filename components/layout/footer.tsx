@@ -25,7 +25,8 @@ function Footer() {
               <Star shape="four" size={6} tone="gold" opacity={0.35} />
             </div>
             <p className="text-small text-muted-foreground max-w-xs">
-              {siteConfig.title} {contactInfo.locationsLabel.toLowerCase()}.
+              {siteConfig.title} à {contactInfo.locationsLabel}. Consultations{" "}
+              {contactInfo.modalities}.
             </p>
             <p className="text-small text-muted-foreground">
               {contactInfo.address.full}

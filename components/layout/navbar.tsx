@@ -50,7 +50,7 @@ function Navbar() {
       ref={headerRef}
       data-scrolled={isHome ? "false" : "true"}
       className={cn(
-        "site-nav sticky top-0 z-40 border-b backdrop-blur-md py-5",
+        "site-nav sticky top-0 z-40 border-b py-5",
         "data-[scrolled=true]:py-3"
       )}
     >

@@ -11,7 +11,6 @@ export const browseNav: NavItem[] = [
   { href: "/", label: "Accueil" },
   { href: "/a-propos", label: "À propos" },
   { href: "/accompagnements", label: "Accompagnements" },
-  { href: "/expertises", label: "Expertises" },
   { href: "/tarifs", label: "Tarifs" },
 ];
 
