@@ -44,6 +44,11 @@ function Star({
     "--star-opacity": String(opacity),
     width: size,
     height: size,
+    ...(tone === "gold" && !twinkle
+      ? {
+          filter: `drop-shadow(0 0 ${Math.max(2, size * 0.35)}px color-mix(in oklch, var(--star-gold) 40%, transparent))`,
+        }
+      : undefined),
     ...(twinkle
       ? {
           animation: `star-twinkle ${duration} ease-in-out infinite`,

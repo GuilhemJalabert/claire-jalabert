@@ -1,10 +1,12 @@
 import type { Metadata } from "next";
+import Image from "next/image";
 import Link from "next/link";
 
 import { Badge } from "@/components/ui/badge";
 import { Button } from "@/components/ui/button";
 import {
   Card,
+  CardContent,
   CardDescription,
   CardHeader,
   CardTitle,
@@ -20,6 +22,7 @@ import { Star } from "@/components/decor/star";
 import { Starfield } from "@/components/decor/starfield";
 import { ExpertiseCard } from "@/components/sections/expertise-card";
 import {
+  accompanimentMediationVisuals,
   accompanimentServices,
   accompanimentsPage,
   assessmentServices,
@@ -116,6 +119,29 @@ export default function AccompanimentsPage() {
               </FadeIn>
             ))}
           </div>
+
+          <div className="grid gap-4 sm:gap-5 md:grid-cols-2">
+            {accompanimentMediationVisuals.map((visual, index) => (
+              <FadeIn key={visual.id} delay={index * 70}>
+                <Card
+                  variant="glass"
+                  className="card-premium overflow-hidden p-0 [--card-spacing:0]"
+                >
+                  <CardContent className="p-0">
+                    <div className="relative aspect-[4/5] w-full overflow-hidden sm:aspect-[5/6] md:aspect-[4/5]">
+                      <Image
+                        src={visual.src}
+                        alt={visual.alt}
+                        fill
+                        sizes="(max-width: 640px) 100vw, (max-width: 1024px) 50vw, 36rem"
+                        className={cn("object-cover", visual.objectPosition)}
+                      />
+                    </div>
+                  </CardContent>
+                </Card>
+              </FadeIn>
+            ))}
+          </div>
         </Container>
       </Section>
 
@@ -197,7 +223,7 @@ export default function AccompanimentsPage() {
         />
         <Container className="relative">
           <FadeIn>
-            <div className="surface-glass-strong relative overflow-hidden rounded-[2rem] ring-1 ring-border/40">
+            <div className="surface-glass-strong relative overflow-hidden rounded-[1.5rem] ring-1 ring-border/40 sm:rounded-[2rem]">
               <div
                 aria-hidden
                 className="pointer-events-none absolute inset-0 bg-[radial-gradient(70%_60%_at_20%_0%,color-mix(in_oklch,var(--luminous)_12%,transparent),transparent_60%)]"
@@ -219,7 +245,7 @@ export default function AccompanimentsPage() {
                   <p className="text-body text-[color:var(--card-muted-foreground)] max-w-md text-pretty">
                     {assessments.ctaBody}
                   </p>
-                  <Button size="lg" variant="warm" asChild>
+                  <Button size="lg" variant="warm" asChild className="w-full sm:w-auto">
                     <Link href={assessments.ctaHref}>
                       {assessments.ctaLabel}
                     </Link>
@@ -235,7 +261,12 @@ export default function AccompanimentsPage() {
                     cabinet.
                   </p>
                   <Separator className="bg-border/40 max-w-[3rem]" />
-                  <Button size="lg" variant="secondary" asChild>
+                  <Button
+                    size="lg"
+                    variant="secondary"
+                    asChild
+                    className="w-full sm:w-auto"
+                  >
                     <Link href="/#rdv">Prendre rendez-vous</Link>
                   </Button>
                 </div>

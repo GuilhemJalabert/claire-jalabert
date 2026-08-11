@@ -57,7 +57,7 @@ function Navbar() {
       <Container className="flex items-center justify-between gap-4 lg:gap-6">
         <Link
           href="/"
-          className="font-display text-[1.35rem] font-medium tracking-[-0.02em] transition-opacity duration-[var(--duration-fast)] hover:opacity-80"
+          className="font-display max-w-[11.5rem] truncate text-[1.2rem] font-medium tracking-[-0.02em] transition-opacity duration-[var(--duration-fast)] hover:opacity-80 sm:max-w-none sm:text-[1.35rem]"
         >
           {siteConfig.name}
         </Link>

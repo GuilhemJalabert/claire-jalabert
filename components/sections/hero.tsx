@@ -1,3 +1,5 @@
+import Image from "next/image";
+
 import { cn } from "@/lib/utils";
 import { Container } from "@/components/layout/container";
 import { FadeIn } from "@/components/motion/fade-in";
@@ -24,6 +26,25 @@ type HeroProps = {
   compact?: boolean;
   /** Remplace le panneau décoratif (ex. portrait). */
   visual?: React.ReactNode;
+  /** Image dans le panneau décoratif par défaut. */
+  visualImage?: {
+    src: string;
+    alt: string;
+    objectPosition?: string;
+  };
+  /** Images selon le thème Contemplation / Lumière. */
+  visualImages?: {
+    contemplation: {
+      src: string;
+      alt: string;
+      objectPosition?: string;
+    };
+    lumiere: {
+      src: string;
+      alt: string;
+      objectPosition?: string;
+    };
+  };
   visualCaption?: string;
   visualTitle?: string;
   className?: string;
@@ -44,10 +65,26 @@ function Hero({
   showVisual = true,
   compact = false,
   visual,
+  visualImage,
+  visualImages,
   visualCaption = "Cabinet",
   visualTitle = "Écoute · présence · chemin",
   className,
 }: HeroProps) {
+  const themeImages = visualImages
+    ? [
+        {
+          theme: "contemplation" as const,
+          ...visualImages.contemplation,
+        },
+        {
+          theme: "lumiere" as const,
+          ...visualImages.lumiere,
+        },
+      ]
+    : visualImage
+      ? [{ theme: null, ...visualImage }]
+      : [];
   return (
     <div className={cn("hero-atmosphere relative overflow-hidden", className)}>
       <div className="hero-starfield absolute inset-0">
@@ -61,10 +98,10 @@ function Hero({
 
       <Container
         className={cn(
-          "relative grid items-center gap-12 py-[var(--section-space)] lg:gap-16",
+          "relative grid items-center gap-10 py-[var(--section-space)] sm:gap-12 lg:gap-16",
           compact
             ? "min-h-0 max-w-3xl"
-            : "min-h-[min(78vh,52rem)] lg:grid-cols-[minmax(0,1.1fr)_minmax(0,0.9fr)]",
+            : "min-h-[min(88svh,52rem)] sm:min-h-[min(78vh,52rem)] lg:grid-cols-[minmax(0,1.1fr)_minmax(0,0.9fr)]",
           !showVisual && !visual && "max-w-3xl"
         )}
       >
@@ -95,51 +132,82 @@ function Hero({
             </p>
           ) : null}
           {actions ? (
-            <div className="flex flex-wrap items-center gap-3 pt-2">{actions}</div>
+            <div className="flex w-full max-w-md flex-col gap-3 pt-2 sm:max-w-none sm:flex-row sm:flex-wrap sm:items-center [&_a]:w-full sm:[&_a]:w-auto">
+              {actions}
+            </div>
           ) : null}
         </FadeIn>
 
         {showVisual ? (
-          <FadeIn delay={120} className={cn("relative", visual ? "block" : "hidden sm:block")}>
+          <FadeIn delay={120} className="relative">
             {visual ? (
               visual
             ) : (
-              <div className="hero-panel hero-panel-ring relative aspect-[4/5] max-h-[28rem] w-full overflow-hidden rounded-[1.75rem]">
-                <div aria-hidden className="hero-panel-fill absolute inset-0" />
+              <div className="hero-panel hero-panel-ring relative mx-auto aspect-[5/4] max-h-[18rem] w-full overflow-hidden rounded-[1.5rem] sm:aspect-[4/5] sm:max-h-[28rem] sm:rounded-[1.75rem]">
+                {themeImages.length > 0 ? (
+                  <>
+                    {themeImages.map((image) => (
+                      <Image
+                        key={image.src}
+                        src={image.src}
+                        alt={image.alt}
+                        fill
+                        priority
+                        sizes="(max-width: 640px) 92vw, (max-width: 1024px) 45vw, 28rem"
+                        data-theme-for={image.theme ?? undefined}
+                        className={cn(
+                          "object-cover",
+                          image.theme
+                            ? "hero-theme-image"
+                            : undefined,
+                          image.objectPosition ?? "object-center"
+                        )}
+                      />
+                    ))}
+                    <div
+                      aria-hidden
+                      className="hero-visual-scrim absolute inset-x-0 bottom-0 h-2/5"
+                    />
+                  </>
+                ) : (
+                  <>
+                    <div aria-hidden className="hero-panel-fill absolute inset-0" />
 
-                <div className="hero-starfield absolute inset-0">
-                  <Starfield density="night" />
-                </div>
+                    <div className="hero-starfield absolute inset-0">
+                      <Starfield density="night" />
+                    </div>
 
-                <SoftHalo
-                  tone="gold"
-                  breathe
-                  className="top-[20%] left-1/2 size-64 -translate-x-1/2 opacity-45"
-                />
-                <SoftHalo
-                  tone="night"
-                  className="right-[5%] bottom-[12%] size-48 opacity-40"
-                />
+                    <SoftHalo
+                      tone="gold"
+                      breathe
+                      className="top-[20%] left-1/2 size-64 -translate-x-1/2 opacity-45"
+                    />
+                    <SoftHalo
+                      tone="night"
+                      className="right-[5%] bottom-[12%] size-48 opacity-40"
+                    />
 
-                <OrbitLine
-                  variant="arc"
-                  className="animate-soft-drift hero-decor absolute inset-x-[6%] top-[26%] w-[88%]"
-                />
-                <Constellation
-                  variant="quiet"
-                  className="hero-decor absolute top-[50%] right-[8%] w-[44%] opacity-80"
-                />
+                    <OrbitLine
+                      variant="arc"
+                      className="animate-soft-drift hero-decor absolute inset-x-[6%] top-[26%] w-[88%]"
+                    />
+                    <Constellation
+                      variant="quiet"
+                      className="hero-decor absolute top-[50%] right-[8%] w-[44%] opacity-80"
+                    />
 
-                <Star
-                  shape="four"
-                  size={9}
-                  tone="gold"
-                  opacity={0.5}
-                  twinkle
-                  delay="2s"
-                  duration="12s"
-                  className="absolute top-[29%] left-[51%] -translate-x-1/2 -translate-y-1/2"
-                />
+                    <Star
+                      shape="four"
+                      size={9}
+                      tone="gold"
+                      opacity={0.5}
+                      twinkle
+                      delay="2s"
+                      duration="12s"
+                      className="absolute top-[29%] left-[51%] -translate-x-1/2 -translate-y-1/2"
+                    />
+                  </>
+                )}
 
                 <div className="absolute inset-x-0 bottom-0 p-6 sm:p-8">
                   <div className="gold-rule mb-4" />

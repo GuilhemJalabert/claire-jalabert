@@ -52,12 +52,12 @@ export default function TariffsPage() {
             description="Trois tarifs pour les rendez-vous au cabinet."
           />
 
-          <FadeIn className="grid gap-5 sm:grid-cols-2 lg:grid-cols-3">
+          <FadeIn className="grid gap-4 sm:grid-cols-2 sm:gap-5 lg:grid-cols-3">
             {pricing.consultations.map((item) => (
               <Card
                 key={item.id}
-                variant="elevated"
-                className="h-full transition-[transform,box-shadow] duration-[var(--duration-fast)] ease-[var(--ease-out)] hover:-translate-y-0.5 hover:shadow-elevated"
+                variant="glass"
+                className="card-premium h-full"
               >
                 <CardHeader className="gap-5">
                   <CardTitle className="text-base font-medium tracking-normal sm:text-lg">

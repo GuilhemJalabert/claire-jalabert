@@ -51,14 +51,19 @@ function AppointmentCTA({
           <p className="text-body text-muted-foreground text-pretty">
             {description}
           </p>
-          <div className="flex flex-col items-center gap-3 sm:flex-row">
-            <Button size="lg" variant="warm" asChild>
+          <div className="flex w-full max-w-sm flex-col items-stretch gap-3 sm:max-w-none sm:flex-row sm:items-center sm:justify-center">
+            <Button size="lg" variant="warm" asChild className="w-full sm:w-auto">
               <a href={`tel:${contactInfo.phoneTel}`}>
                 <PhoneIcon data-icon="inline-start" />
                 {contactInfo.phoneDisplay}
               </a>
             </Button>
-            <Button size="lg" variant="secondary" asChild>
+            <Button
+              size="lg"
+              variant="secondary"
+              asChild
+              className="w-full sm:w-auto"
+            >
               <a href={`mailto:${contactInfo.email}`}>
                 <MailIcon data-icon="inline-start" />
                 Envoyer un e-mail

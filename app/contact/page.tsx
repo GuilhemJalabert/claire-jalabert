@@ -7,6 +7,8 @@ import { Separator } from "@/components/ui/separator";
 import { Container } from "@/components/layout/container";
 import { Section } from "@/components/layout/section";
 import { SectionHeading } from "@/components/sections/section-heading";
+import { CabinetMap } from "@/components/sections/cabinet-map";
+import { DirectionsButton } from "@/components/sections/directions-button";
 import { FadeIn } from "@/components/motion/fade-in";
 import { contactInfo } from "@/lib/content";
 import { accompanimentsContactMention } from "@/lib/accompagnements";
@@ -61,13 +63,19 @@ export default function ContactPage() {
 
           <div className="flex items-start gap-3">
             <MapPinIcon className="text-primary mt-1 size-5 shrink-0" strokeWidth={1.5} />
-            <div>
-              <p className="text-foreground font-medium">
-                {contactInfo.address.full}
-              </p>
-              <p className="text-small text-muted-foreground">
-                Consultations {contactInfo.modalities}
-              </p>
+            <div className="flex min-w-0 flex-1 flex-col gap-4">
+              <div>
+                <p className="text-foreground font-medium">
+                  {contactInfo.address.full}
+                </p>
+                <p className="text-small text-muted-foreground">
+                  Consultations {contactInfo.modalities}
+                </p>
+              </div>
+
+              <CabinetMap />
+
+              <DirectionsButton />
             </div>
           </div>
         </FadeIn>
@@ -85,10 +93,15 @@ export default function ContactPage() {
         </p>
 
         <div className="flex flex-col gap-3 sm:flex-row">
-          <Button size="lg" variant="warm" asChild>
+          <Button size="lg" variant="warm" asChild className="w-full sm:w-auto">
             <a href={`tel:${contactInfo.phoneTel}`}>Appeler</a>
           </Button>
-          <Button size="lg" variant="secondary" asChild>
+          <Button
+            size="lg"
+            variant="secondary"
+            asChild
+            className="w-full sm:w-auto"
+          >
             <a href={`mailto:${contactInfo.email}`}>Envoyer un e-mail</a>
           </Button>
         </div>

@@ -54,6 +54,18 @@ export default function HomePage() {
         description={`Psychologue clinicienne ${presentation.locations}. Accompagnement des enfants, adolescents, adultes, couples et familles — notamment autour du Haut Potentiel Intellectuel et Créatif et du Syndrome d’Asperger.`}
         visualCaption="Gan"
         visualTitle="Cabinet de psychologie"
+        visualImages={{
+          contemplation: {
+            src: "/images/hero-cabinet-contemplation.jpg",
+            alt: "Illustration contemplative — silhouette et rose sous un ciel étoilé",
+            objectPosition: "object-[50%_42%]",
+          },
+          lumiere: {
+            src: "/images/hero-cabinet-lumiere.jpg",
+            alt: "Illustration lumineuse — duo contemplatif dans un champ au soleil levant",
+            objectPosition: "object-[48%_55%]",
+          },
+        }}
         actions={
           <>
             <Button size="lg" variant="warm" asChild>
@@ -246,7 +258,7 @@ export default function HomePage() {
             title="L’esprit des entretiens"
             description={approach.intro}
           />
-          <FadeIn className="relative grid gap-10 sm:grid-cols-3">
+          <FadeIn className="relative grid gap-10 sm:grid-cols-3 sm:gap-8">
             <OrbitLine
               variant="horizon"
               className="text-foreground/12 absolute top-6 left-0 hidden w-full lg:block"

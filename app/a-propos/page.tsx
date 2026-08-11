@@ -1,10 +1,12 @@
 import type { Metadata } from "next";
+import Image from "next/image";
 import Link from "next/link";
 
 import { Badge } from "@/components/ui/badge";
 import { Button } from "@/components/ui/button";
 import {
   Card,
+  CardContent,
   CardDescription,
   CardHeader,
   CardTitle,
@@ -42,11 +44,15 @@ export default function AboutPage() {
           </>
         }
         visual={
-          <div className="relative mx-auto max-w-md lg:max-w-none">
+          <div className="relative mx-auto w-full max-w-sm sm:max-w-md lg:max-w-none">
             <PhotoFrame
               aspect="editorial"
               offset="none"
-              label="Portrait de Claire Jalabert — à venir"
+              src="/images/a-propos-portrait.jpg"
+              alt="Voilier sur le Douro, Porto"
+              objectPosition="object-[50%_42%]"
+              sizes="(max-width: 640px) 92vw, (max-width: 1024px) 50vw, 28rem"
+              priority
               className="shadow-elevated"
             />
             <Star
@@ -90,6 +96,18 @@ export default function AboutPage() {
                     {about.journey.teaching.body}
                   </CardDescription>
                 </CardHeader>
+                <CardContent>
+                  <div className="relative aspect-[4/5] w-full overflow-hidden rounded-xl sm:aspect-[3/4] sm:rounded-2xl lg:aspect-[4/5]">
+                    <Image
+                      src="/images/enseignement-rome.jpg"
+                      alt="Statue contemplative face à un dôme illuminé au crépuscule, Rome"
+                      fill
+                      sizes="(max-width: 640px) 100vw, (max-width: 1024px) 50vw, 28rem"
+                      className="object-cover object-[42%_28%]"
+                      priority={false}
+                    />
+                  </div>
+                </CardContent>
               </Card>
             </div>
 

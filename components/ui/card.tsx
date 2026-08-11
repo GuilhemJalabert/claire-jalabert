@@ -15,11 +15,11 @@ const cardVariants = cva(
         elevated:
           "bg-surface-elevated shadow-soft ring-1 ring-border/50",
         glass:
-          "surface-glass rounded-[1.75rem] ring-1 ring-border/35 [--card-spacing:--spacing(6)] sm:[--card-spacing:--spacing(7)]",
+          "surface-glass rounded-[1.5rem] ring-1 ring-border/35 [--card-spacing:--spacing(5)] sm:rounded-[1.75rem] sm:[--card-spacing:--spacing(7)]",
         interactive:
-          "bg-card shadow-soft ring-1 ring-border/50 hover:-translate-y-0.5 hover:shadow-elevated hover:ring-primary/25",
+          "bg-card shadow-soft ring-1 ring-border/50 hover:-translate-y-0.5 hover:shadow-elevated hover:ring-luminous/30",
         editorial:
-          "bg-card ring-1 ring-border/40 [--card-spacing:--spacing(6)] sm:[--card-spacing:--spacing(7)]",
+          "bg-card ring-1 ring-border/40 [--card-spacing:--spacing(5)] sm:[--card-spacing:--spacing(7)]",
       },
       size: {
         default: "[--card-spacing:--spacing(5)]",

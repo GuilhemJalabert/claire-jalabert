@@ -23,6 +23,8 @@ export const accompanimentsPage = {
       "Gestion du stress",
       "Problématiques scolaires",
       "Médiation scolaire",
+      "Médiation animale",
+      "Médiation par la nature",
       "Bilans et évaluations",
       "Groupes de parole",
     ],
@@ -46,7 +48,7 @@ export const accompanimentsPage = {
   },
 } as const;
 
-/** Huit accompagnements détaillés. */
+/** Dix accompagnements détaillés. */
 export const accompanimentServices = [
   {
     id: "entretien-clinique",
@@ -94,6 +96,34 @@ export const accompanimentServices = [
     title: "Thérapie de groupe",
     description:
       "Espace collectif d’expression et d’échange (notamment groupes de parole).",
+  },
+  {
+    id: "mediation-animale",
+    title: "Médiation animale",
+    description:
+      "Suivi thérapeutique s’appuyant sur la présence de l’animal pour faciliter l’expression, le lien et l’apaisement.",
+  },
+  {
+    id: "mediation-nature",
+    title: "Médiation par la nature",
+    description:
+      "Suivi thérapeutique accompagné par le contact avec la nature, pour soutenir le cheminement et le ressenti.",
+  },
+] as const;
+
+/** Visuels associés aux médiations animale et nature. */
+export const accompanimentMediationVisuals = [
+  {
+    id: "visual-mediation-animale",
+    src: "/images/mediation-animale.jpg",
+    alt: "Chien au nœud papillon, présence calme dans un intérieur",
+    objectPosition: "object-[42%_58%]",
+  },
+  {
+    id: "visual-mediation-nature",
+    src: "/images/mediation-nature.jpg",
+    alt: "Paonne au plumage irisé, posée sur un rebord face à un mur rose",
+    objectPosition: "object-[38%_48%]",
   },
 ] as const;
 
