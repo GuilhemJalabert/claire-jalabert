@@ -1,14 +1,17 @@
 import type { Metadata } from "next";
+import Script from "next/script";
 
 import { Footer } from "@/components/layout/footer";
 import { Navbar } from "@/components/layout/navbar";
 import { ThemeProvider } from "@/components/theme/theme-provider";
-import { ThemeScript } from "@/components/theme/theme-script";
 import { fontDisplay, fontSans } from "@/lib/fonts";
 import { siteConfig } from "@/lib/site";
+import { THEME_STORAGE_KEY } from "@/lib/theme";
 import { cn } from "@/lib/utils";
 
 import "./globals.css";
+
+const themeBootScript = `(function(){try{var k=${JSON.stringify(THEME_STORAGE_KEY)};var s=localStorage.getItem(k);var t=(s==="contemplation"||s==="lumiere")?s:(window.matchMedia("(prefers-color-scheme: dark)").matches?"contemplation":"lumiere");document.documentElement.setAttribute("data-theme",t);}catch(e){document.documentElement.setAttribute("data-theme","contemplation");}})();`;
 
 export const metadata: Metadata = {
   metadataBase: new URL(siteConfig.url),
@@ -46,10 +49,12 @@ export default function RootLayout({ children }: LayoutProps<"/">) {
       className={cn("h-full", fontSans.variable, fontDisplay.variable, "scroll-smooth")}
       suppressHydrationWarning
     >
-      <head>
-        <ThemeScript />
-      </head>
       <body className="flex min-h-full flex-col font-sans">
+        <Script
+          id="claire-theme-script"
+          strategy="beforeInteractive"
+          dangerouslySetInnerHTML={{ __html: themeBootScript }}
+        />
         <ThemeProvider>
           <Navbar />
           <main className="flex-1">{children}</main>

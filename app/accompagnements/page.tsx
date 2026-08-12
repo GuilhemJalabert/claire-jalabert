@@ -72,6 +72,21 @@ export default function AccompanimentsPage() {
               <ExpertiseCard key={label} label={label} />
             ))}
           </FadeIn>
+
+          <p className="text-small text-muted-foreground flex flex-wrap gap-x-4 gap-y-2">
+            <Link href="/comprendre/tsa" className="link-continue font-medium">
+              Comprendre le TSA
+            </Link>
+            <Link
+              href="/comprendre/asperger"
+              className="link-continue font-medium"
+            >
+              Comprendre le syndrome d’Asperger
+            </Link>
+            <Link href="/comprendre/hpi" className="link-continue font-medium">
+              Comprendre le HPI
+            </Link>
+          </p>
         </Container>
       </Section>
 
@@ -136,6 +151,13 @@ export default function AccompanimentsPage() {
                         sizes="(max-width: 640px) 100vw, (max-width: 1024px) 50vw, 36rem"
                         className={cn("object-cover", visual.objectPosition)}
                       />
+                      {visual.credit ? (
+                        <div className="absolute inset-x-0 bottom-0 bg-gradient-to-t from-black/45 via-black/15 to-transparent p-4 sm:p-5">
+                          <p className="text-caption text-ivory/90 normal-case tracking-wide">
+                            {visual.credit}
+                          </p>
+                        </div>
+                      ) : null}
                     </div>
                   </CardContent>
                 </Card>
@@ -205,6 +227,14 @@ export default function AccompanimentsPage() {
                       <CardDescription className="text-pretty text-[0.9375rem] leading-relaxed sm:text-base">
                         {item.description}
                       </CardDescription>
+                      {item.learnMore ? (
+                        <Link
+                          href={item.learnMore.href}
+                          className="link-continue text-small font-medium pt-1"
+                        >
+                          {item.learnMore.label}
+                        </Link>
+                      ) : null}
                     </CardHeader>
                   </Card>
                 </FadeIn>

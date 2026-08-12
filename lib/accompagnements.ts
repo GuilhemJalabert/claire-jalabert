@@ -118,12 +118,14 @@ export const accompanimentMediationVisuals = [
     src: "/images/mediation-animale.jpg",
     alt: "Chien au nœud papillon, présence calme dans un intérieur",
     objectPosition: "object-[42%_58%]",
+    credit: null,
   },
   {
     id: "visual-mediation-nature",
     src: "/images/mediation-nature.jpg",
     alt: "Paonne au plumage irisé, posée sur un rebord face à un mur rose",
     objectPosition: "object-[38%_48%]",
+    credit: "@vongvision par Nicolas Vongsuravatana",
   },
 ] as const;
 
@@ -135,6 +137,7 @@ export const assessmentServices = [
     note: "Enfant & adulte",
     description:
       "Une évaluation approfondie du fonctionnement cognitif permettant d’explorer notamment l’attention, la mémoire, le raisonnement et les fonctions exécutives.",
+    learnMore: null,
   },
   {
     id: "tdah",
@@ -142,6 +145,10 @@ export const assessmentServices = [
     note: null,
     description:
       "Une évaluation destinée à explorer le fonctionnement attentionnel, l’impulsivité et les fonctions exécutives dans le cadre d’une démarche clinique autour du TDAH.",
+    learnMore: {
+      href: "/comprendre/autres-reperes#tdah",
+      label: "Lire les repères sur le TDAH",
+    },
   },
   {
     id: "sensoriel",
@@ -149,6 +156,10 @@ export const assessmentServices = [
     note: null,
     description:
       "Une exploration des particularités sensorielles afin de mieux comprendre la manière dont les stimulations de l’environnement sont perçues et vécues.",
+    learnMore: {
+      href: "/comprendre/autres-reperes#sensorialite",
+      label: "Comprendre la sensorialité",
+    },
   },
   {
     id: "schemas",
@@ -156,6 +167,7 @@ export const assessmentServices = [
     note: null,
     description:
       "Une exploration des schémas de pensée et de fonctionnement construits au fil des expériences, afin de mieux comprendre certains modes émotionnels et relationnels récurrents.",
+    learnMore: null,
   },
   {
     id: "instrumental",
@@ -163,6 +175,7 @@ export const assessmentServices = [
     note: null,
     description:
       "Une évaluation de différentes fonctions impliquées dans les apprentissages et l’adaptation, afin de mieux repérer les ressources et les éventuelles difficultés.",
+    learnMore: null,
   },
   {
     id: "projectif",
@@ -170,6 +183,7 @@ export const assessmentServices = [
     note: null,
     description:
       "Une exploration clinique du fonctionnement psychique et affectif à partir d’outils projectifs, venant compléter la compréhension globale de la personne.",
+    learnMore: null,
   },
   {
     id: "tsa-adir",
@@ -177,6 +191,10 @@ export const assessmentServices = [
     note: null,
     description:
       "Un entretien clinique structuré permettant d’explorer l’histoire développementale, les interactions sociales, la communication et certains comportements dans le cadre d’une démarche diagnostique TSA.",
+    learnMore: {
+      href: "/comprendre/tsa",
+      label: "En savoir plus sur le TSA",
+    },
   },
 ] as const;
 

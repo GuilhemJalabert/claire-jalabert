@@ -3,6 +3,12 @@ import Image from "next/image";
 import { cn } from "@/lib/utils";
 import { MediaPlaceholder } from "@/components/sections/media-placeholder";
 
+type ThemePhoto = {
+  src: string;
+  alt: string;
+  objectPosition?: string;
+};
+
 type PhotoFrameProps = {
   aspect?: "portrait" | "landscape" | "editorial" | "square";
   offset?: "none" | "up" | "down" | "start" | "end";
@@ -10,6 +16,11 @@ type PhotoFrameProps = {
   /** Image réelle — remplace le placeholder. */
   src?: string;
   alt?: string;
+  /** Images selon Contemplation (nuit) / Lumière (jour). */
+  themeImages?: {
+    contemplation: ThemePhoto;
+    lumiere: ThemePhoto;
+  };
   sizes?: string;
   /** Position object-cover (ex. object-center). */
   objectPosition?: string;
@@ -32,28 +43,38 @@ const offsetClass = {
   end: "translate-x-1 sm:translate-x-3",
 } as const;
 
-/** Cadre photo éditorial — image réelle ou placeholder. */
+/** Cadre photo éditorial — image réelle, duo thématique, ou placeholder. */
 function PhotoFrame({
   aspect = "editorial",
   offset = "none",
-  label = "Photo à venir",
+  label,
   src,
   alt = "",
+  themeImages,
   sizes = "(max-width: 640px) 100vw, (max-width: 1024px) 50vw, 28rem",
   objectPosition = "object-center",
   priority = false,
   className,
 }: PhotoFrameProps) {
-  if (!src) {
+  if (!src && !themeImages) {
     return (
       <MediaPlaceholder
         aspect={aspect}
         offset={offset}
-        label={label}
+        label={label ?? "Photo à venir"}
         className={cn("shadow-soft", className)}
       />
     );
   }
+
+  const images = themeImages
+    ? [
+        { theme: "contemplation" as const, ...themeImages.contemplation },
+        { theme: "lumiere" as const, ...themeImages.lumiere },
+      ]
+    : src
+      ? [{ theme: null, src, alt, objectPosition }]
+      : [];
 
   return (
     <div
@@ -64,14 +85,29 @@ function PhotoFrame({
         className
       )}
     >
-      <Image
-        src={src}
-        alt={alt}
-        fill
-        sizes={sizes}
-        priority={priority}
-        className={cn("object-cover", objectPosition)}
-      />
+      {images.map((image) => (
+        <Image
+          key={image.src}
+          src={image.src}
+          alt={image.alt}
+          fill
+          sizes={sizes}
+          priority={priority}
+          data-theme-for={image.theme ?? undefined}
+          className={cn(
+            "object-cover",
+            image.theme ? "theme-image" : undefined,
+            image.objectPosition ?? "object-center"
+          )}
+        />
+      ))}
+      {label ? (
+        <div className="absolute inset-x-0 bottom-0 bg-gradient-to-t from-black/45 via-black/15 to-transparent p-4 sm:p-5">
+          <p className="text-caption text-ivory/90 normal-case tracking-wide">
+            {label}
+          </p>
+        </div>
+      ) : null}
     </div>
   );
 }

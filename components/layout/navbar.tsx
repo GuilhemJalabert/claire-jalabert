@@ -8,9 +8,11 @@ import { MenuIcon } from "lucide-react";
 import { Button } from "@/components/ui/button";
 import {
   NavigationMenu,
+  NavigationMenuContent,
   NavigationMenuItem,
   NavigationMenuLink,
   NavigationMenuList,
+  NavigationMenuTrigger,
 } from "@/components/ui/navigation-menu";
 import {
   Sheet,
@@ -21,9 +23,20 @@ import {
 } from "@/components/ui/sheet";
 import { Container } from "@/components/layout/container";
 import { ThemeToggle } from "@/components/theme/theme-toggle";
-import { browseNav, contactNav, mainNav } from "@/lib/navigation";
+import {
+  browseNav,
+  contactNav,
+  isNavGroup,
+  type NavGroup,
+  type NavItem,
+} from "@/lib/navigation";
 import { siteConfig } from "@/lib/site";
 import { cn } from "@/lib/utils";
+
+function isActivePath(pathname: string, href: string) {
+  if (href === "/") return pathname === "/";
+  return pathname === href || pathname.startsWith(`${href}/`);
+}
 
 function Navbar() {
   const [open, setOpen] = React.useState(false);
@@ -66,10 +79,17 @@ function Navbar() {
           <NavigationMenu className="hidden lg:flex" viewport={false}>
             <NavigationMenuList className="gap-0.5">
               {browseNav.map((item) => {
-                const active =
-                  item.href === "/"
-                    ? pathname === "/"
-                    : pathname.startsWith(item.href);
+                if (isNavGroup(item)) {
+                  return (
+                    <ComprendreDesktopItem
+                      key={item.href}
+                      item={item}
+                      pathname={pathname}
+                    />
+                  );
+                }
+
+                const active = isActivePath(pathname, item.href);
                 return (
                   <NavigationMenuItem key={item.href}>
                     <NavigationMenuLink asChild>
@@ -125,28 +145,31 @@ function Navbar() {
                 className="mt-8 flex flex-col gap-1"
                 aria-label="Navigation mobile"
               >
-                {mainNav.map((item) => {
-                  const active =
-                    item.href === "/"
-                      ? pathname === "/"
-                      : pathname.startsWith(item.href);
+                {browseNav.map((item) => {
+                  if (isNavGroup(item)) {
+                    return (
+                      <MobileNavGroup
+                        key={item.href}
+                        item={item}
+                        pathname={pathname}
+                        onNavigate={() => setOpen(false)}
+                      />
+                    );
+                  }
                   return (
-                    <Link
+                    <MobileNavLink
                       key={item.href}
-                      href={item.href}
-                      onClick={() => setOpen(false)}
-                      aria-current={active ? "page" : undefined}
-                      className={cn(
-                        "rounded-xl px-4 py-3.5 text-base font-medium transition-colors duration-[var(--duration-fast)]",
-                        active
-                          ? "bg-muted text-foreground"
-                          : "text-foreground hover:bg-muted"
-                      )}
-                    >
-                      {item.label}
-                    </Link>
+                      item={item}
+                      pathname={pathname}
+                      onNavigate={() => setOpen(false)}
+                    />
                   );
                 })}
+                <MobileNavLink
+                  item={contactNav}
+                  pathname={pathname}
+                  onNavigate={() => setOpen(false)}
+                />
               </nav>
               <div className="mt-6 px-1">
                 <Button variant="warm" className="w-full" asChild>
@@ -160,6 +183,124 @@ function Navbar() {
         </div>
       </Container>
     </header>
+  );
+}
+
+function ComprendreDesktopItem({
+  item,
+  pathname,
+}: {
+  item: NavGroup;
+  pathname: string;
+}) {
+  const active = isActivePath(pathname, item.href);
+
+  return (
+    <NavigationMenuItem>
+      <div className="flex items-center">
+        <NavigationMenuLink asChild>
+          <Link
+            href={item.href}
+            aria-current={pathname === item.href ? "page" : undefined}
+            className={cn(
+              "rounded-full px-3.5 py-2 text-sm font-medium transition-opacity duration-[var(--duration-fast)]",
+              active ? "opacity-100" : "opacity-70 hover:opacity-100"
+            )}
+          >
+            {item.label}
+          </Link>
+        </NavigationMenuLink>
+        <NavigationMenuTrigger
+          aria-label="Sous-pages Comprendre"
+          className={cn(
+            "size-8 rounded-full bg-transparent px-0 hover:bg-transparent focus:bg-transparent data-open:bg-transparent data-popup-open:bg-transparent",
+            active ? "opacity-100" : "opacity-70 hover:opacity-100"
+          )}
+        />
+      </div>
+      <NavigationMenuContent className="min-w-[18rem] p-2">
+        <ul className="flex flex-col gap-0.5">
+          <li>
+            <NavigationMenuLink asChild>
+              <Link
+                href={item.href}
+                className="rounded-lg px-3 py-2.5 text-sm font-medium"
+              >
+                Vue d’ensemble
+              </Link>
+            </NavigationMenuLink>
+          </li>
+          {item.children.map((child) => (
+            <li key={child.href}>
+              <NavigationMenuLink asChild>
+                <Link
+                  href={child.href}
+                  aria-current={
+                    isActivePath(pathname, child.href) ? "page" : undefined
+                  }
+                  className="rounded-lg px-3 py-2.5 text-sm"
+                >
+                  {child.label}
+                </Link>
+              </NavigationMenuLink>
+            </li>
+          ))}
+        </ul>
+      </NavigationMenuContent>
+    </NavigationMenuItem>
+  );
+}
+
+function MobileNavLink({
+  item,
+  pathname,
+  onNavigate,
+  indent = false,
+}: {
+  item: NavItem;
+  pathname: string;
+  onNavigate: () => void;
+  indent?: boolean;
+}) {
+  const active = isActivePath(pathname, item.href);
+  return (
+    <Link
+      href={item.href}
+      onClick={onNavigate}
+      aria-current={active ? "page" : undefined}
+      className={cn(
+        "rounded-xl px-4 py-3.5 text-base font-medium transition-colors duration-[var(--duration-fast)]",
+        indent && "py-2.5 pl-7 text-sm",
+        active ? "bg-muted text-foreground" : "text-foreground hover:bg-muted"
+      )}
+    >
+      {item.label}
+    </Link>
+  );
+}
+
+function MobileNavGroup({
+  item,
+  pathname,
+  onNavigate,
+}: {
+  item: NavGroup;
+  pathname: string;
+  onNavigate: () => void;
+}) {
+  return (
+    <div className="flex flex-col gap-0.5">
+      <MobileNavLink item={item} pathname={pathname} onNavigate={onNavigate} />
+      {item.children.map((child) => (
+        <MobileNavLink
+          key={child.href}
+          item={child}
+          pathname={pathname}
+          onNavigate={onNavigate}
+          indent
+        />
+      ))}
+    </div>
   );
 }
 

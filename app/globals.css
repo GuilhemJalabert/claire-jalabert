@@ -125,7 +125,7 @@
   }
 
   @media (prefers-reduced-motion: reduce) {
-    html {
+  html {
       scroll-behavior: auto;
     }
 
@@ -297,14 +297,14 @@
     color: var(--hero-visual-title);
   }
 
-  .hero-theme-image {
+  .theme-image {
     opacity: 0;
     transition: opacity var(--theme-duration) var(--ease-in-out);
   }
 
-  html[data-theme="contemplation"] .hero-theme-image[data-theme-for="contemplation"],
-  html[data-theme="lumiere"] .hero-theme-image[data-theme-for="lumiere"],
-  html:not([data-theme]) .hero-theme-image[data-theme-for="contemplation"] {
+  html[data-theme="contemplation"] .theme-image[data-theme-for="contemplation"],
+  html[data-theme="lumiere"] .theme-image[data-theme-for="lumiere"],
+  html:not([data-theme]) .theme-image[data-theme-for="contemplation"] {
     opacity: 1;
   }
 
@@ -475,6 +475,25 @@
   [class*="atmosphere-phase-"] [data-slot="card"] .text-card-foreground,
   [class*="atmosphere-phase-"] [data-slot="card"] .text-foreground,
   [class*="atmosphere-phase-"] [data-slot="card-title"] {
+    color: var(--atm-panel-fg);
+  }
+
+  /* Alerts / encadrés pédagogiques : même encre sombre sur fond clair */
+  [class*="atmosphere-phase-"] [data-slot="alert"] {
+    --muted-foreground: var(--atm-panel-muted);
+    --foreground: var(--atm-panel-fg);
+    --card-foreground: var(--atm-panel-fg);
+    color: var(--atm-panel-fg);
+  }
+
+  [class*="atmosphere-phase-"] [data-slot="alert"] .text-muted-foreground,
+  [class*="atmosphere-phase-"] [data-slot="alert-description"] {
+    color: var(--atm-panel-muted) !important;
+  }
+
+  [class*="atmosphere-phase-"] [data-slot="alert-title"],
+  [class*="atmosphere-phase-"] [data-slot="alert"] .text-card-foreground,
+  [class*="atmosphere-phase-"] [data-slot="alert"] .text-foreground {
     color: var(--atm-panel-fg);
   }
 

@@ -1,8 +1,6 @@
 import type { Metadata } from "next";
 import Link from "next/link";
-import { CalendarClockIcon, CircleHelpIcon, WalletIcon } from "lucide-react";
 
-import { Alert, AlertDescription, AlertTitle } from "@/components/ui/alert";
 import { Button } from "@/components/ui/button";
 import {
   Card,
@@ -111,69 +109,7 @@ export default function TariffsPage() {
         </Container>
       </Section>
 
-      {/* 4–5. Modalités */}
-      <Section atmosphere="phase-4" className="relative overflow-hidden">
-        <SoftHalo
-          tone="terracotta"
-          className="top-0 left-1/4 size-64 opacity-20"
-        />
-        <Container className="relative flex flex-col gap-10">
-          <SectionHeading
-            eyebrow="Modalités"
-            title="Informations importantes"
-            description="Règles applicables à tous les rendez-vous."
-          />
-
-          <FadeIn className="grid gap-5 md:grid-cols-2">
-            <Card variant="soft" className="h-full">
-              <CardHeader className="gap-4">
-                <div className="text-primary flex size-10 items-center justify-center rounded-full bg-[color-mix(in_oklch,var(--primary)_14%,transparent)]">
-                  <CalendarClockIcon className="size-5" strokeWidth={1.5} />
-                </div>
-                <div className="flex flex-col gap-1">
-                  <CardTitle>{pricing.cancellation.title}</CardTitle>
-                  <p className="font-display text-card-foreground text-2xl font-medium tracking-tight">
-                    {pricing.cancellation.highlight}
-                  </p>
-                </div>
-                <CardDescription className="text-pretty">
-                  {pricing.cancellation.body}
-                </CardDescription>
-              </CardHeader>
-            </Card>
-
-            <Card variant="soft" className="h-full">
-              <CardHeader className="gap-4">
-                <div className="text-primary flex size-10 items-center justify-center rounded-full bg-[color-mix(in_oklch,var(--primary)_14%,transparent)]">
-                  <WalletIcon className="size-5" strokeWidth={1.5} />
-                </div>
-                <div className="flex flex-col gap-1">
-                  <CardTitle>{pricing.payment.title}</CardTitle>
-                  <p className="font-display text-card-foreground text-2xl font-medium tracking-tight">
-                    {pricing.payment.highlight}
-                  </p>
-                </div>
-                <CardDescription className="text-pretty">
-                  {pricing.payment.body}
-                </CardDescription>
-              </CardHeader>
-            </Card>
-          </FadeIn>
-
-          <Alert className="border-border/50 bg-card/80 rounded-2xl px-5 py-4">
-            <CircleHelpIcon />
-            <AlertTitle className="font-display text-base tracking-tight">
-              En résumé
-            </AlertTitle>
-            <AlertDescription>
-              Prévenir au moins 48 heures à l’avance en cas d’annulation.
-              Régler chaque séance le jour du rendez-vous.
-            </AlertDescription>
-          </Alert>
-        </Container>
-      </Section>
-
-      {/* 6. CTA */}
+      {/* 4. CTA */}
       <Section atmosphere="phase-5" className="relative overflow-hidden">
         <Container>
           <FadeIn className="mx-auto flex max-w-xl flex-col items-center gap-6 py-4 text-center sm:py-8">

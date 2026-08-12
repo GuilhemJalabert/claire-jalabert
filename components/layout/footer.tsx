@@ -4,8 +4,17 @@ import { Separator } from "@/components/ui/separator";
 import { Container } from "@/components/layout/container";
 import { Star } from "@/components/decor/star";
 import { contactInfo } from "@/lib/content";
-import { mainNav } from "@/lib/navigation";
+import { browseNav, contactNav, isNavGroup } from "@/lib/navigation";
 import { siteConfig } from "@/lib/site";
+
+const footerNav = [
+  ...browseNav.map((item) =>
+    isNavGroup(item)
+      ? { href: item.href, label: item.label }
+      : item
+  ),
+  contactNav,
+];
 
 function Footer() {
   const year = new Date().getFullYear();
@@ -35,7 +44,7 @@ function Footer() {
 
           <nav aria-label="Pied de page">
             <ul className="flex flex-wrap gap-x-5 gap-y-2 sm:max-w-md sm:justify-end">
-              {mainNav.map((item) => (
+              {footerNav.map((item) => (
                 <li key={item.href}>
                   <Link
                     href={item.href}

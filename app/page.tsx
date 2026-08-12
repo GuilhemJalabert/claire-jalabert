@@ -1,9 +1,11 @@
 import type { Metadata } from "next";
+import Image from "next/image";
 import Link from "next/link";
 
 import { Button } from "@/components/ui/button";
 import {
   Card,
+  CardContent,
   CardDescription,
   CardHeader,
   CardTitle,
@@ -21,6 +23,7 @@ import { FadeIn } from "@/components/motion/fade-in";
 import { OrbitLine } from "@/components/decor/orbit-line";
 import { SoftHalo } from "@/components/decor/soft-halo";
 import { Starfield } from "@/components/decor/starfield";
+import { cn } from "@/lib/utils";
 import {
   approach,
   audiences,
@@ -102,8 +105,21 @@ export default function HomePage() {
               <PhotoFrame
                 aspect="editorial"
                 offset="up"
-                label="Portrait — à venir"
-                className="max-w-md lg:max-w-none"
+                label="@vongvision par Nicolas Vongsuravatana"
+                themeImages={{
+                  contemplation: {
+                    src: "/images/presentation-bateaux.jpg",
+                    alt: "Voiliers sur une mer scintillante au crépuscule",
+                    objectPosition: "object-[48%_55%]",
+                  },
+                  lumiere: {
+                    src: "/images/presentation-desert.jpg",
+                    alt: "Dunes et palmiers au soleil levant",
+                    objectPosition: "object-[50%_45%]",
+                  },
+                }}
+                sizes="(max-width: 640px) 100vw, (max-width: 1024px) 45vw, 28rem"
+                className="max-w-md shadow-soft lg:max-w-none"
               />
               <OrbitLine
                 variant="arc"
@@ -210,6 +226,53 @@ export default function HomePage() {
         </Container>
       </Section>
 
+      {/* 5b. Visuels — entre accompagnements et domaines */}
+      <Section atmosphere="phase-3" className="relative overflow-hidden" compact>
+        <Container className="relative">
+          <FadeIn className="mx-auto grid max-w-3xl gap-3 sm:gap-4 md:grid-cols-2">
+            {[
+              {
+                src: "/images/accueil-ville.jpg",
+                alt: "Ruelle et toits d’une ville au bord de l’eau",
+                objectPosition: "object-[48%_40%]",
+                credit: "@vongvision par Nicolas Vongsuravatana",
+              },
+              {
+                src: "/images/accueil-colisee.jpg",
+                alt: "Colisée de Rome vu à travers le feuillage",
+                objectPosition: "object-[55%_35%]",
+                credit: null,
+              },
+            ].map((visual) => (
+              <Card
+                key={visual.src}
+                variant="glass"
+                className="card-premium overflow-hidden p-0 [--card-spacing:0]"
+              >
+                <CardContent className="p-0">
+                  <div className="relative aspect-[5/4] w-full max-h-56 overflow-hidden sm:max-h-64 md:aspect-[4/5] md:max-h-72">
+                    <Image
+                      src={visual.src}
+                      alt={visual.alt}
+                      fill
+                      sizes="(max-width: 640px) 100vw, (max-width: 1024px) 40vw, 20rem"
+                      className={cn("object-cover", visual.objectPosition)}
+                    />
+                    {visual.credit ? (
+                      <div className="absolute inset-x-0 bottom-0 bg-gradient-to-t from-black/45 via-black/15 to-transparent p-3 sm:p-4">
+                        <p className="text-caption text-ivory/90 normal-case tracking-wide">
+                          {visual.credit}
+                        </p>
+                      </div>
+                    ) : null}
+                  </div>
+                </CardContent>
+              </Card>
+            ))}
+          </FadeIn>
+        </Container>
+      </Section>
+
       {/* 6. Domaines — aperçu */}
       <Section
         id="domaines"
@@ -243,6 +306,69 @@ export default function HomePage() {
               className="link-continue text-small font-medium"
             >
               Voir les domaines d’accompagnement
+            </Link>
+          </p>
+        </Container>
+      </Section>
+
+      {/* 6b. Comprendre — dossiers pédagogiques */}
+      <Section atmosphere="phase-3" className="relative overflow-hidden">
+        <Starfield density="sparse" />
+        <Container className="relative flex flex-col gap-10">
+          <SectionHeading
+            eyebrow="Comprendre"
+            title="Des repères pour s’orienter"
+            description="Des dossiers pédagogiques pour mieux saisir certaines notions avant ou pendant un accompagnement."
+          />
+          <FadeIn className="grid gap-4 sm:grid-cols-2 lg:grid-cols-4">
+            {[
+              {
+                href: "/comprendre/tsa",
+                title: "TSA",
+                description:
+                  "Comprendre le trouble du spectre de l’autisme.",
+              },
+              {
+                href: "/comprendre/asperger",
+                title: "Asperger",
+                description:
+                  "Clarifier le terme et les profils concernés.",
+              },
+              {
+                href: "/comprendre/hpi",
+                title: "HPI",
+                description:
+                  "Repères sur le haut potentiel intellectuel.",
+              },
+              {
+                href: "/comprendre/autres-reperes",
+                title: "Autres repères",
+                description:
+                  "TDAH, sensorialité, stress et scolarité.",
+              },
+            ].map((item) => (
+              <Card key={item.href} variant="soft" className="h-full" size="sm">
+                <CardHeader>
+                  <CardTitle>{item.title}</CardTitle>
+                  <CardDescription className="text-pretty">
+                    {item.description}
+                  </CardDescription>
+                  <Link
+                    href={item.href}
+                    className="link-continue text-small font-medium pt-1"
+                  >
+                    Lire le dossier
+                  </Link>
+                </CardHeader>
+              </Card>
+            ))}
+          </FadeIn>
+          <p>
+            <Link
+              href="/comprendre"
+              className="link-continue text-small font-medium"
+            >
+              Voir l’espace Comprendre
             </Link>
           </p>
         </Container>

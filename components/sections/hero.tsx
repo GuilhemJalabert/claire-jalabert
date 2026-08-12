@@ -158,7 +158,7 @@ function Hero({
                         className={cn(
                           "object-cover",
                           image.theme
-                            ? "hero-theme-image"
+                            ? "theme-image"
                             : undefined,
                           image.objectPosition ?? "object-center"
                         )}
