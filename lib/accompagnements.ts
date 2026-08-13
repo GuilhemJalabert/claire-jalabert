@@ -75,7 +75,7 @@ const fr: AccompanimentsBundle = {
       id: "domaines",
       eyebrow: "Expertises",
       title: "Domaines d’accompagnement",
-      lead: "Thématiques mises en avant au cabinet — sans préjuger de la demande.",
+      lead: "Thématiques mises en avant au cabinet.",
       items: [
         "Haut Potentiel Intellectuel / Créatif (HPIC)",
         "Syndrome d’Asperger",
@@ -330,7 +330,7 @@ const en: AccompanimentsBundle = {
       id: "domaines",
       eyebrow: "Expertise",
       title: "Areas of support",
-      lead: "Themes highlighted at the practice — without presupposing the request.",
+      lead: "Themes highlighted at the practice.",
       items: [
         "Intellectual / creative giftedness (HPIC)",
         "Asperger syndrome",
@@ -583,7 +583,7 @@ const it: AccompanimentsBundle = {
       id: "domaines",
       eyebrow: "Competenze",
       title: "Ambiti di accompagnamento",
-      lead: "Tematiche valorizzate nello studio — senza presupporre la domanda.",
+      lead: "Tematiche valorizzate nello studio.",
       items: [
         "Alto potenziale intellettivo / creativo (HPIC)",
         "Sindrome di Asperger",
@@ -836,7 +836,7 @@ const es: AccompanimentsBundle = {
       id: "domaines",
       eyebrow: "Competencias",
       title: "Ámbitos de acompañamiento",
-      lead: "Temáticas destacadas en la consulta — sin presuponer la demanda.",
+      lead: "Temáticas destacadas en la consulta.",
       items: [
         "Alto potencial intelectual / creativo (HPIC)",
         "Síndrome de Asperger",

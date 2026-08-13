@@ -17,7 +17,6 @@ import { SectionHeading } from "@/components/sections/section-heading";
 import { Hero } from "@/components/sections/hero";
 import { QuoteSection } from "@/components/sections/quote-section";
 import { PhotoFrame } from "@/components/sections/photo-frame";
-import { AudienceCard } from "@/components/sections/audience-card";
 import { ExpertiseCard } from "@/components/sections/expertise-card";
 import { AppointmentCTA } from "@/components/sections/appointment-cta";
 import { FadeIn } from "@/components/motion/fade-in";
@@ -61,7 +60,7 @@ export default async function HomePage({ params }: Props) {
 
   const t = await getTranslations("Home");
   const tNav = await getTranslations("Nav");
-  const { presentation, quotes, audiences, approach } = getContent(locale);
+  const { presentation, quotes, approach } = getContent(locale);
   const { homeSummary, page: accompanimentsPage } = getAccompaniments(locale);
 
   const understandCards = [
@@ -197,27 +196,6 @@ export default async function HomePage({ params }: Props) {
               </p>
             </FadeIn>
           </div>
-        </Container>
-      </Section>
-
-      {/* 4. Publics — grille lisible, cartes homogènes */}
-      <Section atmosphere="phase-2" className="relative overflow-hidden">
-        <Container className="flex flex-col gap-10">
-          <SectionHeading
-            eyebrow={t("audiencesEyebrow")}
-            title={t("audiencesTitle")}
-            description={t("audiencesLead")}
-          />
-          <FadeIn className="grid gap-4 sm:grid-cols-2 lg:grid-cols-3">
-            {audiences.map((audience) => (
-              <AudienceCard
-                key={audience.title}
-                title={audience.title}
-                description={audience.description}
-                variant="soft"
-              />
-            ))}
-          </FadeIn>
         </Container>
       </Section>
 
