@@ -1,6 +1,7 @@
 import type { Metadata } from "next";
 import Image from "next/image";
-import Link from "next/link";
+import { getTranslations, setRequestLocale } from "next-intl/server";
+import { Link } from "@/i18n/navigation";
 
 import { Button } from "@/components/ui/button";
 import {
@@ -24,58 +25,98 @@ import { OrbitLine } from "@/components/decor/orbit-line";
 import { SoftHalo } from "@/components/decor/soft-halo";
 import { Starfield } from "@/components/decor/starfield";
 import { cn } from "@/lib/utils";
-import {
-  approach,
-  audiences,
-  presentation,
-  quotes,
-} from "@/lib/content";
-import {
-  accompanimentsHomeSummary,
-  accompanimentsPage,
-} from "@/lib/accompagnements";
+import { languageAlternates } from "@/i18n/metadata";
+import { asAppLocale } from "@/i18n/routing";
+import { getContent } from "@/lib/content";
+import { getAccompaniments } from "@/lib/accompagnements";
 import { siteConfig } from "@/lib/site";
 
-export const metadata: Metadata = {
-  title: {
-    absolute: `${siteConfig.name} · ${siteConfig.title} à Gan`,
-  },
-  description: siteConfig.description,
-  openGraph: {
-    title: `${siteConfig.name} · ${siteConfig.title}`,
-    description: siteConfig.description,
-  },
-};
+type Props = { params: Promise<{ locale: string }> };
 
-export default function HomePage() {
+export async function generateMetadata({ params }: Props): Promise<Metadata> {
+  const locale = asAppLocale((await params).locale);
+  const t = await getTranslations({ locale, namespace: "Home" });
+  const { presentation, site } = getContent(locale);
+  const title = t("metaTitle", {
+    name: siteConfig.name,
+    title: presentation.title,
+  });
+
+  return {
+    title: {
+      absolute: title,
+    },
+    description: site.description,
+    alternates: languageAlternates(locale, "/"),
+    openGraph: {
+      title: `${siteConfig.name} · ${presentation.title}`,
+      description: site.description,
+    },
+  };
+}
+
+export default async function HomePage({ params }: Props) {
+  const locale = asAppLocale((await params).locale);
+  setRequestLocale(locale);
+
+  const t = await getTranslations("Home");
+  const tNav = await getTranslations("Nav");
+  const { presentation, quotes, audiences, approach } = getContent(locale);
+  const { homeSummary, page: accompanimentsPage } = getAccompaniments(locale);
+
+  const understandCards = [
+    {
+      href: "/comprendre/tsa",
+      title: t("tsaTitle"),
+      description: t("tsaDescription"),
+    },
+    {
+      href: "/comprendre/asperger",
+      title: t("aspergerTitle"),
+      description: t("aspergerDescription"),
+    },
+    {
+      href: "/comprendre/hpi",
+      title: t("hpiTitle"),
+      description: t("hpiDescription"),
+    },
+    {
+      href: "/comprendre/autres-reperes",
+      title: t("otherTitle"),
+      description: t("otherDescription"),
+    },
+  ] as const;
+
   return (
     <>
       {/* 1. Hero — une action principale claire */}
       <Hero
         title={presentation.name}
         subtitle={presentation.title}
-        description={`Psychologue clinicienne ${presentation.locations}. Accompagnement des enfants, adolescents, adultes, couples et familles — notamment autour du Haut Potentiel Intellectuel et Créatif et du Syndrome d’Asperger.`}
-        visualCaption="Gan"
-        visualTitle="Cabinet de psychologie"
+        description={t("heroDescription", {
+          locations: presentation.locations,
+        })}
+        visualCaption={t("visualCaption")}
+        visualTitle={t("visualTitle")}
         visualImages={{
           contemplation: {
             src: "/images/hero-cabinet-contemplation.jpg",
-            alt: "Illustration contemplative — silhouette et rose sous un ciel étoilé",
+            alt: t("heroAltContemplation"),
             objectPosition: "object-[50%_42%]",
           },
           lumiere: {
             src: "/images/hero-cabinet-lumiere.jpg",
-            alt: "Illustration lumineuse — duo contemplatif dans un champ au soleil levant",
+            alt: t("heroAltLumiere"),
             objectPosition: "object-[48%_55%]",
           },
         }}
         actions={
           <>
             <Button size="lg" variant="warm" asChild>
-              <Link href="#rdv">Prendre rendez-vous</Link>
+              <Link href="#rdv">{tNav("bookAppointment")}</Link>
             </Button>
             <Button size="lg" variant="outline" className="btn-hero-outline" asChild>
-              <Link href="/accompagnements">Découvrir les accompagnements</Link>
+              <Link href="/accompagnements">{t("discoverAccompaniments")}</Link>
             </Button>
           </>
         }
@@ -105,16 +146,16 @@ export default function HomePage() {
               <PhotoFrame
                 aspect="editorial"
                 offset="up"
-                label="@vongvision par Nicolas Vongsuravatana"
+                label={t("photoCredit")}
                 themeImages={{
                   contemplation: {
                     src: "/images/presentation-bateaux.jpg",
-                    alt: "Voiliers sur une mer scintillante au crépuscule",
+                    alt: t("boatsAlt"),
                     objectPosition: "object-[48%_55%]",
                   },
                   lumiere: {
                     src: "/images/presentation-desert.jpg",
-                    alt: "Dunes et palmiers au soleil levant",
+                    alt: t("desertAlt"),
                     objectPosition: "object-[50%_45%]",
                   },
                 }}
@@ -132,7 +173,7 @@ export default function HomePage() {
               className="flex flex-col gap-6 lg:col-span-6 lg:col-start-7"
             >
               <SectionHeading
-                eyebrow="Présentation"
+                eyebrow={t("presentationEyebrow")}
                 title={presentation.name}
                 description={`${presentation.title} ${presentation.locations}.`}
               />
@@ -151,7 +192,7 @@ export default function HomePage() {
                   href="/a-propos"
                   className="link-continue text-small font-medium"
                 >
-                  Découvrir son parcours
+                  {t("discoverPath")}
                 </Link>
               </p>
             </FadeIn>
@@ -163,9 +204,9 @@ export default function HomePage() {
       <Section atmosphere="phase-2" className="relative overflow-hidden">
         <Container className="flex flex-col gap-10">
           <SectionHeading
-            eyebrow="Publics"
-            title="Qui est accompagné ?"
-            description="Enfants, adolescents, adultes, couples et familles."
+            eyebrow={t("audiencesEyebrow")}
+            title={t("audiencesTitle")}
+            description={t("audiencesLead")}
           />
           <FadeIn className="grid gap-4 sm:grid-cols-2 lg:grid-cols-3">
             {audiences.map((audience) => (
@@ -189,13 +230,13 @@ export default function HomePage() {
         <Starfield density="sparse" />
         <Container className="relative flex flex-col gap-10">
           <SectionHeading
-            eyebrow="Accompagnements"
-            title={accompanimentsHomeSummary.title}
-            description={accompanimentsHomeSummary.lead}
+            eyebrow={t("accompanimentsEyebrow")}
+            title={homeSummary.title}
+            description={homeSummary.lead}
           />
 
           <FadeIn className="grid gap-4 sm:grid-cols-2 lg:grid-cols-3">
-            {accompanimentsHomeSummary.items.map((item) => (
+            {homeSummary.items.map((item) => (
               <Card key={item.title} variant="soft" className="h-full" size="sm">
                 <CardHeader>
                   <CardTitle>{item.title}</CardTitle>
@@ -207,7 +248,7 @@ export default function HomePage() {
                       href={item.href}
                       className="link-continue text-small font-medium pt-1"
                     >
-                      {accompanimentsHomeSummary.assessmentsLinkLabel}
+                      {homeSummary.assessmentsLinkLabel}
                     </Link>
                   ) : null}
                 </CardHeader>
@@ -217,10 +258,10 @@ export default function HomePage() {
 
           <p>
             <Link
-              href={accompanimentsHomeSummary.ctaHref}
+              href={homeSummary.ctaHref}
               className="link-continue text-small font-medium"
             >
-              {accompanimentsHomeSummary.ctaLabel}
+              {homeSummary.ctaLabel}
             </Link>
           </p>
         </Container>
@@ -233,15 +274,15 @@ export default function HomePage() {
             {[
               {
                 src: "/images/accueil-ville.jpg",
-                alt: "Ruelle et toits d’une ville au bord de l’eau",
+                alt: t("cityAlt"),
                 objectPosition: "object-[48%_40%]",
-                credit: "@vongvision par Nicolas Vongsuravatana",
+                credit: t("photoCredit"),
               },
               {
                 src: "/images/accueil-colisee.jpg",
-                alt: "Colisée de Rome vu à travers le feuillage",
+                alt: t("colosseumAlt"),
                 objectPosition: "object-[55%_35%]",
-                credit: null,
+                credit: null as string | null,
               },
             ].map((visual) => (
               <Card
@@ -291,8 +332,7 @@ export default function HomePage() {
               description={accompanimentsPage.domains.lead}
             />
             <p className="text-body text-muted-foreground max-w-md text-pretty lg:justify-self-end lg:text-right">
-              Chaque parcours est singulier. Ces domaines indiquent les
-              orientations du cabinet.
+              {t("domainsAside")}
             </p>
           </div>
           <FadeIn className="flex flex-wrap gap-2.5">
@@ -305,7 +345,7 @@ export default function HomePage() {
               href="/accompagnements#domaines"
               className="link-continue text-small font-medium"
             >
-              Voir les domaines d’accompagnement
+              {t("seeDomains")}
             </Link>
           </p>
         </Container>
@@ -316,37 +356,12 @@ export default function HomePage() {
         <Starfield density="sparse" />
         <Container className="relative flex flex-col gap-10">
           <SectionHeading
-            eyebrow="Comprendre"
-            title="Des repères pour s’orienter"
-            description="Des dossiers pédagogiques pour mieux saisir certaines notions avant ou pendant un accompagnement."
+            eyebrow={t("understandEyebrow")}
+            title={t("understandTitle")}
+            description={t("understandLead")}
           />
           <FadeIn className="grid gap-4 sm:grid-cols-2 lg:grid-cols-4">
-            {[
-              {
-                href: "/comprendre/tsa",
-                title: "TSA",
-                description:
-                  "Comprendre le trouble du spectre de l’autisme.",
-              },
-              {
-                href: "/comprendre/asperger",
-                title: "Asperger",
-                description:
-                  "Clarifier le terme et les profils concernés.",
-              },
-              {
-                href: "/comprendre/hpi",
-                title: "HPI",
-                description:
-                  "Repères sur le haut potentiel intellectuel.",
-              },
-              {
-                href: "/comprendre/autres-reperes",
-                title: "Autres repères",
-                description:
-                  "TDAH, sensorialité, stress et scolarité.",
-              },
-            ].map((item) => (
+            {understandCards.map((item) => (
               <Card key={item.href} variant="soft" className="h-full" size="sm">
                 <CardHeader>
                   <CardTitle>{item.title}</CardTitle>
@@ -357,7 +372,7 @@ export default function HomePage() {
                     href={item.href}
                     className="link-continue text-small font-medium pt-1"
                   >
-                    Lire le dossier
+                    {t("readDossier")}
                   </Link>
                 </CardHeader>
               </Card>
@@ -368,7 +383,7 @@ export default function HomePage() {
               href="/comprendre"
               className="link-continue text-small font-medium"
             >
-              Voir l’espace Comprendre
+              {t("seeUnderstand")}
             </Link>
           </p>
         </Container>
@@ -380,8 +395,8 @@ export default function HomePage() {
           <SectionHeading
             align="center"
             className="mx-auto"
-            eyebrow="Approche"
-            title="L’esprit des entretiens"
+            eyebrow={t("approachEyebrow")}
+            title={t("approachTitle")}
             description={approach.intro}
           />
           <FadeIn className="relative grid gap-10 sm:grid-cols-3 sm:gap-8">

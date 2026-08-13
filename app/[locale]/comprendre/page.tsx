@@ -1,5 +1,8 @@
 import type { Metadata } from "next"
-import Link from "next/link";
+import { setRequestLocale } from "next-intl/server"
+import { Link } from "@/i18n/navigation";
+import { languageAlternates } from "@/i18n/metadata"
+import { asAppLocale } from "@/i18n/routing"
 
 import { Badge } from "@/components/ui/badge"
 import { Button } from "@/components/ui/button"
@@ -19,18 +22,28 @@ import { EducationalCallout } from "@/components/educational/callout"
 import { educationalHub } from "@/lib/educational"
 import { siteConfig } from "@/lib/site"
 
-export const metadata: Metadata = {
-  title: educationalHub.metaTitle,
-  description: educationalHub.metaDescription,
-  openGraph: {
+type Props = { params: Promise<{ locale: string }> }
+
+export async function generateMetadata({ params }: Props): Promise<Metadata> {
+  const locale = asAppLocale((await params).locale)
+
+  return {
     title: educationalHub.metaTitle,
     description: educationalHub.metaDescription,
-    url: `${siteConfig.url}/comprendre`,
-  },
+    alternates: languageAlternates(locale, "/comprendre"),
+    openGraph: {
+      title: educationalHub.metaTitle,
+      description: educationalHub.metaDescription,
+      url: `${siteConfig.url}/comprendre`,
+    },
+  }
 }
 
-/** Hub Comprendre — même narration visuelle que les dossiers. */
-export default function ComprendreHubPage() {
+/** Hub Comprendre — contenu pédagogique conservé en français. */
+export default async function ComprendreHubPage({ params }: Props) {
+  const locale = asAppLocale((await params).locale)
+  setRequestLocale(locale)
+
   return (
     <>
       <Hero

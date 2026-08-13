@@ -1,5 +1,6 @@
 import type { Metadata } from "next";
-import Link from "next/link";
+import { getTranslations, setRequestLocale } from "next-intl/server";
+import { Link } from "@/i18n/navigation";
 
 import { Button } from "@/components/ui/button";
 import {
@@ -16,23 +17,43 @@ import { SectionHeading } from "@/components/sections/section-heading";
 import { FadeIn } from "@/components/motion/fade-in";
 import { SoftHalo } from "@/components/decor/soft-halo";
 import { Starfield } from "@/components/decor/starfield";
-import { contactInfo } from "@/lib/content";
-import { accompanimentsTariffsLink } from "@/lib/accompagnements";
-import { pricing } from "@/lib/pricing";
-import { siteConfig } from "@/lib/site";
+import { languageAlternates } from "@/i18n/metadata";
+import { asAppLocale } from "@/i18n/routing";
+import { contactFacts, getContent } from "@/lib/content";
+import { getAccompaniments } from "@/lib/accompagnements";
+import { getPricing } from "@/lib/pricing";
 
-export const metadata: Metadata = {
-  title: "Tarifs et modalités",
-  description: `Tarifs des consultations (${pricing.consultations.map((c) => c.priceLabel).join(", ")}) et modalités de rendez-vous — ${siteConfig.name}, psychologue clinicienne à Gan.`,
-};
+type Props = { params: Promise<{ locale: string }> };
 
-export default function TariffsPage() {
+export async function generateMetadata({ params }: Props): Promise<Metadata> {
+  const locale = asAppLocale((await params).locale);
+  const pricing = getPricing(locale);
+
+  return {
+    title: pricing.page.metaTitle,
+    description: pricing.page.metaDescription,
+    alternates: languageAlternates(locale, "/tarifs"),
+  };
+}
+
+export default async function TariffsPage({ params }: Props) {
+  const locale = asAppLocale((await params).locale);
+  setRequestLocale(locale);
+
+  const tNav = await getTranslations("Nav");
+  const pricing = getPricing(locale);
+  const { tariffsLink } = getAccompaniments(locale);
+  const { contact } = getContent(locale);
+  const ctaBody = pricing.page.ctaBody
+    .replace("{city}", contactFacts.address.city)
+    .replace("{modalities}", contact.modalities);
+
   return (
     <>
       {/* 1. Hero */}
       <Hero
-        title="Tarifs & modalités"
-        description="Une présentation claire des tarifs des consultations et des modalités de rendez-vous."
+        title={pricing.page.heroTitle}
+        description={pricing.page.heroDescription}
         showVisual={false}
         compact
       />
@@ -45,9 +66,9 @@ export default function TariffsPage() {
         />
         <Container className="relative flex flex-col gap-10">
           <SectionHeading
-            eyebrow="Consultations"
-            title="Honoraires"
-            description="Trois tarifs pour les rendez-vous au cabinet."
+            eyebrow={pricing.page.consultationsEyebrow}
+            title={pricing.page.consultationsTitle}
+            description={pricing.page.consultationsLead}
           />
 
           <FadeIn className="grid gap-4 sm:grid-cols-2 sm:gap-5 lg:grid-cols-3">
@@ -82,7 +103,7 @@ export default function TariffsPage() {
             <Card variant="editorial" className="mx-auto max-w-3xl">
               <CardHeader className="gap-5">
                 <p className="text-caption text-[color:var(--card-muted-foreground)]">
-                  Bilans & évaluations
+                  {pricing.page.assessmentsEyebrow}
                 </p>
                 <CardTitle className="text-2xl sm:text-3xl">
                   {pricing.assessments.title}
@@ -97,10 +118,10 @@ export default function TariffsPage() {
                     </Link>
                   </Button>
                   <Link
-                    href={accompanimentsTariffsLink.href}
+                    href={tariffsLink.href}
                     className="link-continue text-small font-medium"
                   >
-                    {accompanimentsTariffsLink.label}
+                    {tariffsLink.label}
                   </Link>
                 </div>
               </CardHeader>
@@ -115,12 +136,10 @@ export default function TariffsPage() {
           <FadeIn className="mx-auto flex max-w-xl flex-col items-center gap-6 py-4 text-center sm:py-8">
             <div className="gold-rule" />
             <h2 className="text-h2 text-foreground text-balance">
-              Une question sur les tarifs ou les modalités ?
+              {pricing.page.ctaTitle}
             </h2>
             <p className="text-small text-muted-foreground text-pretty">
-              Le secrétariat peut vous renseigner et vous accompagner dans la
-              prise de rendez-vous. Consultations à {contactInfo.address.city},{" "}
-              {contactInfo.modalities}.
+              {ctaBody}
             </p>
             <Separator className="bg-border/40 max-w-xs" />
             <div className="flex flex-col items-center gap-3 sm:flex-row">
@@ -130,7 +149,7 @@ export default function TariffsPage() {
                 </Link>
               </Button>
               <Button size="lg" variant="secondary" asChild>
-                <Link href="/#rdv">Prendre rendez-vous</Link>
+                <Link href="/#rdv">{tNav("bookAppointment")}</Link>
               </Button>
             </div>
           </FadeIn>

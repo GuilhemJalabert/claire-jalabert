@@ -1,22 +1,27 @@
-import Link from "next/link";
+import { getLocale, getTranslations } from "next-intl/server";
 
 import { Separator } from "@/components/ui/separator";
 import { Container } from "@/components/layout/container";
 import { Star } from "@/components/decor/star";
-import { contactInfo } from "@/lib/content";
+import { Link } from "@/i18n/navigation";
+import { contactFacts, getContent } from "@/lib/content";
 import { browseNav, contactNav, isNavGroup } from "@/lib/navigation";
 import { siteConfig } from "@/lib/site";
 
 const footerNav = [
   ...browseNav.map((item) =>
     isNavGroup(item)
-      ? { href: item.href, label: item.label }
+      ? { href: item.href, labelKey: item.labelKey }
       : item
   ),
   contactNav,
 ];
 
-function Footer() {
+async function Footer() {
+  const locale = await getLocale();
+  const t = await getTranslations("Nav");
+  const tFooter = await getTranslations("Footer");
+  const { site, contact } = getContent(locale);
   const year = new Date().getFullYear();
 
   return (
@@ -34,15 +39,18 @@ function Footer() {
               <Star shape="four" size={6} tone="gold" opacity={0.35} />
             </div>
             <p className="text-small text-muted-foreground max-w-xs">
-              {siteConfig.title} à {contactInfo.locationsLabel}. Consultations{" "}
-              {contactInfo.modalities}.
+              {tFooter("consultationsAt", {
+                title: site.title,
+                locations: contact.locationsLabel,
+                modalities: contact.modalities,
+              })}
             </p>
             <p className="text-small text-muted-foreground">
-              {contactInfo.address.full}
+              {contactFacts.address.full}
             </p>
           </div>
 
-          <nav aria-label="Pied de page">
+          <nav aria-label={tFooter("navLabel")}>
             <ul className="flex flex-wrap gap-x-5 gap-y-2 sm:max-w-md sm:justify-end">
               {footerNav.map((item) => (
                 <li key={item.href}>
@@ -50,7 +58,7 @@ function Footer() {
                     href={item.href}
                     className="text-small text-muted-foreground hover:text-foreground transition-colors duration-[var(--duration-fast)]"
                   >
-                    {item.label}
+                    {t(item.labelKey)}
                   </Link>
                 </li>
               ))}
@@ -67,17 +75,17 @@ function Footer() {
           </p>
           <p>
             <a
-              href={`tel:${contactInfo.phoneTel}`}
+              href={`tel:${contactFacts.phoneTel}`}
               className="hover:text-foreground transition-colors"
             >
-              {contactInfo.phoneDisplay}
+              {contactFacts.phoneDisplay}
             </a>
             {" · "}
             <a
-              href={`mailto:${contactInfo.email}`}
+              href={`mailto:${contactFacts.email}`}
               className="hover:text-foreground transition-colors"
             >
-              {contactInfo.email}
+              {contactFacts.email}
             </a>
           </p>
         </div>

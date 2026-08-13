@@ -1,6 +1,7 @@
 import type { Metadata } from "next";
 import Image from "next/image";
-import Link from "next/link";
+import { getTranslations, setRequestLocale } from "next-intl/server";
+import { Link } from "@/i18n/navigation";
 
 import { Badge } from "@/components/ui/badge";
 import { Button } from "@/components/ui/button";
@@ -20,15 +21,39 @@ import { PhotoFrame } from "@/components/sections/photo-frame";
 import { FadeIn } from "@/components/motion/fade-in";
 import { SoftHalo } from "@/components/decor/soft-halo";
 import { Star } from "@/components/decor/star";
-import { about, presentation } from "@/lib/content";
-import { accompanimentsAboutMention } from "@/lib/accompagnements";
+import { languageAlternates } from "@/i18n/metadata";
+import { asAppLocale } from "@/i18n/routing";
+import { getContent } from "@/lib/content";
+import { getAccompaniments } from "@/lib/accompagnements";
+import { siteConfig } from "@/lib/site";
 
-export const metadata: Metadata = {
-  title: "À propos",
-  description: `${presentation.name}, ${presentation.title} ${presentation.locations}. Parcours, spécialisations HPIC et Syndrome d’Asperger.`,
-};
+type Props = { params: Promise<{ locale: string }> };
 
-export default function AboutPage() {
+export async function generateMetadata({ params }: Props): Promise<Metadata> {
+  const locale = asAppLocale((await params).locale);
+  const t = await getTranslations({ locale, namespace: "About" });
+  const { presentation } = getContent(locale);
+
+  return {
+    title: t("metaTitle"),
+    description: t("metaDescription", {
+      name: siteConfig.name,
+      title: presentation.title,
+      locations: presentation.locations,
+    }),
+    alternates: languageAlternates(locale, "/a-propos"),
+  };
+}
+
+export default async function AboutPage({ params }: Props) {
+  const locale = asAppLocale((await params).locale);
+  setRequestLocale(locale);
+
+  const t = await getTranslations("About");
+  const tNav = await getTranslations("Nav");
+  const { about, presentation } = getContent(locale);
+  const { aboutMention } = getAccompaniments(locale);
+
   return (
     <>
       {/* 1. Hero éditorial */}
@@ -49,7 +74,7 @@ export default function AboutPage() {
               aspect="editorial"
               offset="none"
               src="/images/a-propos-portrait.jpg"
-              alt="Voilier sur le Douro, Porto"
+              alt={t("portraitAlt")}
               objectPosition="object-[50%_42%]"
               sizes="(max-width: 640px) 92vw, (max-width: 1024px) 50vw, 28rem"
               priority
@@ -87,7 +112,7 @@ export default function AboutPage() {
               <Card variant="editorial" className="h-full">
                 <CardHeader>
                   <p className="text-caption text-[color:var(--card-muted-foreground)] mb-2">
-                    Enseignement
+                    {about.journey.teachingLabel}
                   </p>
                   <CardTitle className="text-2xl">
                     {about.journey.teaching.title}
@@ -100,7 +125,7 @@ export default function AboutPage() {
                   <div className="relative aspect-[4/5] w-full overflow-hidden rounded-xl sm:aspect-[3/4] sm:rounded-2xl lg:aspect-[4/5]">
                     <Image
                       src="/images/enseignement-rome.jpg"
-                      alt="Statue contemplative face à un dôme illuminé au crépuscule, Rome"
+                      alt={t("teachingImageAlt")}
                       fill
                       sizes="(max-width: 640px) 100vw, (max-width: 1024px) 50vw, 28rem"
                       className="object-cover object-[42%_28%]"
@@ -206,7 +231,7 @@ export default function AboutPage() {
           <div className="flex flex-col gap-5">
             <Separator className="bg-border/50" />
             <p className="text-caption text-muted-foreground">
-              Autres domaines
+              {about.specializations.othersLabel}
             </p>
             <FadeIn className="flex flex-wrap gap-2.5">
               {about.specializations.others.map((label) => (
@@ -259,16 +284,16 @@ export default function AboutPage() {
           <FadeIn className="mx-auto flex max-w-xl flex-col items-center gap-6 py-4 text-center sm:py-6">
             <div className="gold-rule" />
             <p className="text-body text-muted-foreground text-pretty">
-              {accompanimentsAboutMention.body}
+              {aboutMention.body}
             </p>
             <div className="flex flex-col items-center gap-3 sm:flex-row">
               <Button size="lg" variant="warm" asChild>
-                <Link href={accompanimentsAboutMention.ctaHref}>
-                  {accompanimentsAboutMention.ctaLabel}
+                <Link href={aboutMention.ctaHref}>
+                  {aboutMention.ctaLabel}
                 </Link>
               </Button>
               <Button size="lg" variant="secondary" asChild>
-                <Link href="/#rdv">Prendre rendez-vous</Link>
+                <Link href="/#rdv">{tNav("bookAppointment")}</Link>
               </Button>
             </div>
           </FadeIn>

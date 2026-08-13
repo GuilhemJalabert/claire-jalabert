@@ -1,12 +1,16 @@
-import { contactInfo } from "@/lib/content";
+import { getLocale, getTranslations } from "next-intl/server";
+
+import { contactFacts } from "@/lib/content";
 
 /**
  * Carte embarquée du cabinet — géolocalisation via l’adresse validée.
  * Embed Google Maps (sans clé API) à partir de l’adresse complète.
  */
-function CabinetMap({ className }: { className?: string }) {
-  const query = encodeURIComponent(`${contactInfo.address.full}, France`);
-  const src = `https://maps.google.com/maps?q=${query}&z=16&hl=fr&output=embed`;
+async function CabinetMap({ className }: { className?: string }) {
+  const locale = await getLocale();
+  const t = await getTranslations("Common");
+  const query = encodeURIComponent(`${contactFacts.address.full}, France`);
+  const src = `https://maps.google.com/maps?q=${query}&z=16&hl=${locale}&output=embed`;
 
   return (
     <div
@@ -16,7 +20,7 @@ function CabinetMap({ className }: { className?: string }) {
       }
     >
       <iframe
-        title={`Carte — cabinet ${contactInfo.address.full}`}
+        title={t("mapTitle", { address: contactFacts.address.full })}
         src={src}
         className="aspect-[16/11] w-full border-0 sm:aspect-[16/9]"
         loading="lazy"

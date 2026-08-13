@@ -1,8 +1,7 @@
 "use client";
 
 import * as React from "react";
-import Link from "next/link";
-import { usePathname } from "next/navigation";
+import { useTranslations } from "next-intl";
 import { MenuIcon } from "lucide-react";
 
 import { Button } from "@/components/ui/button";
@@ -23,6 +22,8 @@ import {
 } from "@/components/ui/sheet";
 import { Container } from "@/components/layout/container";
 import { ThemeToggle } from "@/components/theme/theme-toggle";
+import { LocaleSwitcher } from "@/components/i18n/locale-switcher";
+import { Link, usePathname } from "@/i18n/navigation";
 import {
   browseNav,
   contactNav,
@@ -39,6 +40,7 @@ function isActivePath(pathname: string, href: string) {
 }
 
 function Navbar() {
+  const t = useTranslations("Nav");
   const [open, setOpen] = React.useState(false);
   const pathname = usePathname();
   const headerRef = React.useRef<HTMLElement>(null);
@@ -85,6 +87,7 @@ function Navbar() {
                       key={item.href}
                       item={item}
                       pathname={pathname}
+                      t={t}
                     />
                   );
                 }
@@ -101,7 +104,7 @@ function Navbar() {
                           active ? "opacity-100" : "opacity-70 hover:opacity-100"
                         )}
                       >
-                        {item.label}
+                        {t(item.labelKey)}
                       </Link>
                     </NavigationMenuLink>
                   </NavigationMenuItem>
@@ -116,9 +119,12 @@ function Navbar() {
             asChild
             className="hidden sm:inline-flex"
           >
-            <Link href={contactNav.href}>{contactNav.label}</Link>
+            <Link href={contactNav.href}>{t(contactNav.labelKey)}</Link>
           </Button>
 
+          <React.Suspense fallback={null}>
+            <LocaleSwitcher />
+          </React.Suspense>
           <ThemeToggle />
 
           <Sheet open={open} onOpenChange={setOpen}>
@@ -127,7 +133,7 @@ function Navbar() {
                 variant="ghost"
                 size="icon"
                 className="text-inherit hover:bg-white/10 hover:text-inherit lg:hidden [[data-scrolled=true]_&]:hover:bg-muted [[data-scrolled=true]_&]:hover:text-foreground"
-                aria-label="Ouvrir le menu"
+                aria-label={t("openMenu")}
               >
                 <MenuIcon />
               </Button>
@@ -143,7 +149,7 @@ function Navbar() {
               </SheetHeader>
               <nav
                 className="mt-8 flex flex-col gap-1"
-                aria-label="Navigation mobile"
+                aria-label={t("mobileNav")}
               >
                 {browseNav.map((item) => {
                   if (isNavGroup(item)) {
@@ -153,6 +159,7 @@ function Navbar() {
                         item={item}
                         pathname={pathname}
                         onNavigate={() => setOpen(false)}
+                        t={t}
                       />
                     );
                   }
@@ -162,6 +169,7 @@ function Navbar() {
                       item={item}
                       pathname={pathname}
                       onNavigate={() => setOpen(false)}
+                      t={t}
                     />
                   );
                 })}
@@ -169,12 +177,13 @@ function Navbar() {
                   item={contactNav}
                   pathname={pathname}
                   onNavigate={() => setOpen(false)}
+                  t={t}
                 />
               </nav>
               <div className="mt-6 px-1">
                 <Button variant="warm" className="w-full" asChild>
                   <Link href="/#rdv" onClick={() => setOpen(false)}>
-                    Prendre rendez-vous
+                    {t("bookAppointment")}
                   </Link>
                 </Button>
               </div>
@@ -189,9 +198,11 @@ function Navbar() {
 function ComprendreDesktopItem({
   item,
   pathname,
+  t,
 }: {
   item: NavGroup;
   pathname: string;
+  t: ReturnType<typeof useTranslations<"Nav">>;
 }) {
   const active = isActivePath(pathname, item.href);
 
@@ -207,11 +218,11 @@ function ComprendreDesktopItem({
               active ? "opacity-100" : "opacity-70 hover:opacity-100"
             )}
           >
-            {item.label}
+            {t(item.labelKey)}
           </Link>
         </NavigationMenuLink>
         <NavigationMenuTrigger
-          aria-label="Sous-pages Comprendre"
+          aria-label={t("subpagesUnderstand")}
           className={cn(
             "size-8 rounded-full bg-transparent px-0 hover:bg-transparent focus:bg-transparent data-open:bg-transparent data-popup-open:bg-transparent",
             active ? "opacity-100" : "opacity-70 hover:opacity-100"
@@ -226,7 +237,7 @@ function ComprendreDesktopItem({
                 href={item.href}
                 className="rounded-lg px-3 py-2.5 text-sm font-medium"
               >
-                Vue d’ensemble
+                {t("understandOverview")}
               </Link>
             </NavigationMenuLink>
           </li>
@@ -240,7 +251,7 @@ function ComprendreDesktopItem({
                   }
                   className="rounded-lg px-3 py-2.5 text-sm"
                 >
-                  {child.label}
+                  {t(child.labelKey)}
                 </Link>
               </NavigationMenuLink>
             </li>
@@ -255,11 +266,13 @@ function MobileNavLink({
   item,
   pathname,
   onNavigate,
+  t,
   indent = false,
 }: {
   item: NavItem;
   pathname: string;
   onNavigate: () => void;
+  t: ReturnType<typeof useTranslations<"Nav">>;
   indent?: boolean;
 }) {
   const active = isActivePath(pathname, item.href);
@@ -274,7 +287,7 @@ function MobileNavLink({
         active ? "bg-muted text-foreground" : "text-foreground hover:bg-muted"
       )}
     >
-      {item.label}
+      {t(item.labelKey)}
     </Link>
   );
 }
@@ -283,20 +296,28 @@ function MobileNavGroup({
   item,
   pathname,
   onNavigate,
+  t,
 }: {
   item: NavGroup;
   pathname: string;
   onNavigate: () => void;
+  t: ReturnType<typeof useTranslations<"Nav">>;
 }) {
   return (
     <div className="flex flex-col gap-0.5">
-      <MobileNavLink item={item} pathname={pathname} onNavigate={onNavigate} />
+      <MobileNavLink
+        item={item}
+        pathname={pathname}
+        onNavigate={onNavigate}
+        t={t}
+      />
       {item.children.map((child) => (
         <MobileNavLink
           key={child.href}
           item={child}
           pathname={pathname}
           onNavigate={onNavigate}
+          t={t}
           indent
         />
       ))}

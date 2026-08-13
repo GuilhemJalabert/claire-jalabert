@@ -1,0 +1,95 @@
+{
+  "LocaleSwitcher": {
+    "label": "Language selection",
+    "current": "Current language"
+  },
+  "Nav": {
+    "home": "Home",
+    "about": "About",
+    "accompaniments": "Support",
+    "understand": "Understand",
+    "understandOverview": "Overview",
+    "tsa": "Autism spectrum disorder",
+    "asperger": "Asperger syndrome",
+    "hpi": "Intellectual giftedness",
+    "otherMarkers": "Other markers & support",
+    "pricing": "Fees",
+    "contact": "Contact",
+    "bookAppointment": "Book an appointment",
+    "openMenu": "Open menu",
+    "subpagesUnderstand": "Understand subpages",
+    "mobileNav": "Mobile navigation"
+  },
+  "Footer": {
+    "navLabel": "Footer",
+    "consultationsAt": "{title} in {locations}. Consultations {modalities}."
+  },
+  "Common": {
+    "sendEmail": "Send an email",
+    "call": "Call",
+    "consultationsLabel": "Consultations:",
+    "appointmentTitle": "Book an appointment",
+    "appointmentDescription": "Contact the practice by phone (text message preferred) or by email.",
+    "directionsTrigger": "Get directions to the practice",
+    "directionsTitle": "Choose an app",
+    "directionsDescription": "Open directions to {address} in the app of your choice.",
+    "openInMaps": "Open in Maps",
+    "openInAppleMaps": "Open in Apple Maps",
+    "mapTitle": "Map — psychology practice, {address}",
+    "switchTheme": "Switch to {theme} mode"
+  },
+  "Home": {
+    "metaTitle": "{name} · {title} in Gan",
+    "heroDescription": "Clinical psychologist {locations}. Support for children, adolescents, adults, couples and families — particularly around intellectual and creative giftedness and Asperger syndrome.",
+    "visualCaption": "Gan",
+    "visualTitle": "Psychology practice",
+    "heroAltContemplation": "Contemplative illustration — silhouette and rose under a starry sky",
+    "heroAltLumiere": "Luminous illustration — contemplative pair in a field at sunrise",
+    "discoverAccompaniments": "Explore support options",
+    "presentationEyebrow": "Introduction",
+    "discoverPath": "Discover her background",
+    "photoCredit": "@vongvision by Nicolas Vongsuravatana",
+    "boatsAlt": "Sailboats on a glittering sea at dusk",
+    "desertAlt": "Dunes and palm trees at sunrise",
+    "audiencesEyebrow": "Who is welcomed",
+    "audiencesTitle": "Who is supported?",
+    "audiencesLead": "Children, adolescents, adults, couples and families.",
+    "accompanimentsEyebrow": "Support",
+    "cityAlt": "Lane and rooftops of a town by the water",
+    "colosseumAlt": "The Colosseum in Rome seen through foliage",
+    "domainsAside": "Every path is unique. These areas indicate the practice’s orientations.",
+    "seeDomains": "See areas of support",
+    "understandEyebrow": "Understand",
+    "understandTitle": "Markers to find your bearings",
+    "understandLead": "Educational guides to better grasp certain notions before or during support.",
+    "readDossier": "Read the guide",
+    "seeUnderstand": "See the Understand space",
+    "tsaTitle": "ASD",
+    "tsaDescription": "Understanding autism spectrum disorder.",
+    "aspergerTitle": "Asperger",
+    "aspergerDescription": "Clarifying the term and the profiles concerned.",
+    "hpiTitle": "Giftedness",
+    "hpiDescription": "Markers on intellectual giftedness.",
+    "otherTitle": "Other markers",
+    "otherDescription": "ADHD, sensory processing, stress and schooling.",
+    "approachEyebrow": "Approach",
+    "approachTitle": "The spirit of the sessions"
+  },
+  "About": {
+    "metaTitle": "About",
+    "metaDescription": "{name}, {title} {locations}. Background, HPIC and Asperger syndrome specialisations.",
+    "portraitAlt": "Sailboat on the Douro, Porto",
+    "teachingImageAlt": "Contemplative statue facing an illuminated dome at dusk, Rome"
+  },
+  "Accompaniments": {
+    "metaTitle": "Support",
+    "metaDescription": "Areas of support, sessions, therapies, mediations, assessments and evaluations — {name}, clinical psychologist in Gan."
+  },
+  "ContactPage": {
+    "metaTitle": "Contact",
+    "metaDescription": "Contact Claire Jalabert — {address}. Phone and email.",
+    "eyebrow": "Contact",
+    "title": "Book an appointment",
+    "description": "Consultations take place at the Gan practice, in person or by video."
+  }
+}

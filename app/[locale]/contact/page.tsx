@@ -1,5 +1,6 @@
 import type { Metadata } from "next";
-import Link from "next/link";
+import { getTranslations, setRequestLocale } from "next-intl/server";
+import { Link } from "@/i18n/navigation";
 import { MailIcon, MapPinIcon, PhoneIcon } from "lucide-react";
 
 import { Button } from "@/components/ui/button";
@@ -10,23 +11,43 @@ import { SectionHeading } from "@/components/sections/section-heading";
 import { CabinetMap } from "@/components/sections/cabinet-map";
 import { DirectionsButton } from "@/components/sections/directions-button";
 import { FadeIn } from "@/components/motion/fade-in";
-import { contactInfo } from "@/lib/content";
-import { accompanimentsContactMention } from "@/lib/accompagnements";
+import { languageAlternates } from "@/i18n/metadata";
+import { asAppLocale } from "@/i18n/routing";
+import { contactFacts, getContent } from "@/lib/content";
+import { getAccompaniments } from "@/lib/accompagnements";
 
-export const metadata: Metadata = {
-  title: "Contact",
-  description: `Contacter Claire Jalabert — ${contactInfo.address.full}. Téléphone et e-mail.`,
-};
+type Props = { params: Promise<{ locale: string }> };
 
-export default function ContactPage() {
+export async function generateMetadata({ params }: Props): Promise<Metadata> {
+  const locale = asAppLocale((await params).locale);
+  const t = await getTranslations({ locale, namespace: "ContactPage" });
+
+  return {
+    title: t("metaTitle"),
+    description: t("metaDescription", {
+      address: contactFacts.address.full,
+    }),
+    alternates: languageAlternates(locale, "/contact"),
+  };
+}
+
+export default async function ContactPage({ params }: Props) {
+  const locale = asAppLocale((await params).locale);
+  setRequestLocale(locale);
+
+  const t = await getTranslations("ContactPage");
+  const tCommon = await getTranslations("Common");
+  const { contact } = getContent(locale);
+  const { contactMention } = getAccompaniments(locale);
+
   return (
     <Section atmosphere="phase-5" className="relative min-h-[60vh] overflow-hidden">
       <Container className="relative flex max-w-2xl flex-col gap-10 py-8">
         <SectionHeading
           as="h1"
-          eyebrow="Contact"
-          title="Prendre rendez-vous"
-          description="Les consultations se déroulent au cabinet de Gan, en présentiel ou par visioconférence."
+          eyebrow={t("eyebrow")}
+          title={t("title")}
+          description={t("description")}
         />
 
         <FadeIn className="flex flex-col gap-6">
@@ -35,14 +56,14 @@ export default function ContactPage() {
             <div>
               <p className="text-foreground font-medium">
                 <a
-                  href={`tel:${contactInfo.phoneTel}`}
+                  href={`tel:${contactFacts.phoneTel}`}
                   className="hover:text-primary transition-colors"
                 >
-                  {contactInfo.phoneDisplay}
+                  {contactFacts.phoneDisplay}
                 </a>
               </p>
               <p className="text-small text-muted-foreground">
-                {contactInfo.phoneNote}
+                {contact.phoneNote}
               </p>
             </div>
           </div>
@@ -52,10 +73,10 @@ export default function ContactPage() {
             <div>
               <p className="text-foreground font-medium">
                 <a
-                  href={`mailto:${contactInfo.email}`}
+                  href={`mailto:${contactFacts.email}`}
                   className="hover:text-primary transition-colors"
                 >
-                  {contactInfo.email}
+                  {contactFacts.email}
                 </a>
               </p>
             </div>
@@ -66,10 +87,11 @@ export default function ContactPage() {
             <div className="flex min-w-0 flex-1 flex-col gap-4">
               <div>
                 <p className="text-foreground font-medium">
-                  {contactInfo.address.full}
+                  {contactFacts.address.full}
                 </p>
                 <p className="text-small text-muted-foreground">
-                  Consultations {contactInfo.modalities}
+                  {tCommon("consultationsLabel").replace(":", "").trim()}{" "}
+                  {contact.modalities}
                 </p>
               </div>
 
@@ -83,18 +105,18 @@ export default function ContactPage() {
         <Separator className="bg-border/50" />
 
         <p className="text-small text-muted-foreground text-pretty">
-          {accompanimentsContactMention.body}{" "}
+          {contactMention.body}{" "}
           <Link
-            href={accompanimentsContactMention.ctaHref}
+            href={contactMention.ctaHref}
             className="link-continue font-medium"
           >
-            {accompanimentsContactMention.ctaLabel}
+            {contactMention.ctaLabel}
           </Link>
         </p>
 
         <div className="flex flex-col gap-3 sm:flex-row">
           <Button size="lg" variant="warm" asChild className="w-full sm:w-auto">
-            <a href={`tel:${contactInfo.phoneTel}`}>Appeler</a>
+            <a href={`tel:${contactFacts.phoneTel}`}>{tCommon("call")}</a>
           </Button>
           <Button
             size="lg"
@@ -102,7 +124,7 @@ export default function ContactPage() {
             asChild
             className="w-full sm:w-auto"
           >
-            <a href={`mailto:${contactInfo.email}`}>Envoyer un e-mail</a>
+            <a href={`mailto:${contactFacts.email}`}>{tCommon("sendEmail")}</a>
           </Button>
         </div>
       </Container>

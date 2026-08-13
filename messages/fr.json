@@ -1,0 +1,95 @@
+{
+  "LocaleSwitcher": {
+    "label": "Choix de la langue",
+    "current": "Langue actuelle"
+  },
+  "Nav": {
+    "home": "Accueil",
+    "about": "À propos",
+    "accompaniments": "Accompagnements",
+    "understand": "Comprendre",
+    "understandOverview": "Vue d’ensemble",
+    "tsa": "Trouble du spectre de l’autisme",
+    "asperger": "Syndrome d’Asperger",
+    "hpi": "Haut Potentiel Intellectuel",
+    "otherMarkers": "Autres repères & accompagnements",
+    "pricing": "Tarifs",
+    "contact": "Contact",
+    "bookAppointment": "Prendre rendez-vous",
+    "openMenu": "Ouvrir le menu",
+    "subpagesUnderstand": "Sous-pages Comprendre",
+    "mobileNav": "Navigation mobile"
+  },
+  "Footer": {
+    "navLabel": "Pied de page",
+    "consultationsAt": "{title} à {locations}. Consultations {modalities}."
+  },
+  "Common": {
+    "sendEmail": "Envoyer un e-mail",
+    "call": "Appeler",
+    "consultationsLabel": "Consultations :",
+    "appointmentTitle": "Prendre rendez-vous",
+    "appointmentDescription": "Contactez le cabinet par téléphone (SMS de préférence) ou par e-mail.",
+    "directionsTrigger": "Démarrer l’itinéraire vers le cabinet",
+    "directionsTitle": "Choisir une application",
+    "directionsDescription": "Ouvrez l’itinéraire vers {address} dans l’application de votre choix.",
+    "openInMaps": "Ouvrir dans Maps",
+    "openInAppleMaps": "Ouvrir dans Plans",
+    "mapTitle": "Carte — cabinet de psychologie, {address}",
+    "switchTheme": "Passer en mode {theme}"
+  },
+  "Home": {
+    "metaTitle": "{name} · {title} à Gan",
+    "heroDescription": "Psychologue clinicienne {locations}. Accompagnement des enfants, adolescents, adultes, couples et familles — notamment autour du Haut Potentiel Intellectuel et Créatif et du Syndrome d’Asperger.",
+    "visualCaption": "Gan",
+    "visualTitle": "Cabinet de psychologie",
+    "heroAltContemplation": "Illustration contemplative — silhouette et rose sous un ciel étoilé",
+    "heroAltLumiere": "Illustration lumineuse — duo contemplatif dans un champ au soleil levant",
+    "discoverAccompaniments": "Découvrir les accompagnements",
+    "presentationEyebrow": "Présentation",
+    "discoverPath": "Découvrir son parcours",
+    "photoCredit": "@vongvision par Nicolas Vongsuravatana",
+    "boatsAlt": "Voiliers sur une mer scintillante au crépuscule",
+    "desertAlt": "Dunes et palmiers au soleil levant",
+    "audiencesEyebrow": "Publics",
+    "audiencesTitle": "Qui est accompagné ?",
+    "audiencesLead": "Enfants, adolescents, adultes, couples et familles.",
+    "accompanimentsEyebrow": "Accompagnements",
+    "cityAlt": "Ruelle et toits d’une ville au bord de l’eau",
+    "colosseumAlt": "Colisée de Rome vu à travers le feuillage",
+    "domainsAside": "Chaque parcours est singulier. Ces domaines indiquent les orientations du cabinet.",
+    "seeDomains": "Voir les domaines d’accompagnement",
+    "understandEyebrow": "Comprendre",
+    "understandTitle": "Des repères pour s’orienter",
+    "understandLead": "Des dossiers pédagogiques pour mieux saisir certaines notions avant ou pendant un accompagnement.",
+    "readDossier": "Lire le dossier",
+    "seeUnderstand": "Voir l’espace Comprendre",
+    "tsaTitle": "TSA",
+    "tsaDescription": "Comprendre le trouble du spectre de l’autisme.",
+    "aspergerTitle": "Asperger",
+    "aspergerDescription": "Clarifier le terme et les profils concernés.",
+    "hpiTitle": "HPI",
+    "hpiDescription": "Repères sur le haut potentiel intellectuel.",
+    "otherTitle": "Autres repères",
+    "otherDescription": "TDAH, sensorialité, stress et scolarité.",
+    "approachEyebrow": "Approche",
+    "approachTitle": "L’esprit des entretiens"
+  },
+  "About": {
+    "metaTitle": "À propos",
+    "metaDescription": "{name}, {title} {locations}. Parcours, spécialisations HPIC et Syndrome d’Asperger.",
+    "portraitAlt": "Voilier sur le Douro, Porto",
+    "teachingImageAlt": "Statue contemplative face à un dôme illuminé au crépuscule, Rome"
+  },
+  "Accompaniments": {
+    "metaTitle": "Accompagnements",
+    "metaDescription": "Domaines d’accompagnement, entretiens, thérapies, médiations, bilans et évaluations — {name}, psychologue clinicienne à Gan."
+  },
+  "ContactPage": {
+    "metaTitle": "Contact",
+    "metaDescription": "Contacter Claire Jalabert — {address}. Téléphone et e-mail.",
+    "eyebrow": "Contact",
+    "title": "Prendre rendez-vous",
+    "description": "Les consultations se déroulent au cabinet de Gan, en présentiel ou par visioconférence."
+  }
+}

@@ -1,0 +1,95 @@
+{
+  "LocaleSwitcher": {
+    "label": "Elección de idioma",
+    "current": "Idioma actual"
+  },
+  "Nav": {
+    "home": "Inicio",
+    "about": "Quién soy",
+    "accompaniments": "Acompañamientos",
+    "understand": "Comprender",
+    "understandOverview": "Vista general",
+    "tsa": "Trastorno del espectro autista",
+    "asperger": "Síndrome de Asperger",
+    "hpi": "Alto potencial intelectual",
+    "otherMarkers": "Otros referentes y acompañamientos",
+    "pricing": "Tarifas",
+    "contact": "Contacto",
+    "bookAppointment": "Pedir cita",
+    "openMenu": "Abrir el menú",
+    "subpagesUnderstand": "Subpáginas Comprender",
+    "mobileNav": "Navegación móvil"
+  },
+  "Footer": {
+    "navLabel": "Pie de página",
+    "consultationsAt": "{title} en {locations}. Consultas {modalities}."
+  },
+  "Common": {
+    "sendEmail": "Enviar un correo",
+    "call": "Llamar",
+    "consultationsLabel": "Consultas:",
+    "appointmentTitle": "Pedir cita",
+    "appointmentDescription": "Contacte la consulta por teléfono (preferiblemente por SMS) o por correo electrónico.",
+    "directionsTrigger": "Iniciar el itinerario hacia la consulta",
+    "directionsTitle": "Elegir una aplicación",
+    "directionsDescription": "Abra el itinerario hacia {address} en la aplicación de su elección.",
+    "openInMaps": "Abrir en Maps",
+    "openInAppleMaps": "Abrir en Mapas",
+    "mapTitle": "Mapa — consulta de psicología, {address}",
+    "switchTheme": "Pasar al modo {theme}"
+  },
+  "Home": {
+    "metaTitle": "{name} · {title} en Gan",
+    "heroDescription": "Psicóloga clínica {locations}. Acompañamiento de niños, adolescentes, adultos, parejas y familias — en particular en torno al alto potencial intelectual y creativo y al síndrome de Asperger.",
+    "visualCaption": "Gan",
+    "visualTitle": "Consulta de psicología",
+    "heroAltContemplation": "Ilustración contemplativa — silueta y rosa bajo un cielo estrellado",
+    "heroAltLumiere": "Ilustración luminosa — dúo contemplativo en un campo al amanecer",
+    "discoverAccompaniments": "Descubrir los acompañamientos",
+    "presentationEyebrow": "Presentación",
+    "discoverPath": "Descubrir su recorrido",
+    "photoCredit": "@vongvision de Nicolas Vongsuravatana",
+    "boatsAlt": "Veleros sobre un mar brillante al crepúsculo",
+    "desertAlt": "Dunas y palmeras al amanecer",
+    "audiencesEyebrow": "Público",
+    "audiencesTitle": "¿Quién es acompañado?",
+    "audiencesLead": "Niños, adolescentes, adultos, parejas y familias.",
+    "accompanimentsEyebrow": "Acompañamientos",
+    "cityAlt": "Callejón y tejados de una ciudad junto al agua",
+    "colosseumAlt": "El Coliseo de Roma visto a través del follaje",
+    "domainsAside": "Cada recorrido es único. Estos ámbitos indican las orientaciones de la consulta.",
+    "seeDomains": "Ver los ámbitos de acompañamiento",
+    "understandEyebrow": "Comprender",
+    "understandTitle": "Referentes para orientarse",
+    "understandLead": "Dossiers pedagógicos para comprender mejor algunas nociones antes o durante un acompañamiento.",
+    "readDossier": "Leer el dossier",
+    "seeUnderstand": "Ver el espacio Comprender",
+    "tsaTitle": "TEA",
+    "tsaDescription": "Comprender el trastorno del espectro autista.",
+    "aspergerTitle": "Asperger",
+    "aspergerDescription": "Aclarar el término y los perfiles concernidos.",
+    "hpiTitle": "HPI",
+    "hpiDescription": "Referentes sobre el alto potencial intelectual.",
+    "otherTitle": "Otros referentes",
+    "otherDescription": "TDAH, sensorialidad, estrés y escolaridad.",
+    "approachEyebrow": "Enfoque",
+    "approachTitle": "El espíritu de las entrevistas"
+  },
+  "About": {
+    "metaTitle": "Quién soy",
+    "metaDescription": "{name}, {title} {locations}. Recorrido, especializaciones HPIC y síndrome de Asperger.",
+    "portraitAlt": "Velero en el Duero, Oporto",
+    "teachingImageAlt": "Estatua contemplativa frente a una cúpula iluminada al crepúsculo, Roma"
+  },
+  "Accompaniments": {
+    "metaTitle": "Acompañamientos",
+    "metaDescription": "Ámbitos de acompañamiento, entrevistas, terapias, mediaciones, evaluaciones y balances — {name}, psicóloga clínica en Gan."
+  },
+  "ContactPage": {
+    "metaTitle": "Contacto",
+    "metaDescription": "Contactar a Claire Jalabert — {address}. Teléfono y correo electrónico.",
+    "eyebrow": "Contacto",
+    "title": "Pedir cita",
+    "description": "Las consultas se realizan en el gabinete de Gan, presencialmente o por videoconsulta."
+  }
+}

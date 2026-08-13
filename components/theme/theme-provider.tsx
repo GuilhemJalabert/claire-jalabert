@@ -5,6 +5,7 @@ import * as React from "react";
 import {
   applyThemeToDocument,
   isTheme,
+  resolveInitialTheme,
   THEME_STORAGE_KEY,
   type Theme,
 } from "@/lib/theme";
@@ -48,6 +49,10 @@ function getServerSnapshot(): Theme {
 }
 
 function ThemeProvider({ children }: { children: React.ReactNode }) {
+  React.useLayoutEffect(() => {
+    applyThemeToDocument(resolveInitialTheme());
+  }, []);
+
   const theme = React.useSyncExternalStore(
     subscribe,
     getThemeSnapshot,

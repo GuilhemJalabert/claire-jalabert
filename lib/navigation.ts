@@ -1,10 +1,21 @@
 export type NavItem = {
   href: string;
-  label: string;
+  /** Clé de traduction dans le namespace Nav */
+  labelKey:
+    | "home"
+    | "about"
+    | "accompaniments"
+    | "understand"
+    | "tsa"
+    | "asperger"
+    | "hpi"
+    | "otherMarkers"
+    | "pricing"
+    | "contact";
 };
 
 export type NavGroup = {
-  label: string;
+  labelKey: NavItem["labelKey"];
   href: string;
   children: NavItem[];
 };
@@ -14,37 +25,25 @@ export type NavGroup = {
  * Contact est exposé à part comme CTA (voir `contactNav`).
  */
 export const browseNav: Array<NavItem | NavGroup> = [
-  { href: "/", label: "Accueil" },
-  { href: "/a-propos", label: "À propos" },
-  { href: "/accompagnements", label: "Accompagnements" },
+  { href: "/", labelKey: "home" },
+  { href: "/a-propos", labelKey: "about" },
+  { href: "/accompagnements", labelKey: "accompaniments" },
   {
-    label: "Comprendre",
+    labelKey: "understand",
     href: "/comprendre",
     children: [
-      {
-        href: "/comprendre/tsa",
-        label: "Trouble du spectre de l’autisme",
-      },
-      {
-        href: "/comprendre/asperger",
-        label: "Syndrome d’Asperger",
-      },
-      {
-        href: "/comprendre/hpi",
-        label: "Haut Potentiel Intellectuel",
-      },
-      {
-        href: "/comprendre/autres-reperes",
-        label: "Autres repères & accompagnements",
-      },
+      { href: "/comprendre/tsa", labelKey: "tsa" },
+      { href: "/comprendre/asperger", labelKey: "asperger" },
+      { href: "/comprendre/hpi", labelKey: "hpi" },
+      { href: "/comprendre/autres-reperes", labelKey: "otherMarkers" },
     ],
   },
-  { href: "/tarifs", label: "Tarifs" },
+  { href: "/tarifs", labelKey: "pricing" },
 ];
 
 export const contactNav: NavItem = {
   href: "/contact",
-  label: "Contact",
+  labelKey: "contact",
 };
 
 function isNavGroup(item: NavItem | NavGroup): item is NavGroup {
@@ -55,7 +54,7 @@ function isNavGroup(item: NavItem | NavGroup): item is NavGroup {
 export const mainNav: NavItem[] = [
   ...browseNav.flatMap((item) =>
     isNavGroup(item)
-      ? [{ href: item.href, label: item.label }, ...item.children]
+      ? [{ href: item.href, labelKey: item.labelKey }, ...item.children]
       : [item],
   ),
   contactNav,

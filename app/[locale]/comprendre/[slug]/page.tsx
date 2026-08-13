@@ -1,7 +1,10 @@
 import type { Metadata } from "next"
 import { notFound } from "next/navigation"
+import { setRequestLocale } from "next-intl/server"
 
 import { EducationalArticlePage } from "@/components/educational/article-page"
+import { languageAlternates } from "@/i18n/metadata"
+import { asAppLocale } from "@/i18n/routing"
 import {
   educationalArticles,
   getEducationalArticle,
@@ -9,7 +12,7 @@ import {
 import { siteConfig } from "@/lib/site"
 
 type PageProps = {
-  params: Promise<{ slug: string }>
+  params: Promise<{ locale: string; slug: string }>
 }
 
 export function generateStaticParams() {
@@ -19,13 +22,15 @@ export function generateStaticParams() {
 export async function generateMetadata({
   params,
 }: PageProps): Promise<Metadata> {
-  const { slug } = await params
+  const { locale: localeParam, slug } = await params
+  const locale = asAppLocale(localeParam)
   const article = getEducationalArticle(slug)
   if (!article) return {}
 
   return {
     title: article.metaTitle,
     description: article.metaDescription,
+    alternates: languageAlternates(locale, `/comprendre/${article.slug}`),
     openGraph: {
       title: article.metaTitle,
       description: article.metaDescription,
@@ -36,7 +41,9 @@ export async function generateMetadata({
 }
 
 export default async function ComprendreArticleRoute({ params }: PageProps) {
-  const { slug } = await params
+  const { locale: localeParam, slug } = await params
+  const locale = asAppLocale(localeParam)
+  setRequestLocale(locale)
   const article = getEducationalArticle(slug)
   if (!article) notFound()
 

@@ -1,6 +1,7 @@
 import type { Metadata } from "next";
 import Image from "next/image";
-import Link from "next/link";
+import { getTranslations, setRequestLocale } from "next-intl/server";
+import { Link } from "@/i18n/navigation";
 
 import { Badge } from "@/components/ui/badge";
 import { Button } from "@/components/ui/button";
@@ -21,22 +22,38 @@ import { SoftHalo } from "@/components/decor/soft-halo";
 import { Star } from "@/components/decor/star";
 import { Starfield } from "@/components/decor/starfield";
 import { ExpertiseCard } from "@/components/sections/expertise-card";
-import {
-  accompanimentMediationVisuals,
-  accompanimentServices,
-  accompanimentsPage,
-  assessmentServices,
-} from "@/lib/accompagnements";
+import { languageAlternates } from "@/i18n/metadata";
+import { asAppLocale } from "@/i18n/routing";
+import { getAccompaniments } from "@/lib/accompagnements";
 import { cn } from "@/lib/utils";
 import { siteConfig } from "@/lib/site";
 
-export const metadata: Metadata = {
-  title: "Accompagnements",
-  description: `Domaines d’accompagnement, entretiens, thérapies, médiations, bilans et évaluations — ${siteConfig.name}, psychologue clinicienne à Gan.`,
-};
+type Props = { params: Promise<{ locale: string }> };
 
-export default function AccompanimentsPage() {
-  const { hero, domains, services, assessments } = accompanimentsPage;
+export async function generateMetadata({ params }: Props): Promise<Metadata> {
+  const locale = asAppLocale((await params).locale);
+  const t = await getTranslations({ locale, namespace: "Accompaniments" });
+
+  return {
+    title: t("metaTitle"),
+    description: t("metaDescription", { name: siteConfig.name }),
+    alternates: languageAlternates(locale, "/accompagnements"),
+  };
+}
+
+export default async function AccompanimentsPage({ params }: Props) {
+  const locale = asAppLocale((await params).locale);
+  setRequestLocale(locale);
+
+  const tNav = await getTranslations("Nav");
+  const {
+    page,
+    services: accompanimentServices,
+    mediationVisuals: accompanimentMediationVisuals,
+    assessments: assessmentServices,
+  } = getAccompaniments(locale);
+  const { hero, domains, services, assessments, understandLinks, cabinetCta } =
+    page;
 
   return (
     <>
@@ -75,16 +92,16 @@ export default function AccompanimentsPage() {
 
           <p className="text-small text-muted-foreground flex flex-wrap gap-x-4 gap-y-2">
             <Link href="/comprendre/tsa" className="link-continue font-medium">
-              Comprendre le TSA
+              {understandLinks.tsa}
             </Link>
             <Link
               href="/comprendre/asperger"
               className="link-continue font-medium"
             >
-              Comprendre le syndrome d’Asperger
+              {understandLinks.asperger}
             </Link>
             <Link href="/comprendre/hpi" className="link-continue font-medium">
-              Comprendre le HPI
+              {understandLinks.hpi}
             </Link>
           </p>
         </Container>
@@ -284,11 +301,10 @@ export default function AccompanimentsPage() {
 
                 <div className="relative flex flex-col items-start gap-5 border-t border-border/40 p-8 sm:p-10 md:border-t-0 md:border-l lg:p-12">
                   <p className="text-caption text-[color:var(--card-muted-foreground)]">
-                    Cabinet
+                    {cabinetCta.eyebrow}
                   </p>
                   <p className="font-display text-card-foreground text-2xl leading-snug tracking-tight text-balance sm:text-3xl">
-                    Pour un rendez-vous ou une question pratique, contactez le
-                    cabinet.
+                    {cabinetCta.body}
                   </p>
                   <Separator className="bg-border/40 max-w-[3rem]" />
                   <Button
@@ -297,7 +313,7 @@ export default function AccompanimentsPage() {
                     asChild
                     className="w-full sm:w-auto"
                   >
-                    <Link href="/#rdv">Prendre rendez-vous</Link>
+                    <Link href="/#rdv">{tNav("bookAppointment")}</Link>
                   </Button>
                 </div>
               </div>

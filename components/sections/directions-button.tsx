@@ -1,6 +1,7 @@
 "use client";
 
 import { NavigationIcon } from "lucide-react";
+import { useTranslations } from "next-intl";
 
 import { Button } from "@/components/ui/button";
 import {
@@ -11,7 +12,7 @@ import {
   SheetTitle,
   SheetTrigger,
 } from "@/components/ui/sheet";
-import { contactInfo } from "@/lib/content";
+import { contactFacts } from "@/lib/content";
 
 function getDirectionsUrls(destination: string) {
   const encoded = encodeURIComponent(destination);
@@ -25,35 +26,37 @@ function getDirectionsUrls(destination: string) {
  * Bouton d’itinéraire — choix Maps (Google) ou Plans (Apple).
  */
 function DirectionsButton() {
-  const urls = getDirectionsUrls(contactInfo.address.full);
+  const t = useTranslations("Common");
+  const urls = getDirectionsUrls(contactFacts.address.full);
 
   return (
     <Sheet>
       <SheetTrigger asChild>
         <Button size="lg" variant="warm" className="w-full sm:w-auto">
           <NavigationIcon data-icon="inline-start" />
-          Démarrer l’itinéraire vers le cabinet
+          {t("directionsTrigger")}
         </Button>
       </SheetTrigger>
       <SheetContent side="bottom" className="gap-5 rounded-t-3xl px-6 pb-8">
         <SheetHeader className="gap-2 p-0 text-left">
           <SheetTitle className="font-display text-xl tracking-tight">
-            Choisir une application
+            {t("directionsTitle")}
           </SheetTitle>
           <SheetDescription>
-            Ouvrez l’itinéraire vers {contactInfo.address.full} dans
-            l’application de votre choix.
+            {t("directionsDescription", {
+              address: contactFacts.address.full,
+            })}
           </SheetDescription>
         </SheetHeader>
         <div className="flex flex-col gap-3">
           <Button size="lg" variant="secondary" asChild className="w-full justify-center">
             <a href={urls.google} target="_blank" rel="noopener noreferrer">
-              Ouvrir dans Maps
+              {t("openInMaps")}
             </a>
           </Button>
           <Button size="lg" variant="outline" asChild className="w-full justify-center">
             <a href={urls.apple} target="_blank" rel="noopener noreferrer">
-              Ouvrir dans Plans
+              {t("openInAppleMaps")}
             </a>
           </Button>
         </div>
