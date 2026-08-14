@@ -77,7 +77,7 @@ const fr: AccompanimentsBundle = {
       title: "Domaines d’accompagnement",
       lead: "Thématiques mises en avant au cabinet.",
       items: [
-        "Haut Potentiel Intellectuel / Créatif (HPIC)",
+        "Haut Potentiel Intellectuel (HPI) et Haut Potentiel Créatif (HPC)",
         "Syndrome d’Asperger",
         "Relations familiales",
         "Thérapie de couple",
@@ -101,7 +101,7 @@ const fr: AccompanimentsBundle = {
       eyebrow: "Évaluations",
       title: "Bilans & évaluations",
       intro:
-        "Différents bilans et outils d’évaluation peuvent être proposés afin de mieux comprendre le fonctionnement cognitif, émotionnel, sensoriel ou relationnel de la personne et d’éclairer l’accompagnement.",
+        "Différents bilans et outils d’évaluation sont proposés et adaptés à chaque personne selon sa situation et sa demande.",
       ctaTitle: "Une question concernant un bilan ?",
       ctaBody:
         "Le secrétariat peut vous renseigner sur les modalités et vous orienter selon votre demande.",
@@ -129,7 +129,7 @@ const fr: AccompanimentsBundle = {
       id: "therapeutique-enfant",
       title: "Entretien thérapeutique enfant",
       description:
-        "Expression du vécu et des émotions via des médiations adaptées (jeux, dessin, constructions…).",
+        "Expression du vécu et des émotions via des médiations adaptées (jeux, dessins, constructions, médiation avec la nature, médiation animale).",
     },
     {
       id: "therapeutique-adolescent",
@@ -141,19 +141,19 @@ const fr: AccompanimentsBundle = {
       id: "therapeutique-adulte",
       title: "Entretien thérapeutique adulte",
       description:
-        "Écoute active et bienveillante du vécu, des émotions, des besoins et des modalités relationnelles.",
+        "Entretien centré sur le vécu, les émotions et les besoins, avec un travail autour de l’estime de soi, de la confiance en soi et de l’autonomie psychique. L’accompagnement peut également soutenir l’élaboration d’une résilience face aux blessures rencontrées au cours du parcours de vie.",
     },
     {
       id: "therapie-couple",
       title: "Thérapie de couple",
       description:
-        "Travail sur la relation, ses conflits, son histoire et les liens affectifs — y compris approche transgénérationnelle.",
+        "Travail sur la relation, les besoins de chacun, les hypersensibilités sensorielles lorsqu’elles sont présentes, et la recherche d’un équilibre commun. L’accompagnement soutient le respect des différences, les nouvelles potentialités de chacun et l’évolution individuelle au sein du couple — y compris, lorsque c’est pertinent, une approche transgénérationnelle.",
     },
     {
       id: "mediation-familiale",
       title: "Médiation familiale",
       description:
-        "Accompagnement des enjeux relationnels au sein de la famille.",
+        "Accompagnement des enjeux relationnels au sein de la famille. Accompagnement de la parentalité avec des enfants neuroatypiques.",
     },
     {
       id: "mediation-scolaire",
@@ -178,6 +178,18 @@ const fr: AccompanimentsBundle = {
       description:
         "Suivi thérapeutique accompagné par le contact avec la nature, pour soutenir le cheminement et le ressenti.",
     },
+    {
+      id: "parentalite",
+      title: "Accompagnement à la parentalité",
+      description:
+        "Accompagnement à la parentalité en individuel ou en groupe, et formation des parents autour du HPI et des neuroatypies.",
+    },
+    {
+      id: "professionnels",
+      title: "Accompagnement des professionnels",
+      description:
+        "Accompagnement et supervision des professionnels travaillant auprès de profils neuroatypiques, ainsi que des enseignants du primaire et du secondaire.",
+    },
   ],
   mediationVisuals: [
     {
@@ -201,7 +213,7 @@ const fr: AccompanimentsBundle = {
       title: "Bilan neuropsychologique complet",
       note: "Enfant & adulte",
       description:
-        "Une évaluation approfondie du fonctionnement cognitif permettant d’explorer notamment l’attention, la mémoire, le raisonnement et les fonctions exécutives.",
+        "Une évaluation approfondie du fonctionnement cognitif permettant d’explorer notamment l’attention, la mémoire, le raisonnement, les fonctions exécutives et le rapport au langage.",
       learnMore: null,
     },
     {
@@ -269,7 +281,7 @@ const fr: AccompanimentsBundle = {
       {
         title: "Enfants",
         description:
-          "Accompagnement adapté, notamment via des médiations (jeux, dessins, constructions…).",
+          "Accompagnement adapté, notamment via des médiations (jeux, dessins, constructions, médiation avec la nature, médiation animale).",
       },
       {
         title: "Adolescents",
@@ -279,17 +291,17 @@ const fr: AccompanimentsBundle = {
       {
         title: "Adultes",
         description:
-          "Entretiens centrés sur le vécu, les émotions et les besoins.",
+          "Entretiens centrés sur le vécu, les émotions et les besoins, avec un travail autour de l’estime de soi, de la confiance en soi et de l’autonomie psychique.",
       },
       {
         title: "Couples",
         description:
-          "Travail sur la relation, ses fragilités et son équilibre.",
+          "Travail sur la relation, les besoins de chacun, les hypersensibilités éventuelles et la recherche d’un équilibre commun.",
       },
       {
         title: "Familles",
         description:
-          "Accompagnement des relations familiales et médiation.",
+          "Accompagnement des relations familiales et de la parentalité avec des enfants neuroatypiques.",
       },
       {
         title: "Bilans & évaluations",
@@ -332,7 +344,7 @@ const en: AccompanimentsBundle = {
       title: "Areas of support",
       lead: "Themes highlighted at the practice.",
       items: [
-        "Intellectual / creative giftedness (HPIC)",
+        "Intellectual giftedness (HPI) and creative giftedness (HPC)",
         "Asperger syndrome",
         "Family relationships",
         "Couple therapy",
@@ -356,7 +368,7 @@ const en: AccompanimentsBundle = {
       eyebrow: "Evaluations",
       title: "Assessments & evaluations",
       intro:
-        "Different assessments and evaluation tools may be offered to better understand cognitive, emotional, sensory or relational functioning and to clarify the support provided.",
+        "Different assessments and evaluation tools are offered and adapted to each person according to their situation and request.",
       ctaTitle: "A question about an assessment?",
       ctaBody:
         "The practice can tell you more about the practical details and guide you according to your request.",
@@ -384,7 +396,7 @@ const en: AccompanimentsBundle = {
       id: "therapeutique-enfant",
       title: "Therapeutic session for children",
       description:
-        "Expressing experience and emotions through adapted mediations (play, drawing, construction…).",
+        "Expressing experience and emotions through adapted mediations (play, drawing, construction, nature-based mediation, animal-assisted mediation).",
     },
     {
       id: "therapeutique-adolescent",
@@ -396,18 +408,19 @@ const en: AccompanimentsBundle = {
       id: "therapeutique-adulte",
       title: "Therapeutic session for adults",
       description:
-        "Active, attentive listening to lived experience, emotions, needs and relational patterns.",
+        "Sessions centred on lived experience, emotions and needs, with work on self-esteem, self-confidence and psychic autonomy. Support can also help elaborate resilience in the face of wounds encountered along a life path.",
     },
     {
       id: "therapie-couple",
       title: "Couple therapy",
       description:
-        "Work on the relationship, its conflicts, its history and affective bonds — including a transgenerational approach.",
+        "Work on the relationship, each partner’s needs, sensory hypersensitivities when they are present, and the search for a shared balance. Support fosters respect for differences, each person’s new potential and individual development within the couple — including, when relevant, a transgenerational approach.",
     },
     {
       id: "mediation-familiale",
       title: "Family mediation",
-      description: "Support around relational issues within the family.",
+      description:
+        "Support around relational issues within the family. Parenting support with neurodivergent children.",
     },
     {
       id: "mediation-scolaire",
@@ -432,6 +445,18 @@ const en: AccompanimentsBundle = {
       description:
         "Therapeutic follow-up accompanied by contact with nature, to support the process and felt experience.",
     },
+    {
+      id: "parentalite",
+      title: "Parenting support",
+      description:
+        "Parenting support individually or in a group, and parent training around HPI and neurodivergence.",
+    },
+    {
+      id: "professionnels",
+      title: "Support for professionals",
+      description:
+        "Support and supervision for professionals working with neurodivergent profiles, as well as for primary and secondary teachers.",
+    },
   ],
   mediationVisuals: [
     {
@@ -455,7 +480,7 @@ const en: AccompanimentsBundle = {
       title: "Full neuropsychological assessment",
       note: "Child & adult",
       description:
-        "An in-depth evaluation of cognitive functioning, exploring attention, memory, reasoning and executive functions in particular.",
+        "An in-depth evaluation of cognitive functioning, exploring attention, memory, reasoning, executive functions and the relationship to language in particular.",
       learnMore: null,
     },
     {
@@ -523,7 +548,7 @@ const en: AccompanimentsBundle = {
       {
         title: "Children",
         description:
-          "Adapted support, including through mediations (play, drawing, construction…).",
+          "Adapted support, including through mediations (play, drawing, construction, nature-based mediation, animal-assisted mediation).",
       },
       {
         title: "Adolescents",
@@ -533,16 +558,17 @@ const en: AccompanimentsBundle = {
       {
         title: "Adults",
         description:
-          "Sessions centred on lived experience, emotions and needs.",
+          "Sessions centred on lived experience, emotions and needs, with work on self-esteem, self-confidence and psychic autonomy.",
       },
       {
         title: "Couples",
         description:
-          "Work on the relationship, its vulnerabilities and its balance.",
+          "Work on the relationship, each partner’s needs, possible sensory hypersensitivities and the search for a shared balance.",
       },
       {
         title: "Families",
-        description: "Support for family relationships and mediation.",
+        description:
+          "Support for family relationships and for parenting with neurodivergent children.",
       },
       {
         title: "Assessments & evaluations",
@@ -585,7 +611,7 @@ const it: AccompanimentsBundle = {
       title: "Ambiti di accompagnamento",
       lead: "Tematiche valorizzate nello studio.",
       items: [
-        "Alto potenziale intellettivo / creativo (HPIC)",
+        "Alto potenziale intellettivo (HPI) e alto potenziale creativo (HPC)",
         "Sindrome di Asperger",
         "Relazioni familiari",
         "Terapia di coppia",
@@ -609,7 +635,7 @@ const it: AccompanimentsBundle = {
       eyebrow: "Valutazioni",
       title: "Valutazioni e bilanci",
       intro:
-        "Diverse valutazioni e strumenti di assessment possono essere proposti per comprendere meglio il funzionamento cognitivo, emotivo, sensoriale o relazionale e chiarire l’accompagnamento.",
+        "Diversi bilanci e strumenti di valutazione sono proposti e adattati a ciascuna persona secondo la sua situazione e la sua domanda.",
       ctaTitle: "Una domanda su una valutazione?",
       ctaBody:
         "Lo studio può fornirle maggiori dettagli pratici e orientarla in base alla sua richiesta.",
@@ -637,7 +663,7 @@ const it: AccompanimentsBundle = {
       id: "therapeutique-enfant",
       title: "Sessione terapeutica per bambini",
       description:
-        "Esprimere il vissuto e le emozioni attraverso mediazioni adattate (gioco, disegno, costruzioni…).",
+        "Esprimere il vissuto e le emozioni attraverso mediazioni adattate (gioco, disegno, costruzioni, mediazione con la natura, mediazione animale).",
     },
     {
       id: "therapeutique-adolescent",
@@ -649,18 +675,19 @@ const it: AccompanimentsBundle = {
       id: "therapeutique-adulte",
       title: "Sessione terapeutica per adulti",
       description:
-        "Ascolto attivo e attento del vissuto, delle emozioni, dei bisogni e dei pattern relazionali.",
+        "Colloquio centrato sul vissuto, sulle emozioni e sui bisogni, con un lavoro intorno all’autostima, alla fiducia in sé e all’autonomia psichica. L’accompagnamento può anche sostenere l’elaborazione di una resilienza di fronte alle ferite incontrate nel percorso di vita.",
     },
     {
       id: "therapie-couple",
       title: "Terapia di coppia",
       description:
-        "Lavoro sulla relazione, sui suoi conflitti, sulla sua storia e sui legami affettivi — incluso un approccio transgenerazionale.",
+        "Lavoro sulla relazione, sui bisogni di ciascuno, sulle ipersensibilità sensoriali quando sono presenti, e sulla ricerca di un equilibrio comune. L’accompagnamento sostiene il rispetto delle differenze, le nuove potenzialità di ciascuno e l’evoluzione individuale all’interno della coppia — incluso, quando è pertinente, un approccio transgenerazionale.",
     },
     {
       id: "mediation-familiale",
       title: "Mediazione familiare",
-      description: "Sostegno intorno alle problematiche relazionali in famiglia.",
+      description:
+        "Sostegno intorno alle problematiche relazionali in famiglia. Accompagnamento della genitorialità con bambini neuroatipici.",
     },
     {
       id: "mediation-scolaire",
@@ -685,6 +712,18 @@ const it: AccompanimentsBundle = {
       description:
         "Seguito terapeutico accompagnato dal contatto con la natura, per sostenere il processo e il vissuto corporeo.",
     },
+    {
+      id: "parentalite",
+      title: "Accompagnamento alla genitorialità",
+      description:
+        "Accompagnamento alla genitorialità in individuale o in gruppo, e formazione dei genitori intorno all’HPI e alle neuroatipie.",
+    },
+    {
+      id: "professionnels",
+      title: "Accompagnamento dei professionisti",
+      description:
+        "Accompagnamento e supervisione dei professionisti che lavorano con profili neuroatipici, nonché degli insegnanti della scuola primaria e secondaria.",
+    },
   ],
   mediationVisuals: [
     {
@@ -708,7 +747,7 @@ const it: AccompanimentsBundle = {
       title: "Valutazione neuropsicologica completa",
       note: "Bambino e adulto",
       description:
-        "Una valutazione approfondita del funzionamento cognitivo, che esplora in particolare attenzione, memoria, ragionamento e funzioni esecutive.",
+        "Una valutazione approfondita del funzionamento cognitivo, che esplora in particolare attenzione, memoria, ragionamento, funzioni esecutive e il rapporto con il linguaggio.",
       learnMore: null,
     },
     {
@@ -776,7 +815,7 @@ const it: AccompanimentsBundle = {
       {
         title: "Bambini",
         description:
-          "Accompagnamento adattato, anche attraverso mediazioni (gioco, disegno, costruzioni…).",
+          "Accompagnamento adattato, anche attraverso mediazioni (gioco, disegno, costruzioni, mediazione con la natura, mediazione animale).",
       },
       {
         title: "Adolescenti",
@@ -786,16 +825,17 @@ const it: AccompanimentsBundle = {
       {
         title: "Adulti",
         description:
-          "Sessioni centrate sul vissuto, sulle emozioni e sui bisogni.",
+          "Sessioni centrate sul vissuto, sulle emozioni e sui bisogni, con un lavoro intorno all’autostima, alla fiducia in sé e all’autonomia psichica.",
       },
       {
         title: "Coppie",
         description:
-          "Lavoro sulla relazione, sulle sue fragilità e sul suo equilibrio.",
+          "Lavoro sulla relazione, sui bisogni di ciascuno, sulle ipersensibilità eventuali e sulla ricerca di un equilibrio comune.",
       },
       {
         title: "Famiglie",
-        description: "Sostegno alle relazioni familiari e mediazione.",
+        description:
+          "Sostegno alle relazioni familiari e alla genitorialità con bambini neuroatipici.",
       },
       {
         title: "Valutazioni e bilanci",
@@ -838,7 +878,7 @@ const es: AccompanimentsBundle = {
       title: "Ámbitos de acompañamiento",
       lead: "Temáticas destacadas en la consulta.",
       items: [
-        "Alto potencial intelectual / creativo (HPIC)",
+        "Alto potencial intelectual (HPI) y alto potencial creativo (HPC)",
         "Síndrome de Asperger",
         "Relaciones familiares",
         "Terapia de pareja",
@@ -862,7 +902,7 @@ const es: AccompanimentsBundle = {
       eyebrow: "Evaluaciones",
       title: "Evaluaciones y balances",
       intro:
-        "Pueden proponerse distintas evaluaciones y herramientas de assessment para comprender mejor el funcionamiento cognitivo, emocional, sensorial o relacional y esclarecer el acompañamiento.",
+        "Se proponen distintos balances y herramientas de evaluación, adaptados a cada persona según su situación y su demanda.",
       ctaTitle: "¿Una pregunta sobre una evaluación?",
       ctaBody:
         "La consulta puede aportarle más detalles prácticos y orientarla según su demanda.",
@@ -890,7 +930,7 @@ const es: AccompanimentsBundle = {
       id: "therapeutique-enfant",
       title: "Sesión terapéutica para niños",
       description:
-        "Expresar lo vivido y las emociones a través de mediaciones adaptadas (juego, dibujo, construcciones…).",
+        "Expresar lo vivido y las emociones a través de mediaciones adaptadas (juego, dibujo, construcciones, mediación con la naturaleza, mediación animal).",
     },
     {
       id: "therapeutique-adolescent",
@@ -902,18 +942,19 @@ const es: AccompanimentsBundle = {
       id: "therapeutique-adulte",
       title: "Sesión terapéutica para adultos",
       description:
-        "Escucha activa y atenta de lo vivido, las emociones, las necesidades y los patrones relacionales.",
+        "Entrevista centrada en lo vivido, las emociones y las necesidades, con un trabajo en torno a la autoestima, la confianza en uno mismo y la autonomía psíquica. El acompañamiento puede también sostener la elaboración de una resiliencia frente a las heridas encontradas a lo largo del recorrido de vida.",
     },
     {
       id: "therapie-couple",
       title: "Terapia de pareja",
       description:
-        "Trabajo sobre la relación, sus conflictos, su historia y los lazos afectivos — incluido un enfoque transgeneracional.",
+        "Trabajo sobre la relación, las necesidades de cada uno, las hipersensibilidades sensoriales cuando están presentes, y la búsqueda de un equilibrio común. El acompañamiento sostiene el respeto de las diferencias, las nuevas potencialidades de cada uno y la evolución individual dentro de la pareja — incluido, cuando es pertinente, un enfoque transgeneracional.",
     },
     {
       id: "mediation-familiale",
       title: "Mediación familiar",
-      description: "Apoyo en torno a las problemáticas relacionales en la familia.",
+      description:
+        "Apoyo en torno a las problemáticas relacionales en la familia. Acompañamiento de la parentalidad con niños neuroatípicos.",
     },
     {
       id: "mediation-scolaire",
@@ -938,6 +979,18 @@ const es: AccompanimentsBundle = {
       description:
         "Seguimiento terapéutico acompañado del contacto con la naturaleza, para sostener el proceso y lo sentido.",
     },
+    {
+      id: "parentalite",
+      title: "Acompañamiento a la parentalidad",
+      description:
+        "Acompañamiento a la parentalidad en individual o en grupo, y formación de los padres en torno al HPI y a las neuroatipias.",
+    },
+    {
+      id: "professionnels",
+      title: "Acompañamiento de los profesionales",
+      description:
+        "Acompañamiento y supervisión de los profesionales que trabajan con perfiles neuroatípicos, así como de los docentes de primaria y secundaria.",
+    },
   ],
   mediationVisuals: [
     {
@@ -961,7 +1014,7 @@ const es: AccompanimentsBundle = {
       title: "Evaluación neuropsicológica completa",
       note: "Niño y adulto",
       description:
-        "Una evaluación profunda del funcionamiento cognitivo, que explora en particular la atención, la memoria, el razonamiento y las funciones ejecutivas.",
+        "Una evaluación profunda del funcionamiento cognitivo, que explora en particular la atención, la memoria, el razonamiento, las funciones ejecutivas y la relación con el lenguaje.",
       learnMore: null,
     },
     {
@@ -1029,7 +1082,7 @@ const es: AccompanimentsBundle = {
       {
         title: "Niños",
         description:
-          "Acompañamiento adaptado, también a través de mediaciones (juego, dibujo, construcciones…).",
+          "Acompañamiento adaptado, también a través de mediaciones (juego, dibujo, construcciones, mediación con la naturaleza, mediación animal).",
       },
       {
         title: "Adolescentes",
@@ -1039,16 +1092,17 @@ const es: AccompanimentsBundle = {
       {
         title: "Adultos",
         description:
-          "Sesiones centradas en lo vivido, las emociones y las necesidades.",
+          "Sesiones centradas en lo vivido, las emociones y las necesidades, con un trabajo en torno a la autoestima, la confianza en uno mismo y la autonomía psíquica.",
       },
       {
         title: "Parejas",
         description:
-          "Trabajo sobre la relación, sus fragilidades y su equilibrio.",
+          "Trabajo sobre la relación, las necesidades de cada uno, las hipersensibilidades eventuales y la búsqueda de un equilibrio común.",
       },
       {
         title: "Familias",
-        description: "Apoyo a las relaciones familiares y mediación.",
+        description:
+          "Apoyo a las relaciones familiares y a la parentalidad con niños neuroatípicos.",
       },
       {
         title: "Evaluaciones y balances",

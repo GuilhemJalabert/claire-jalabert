@@ -92,9 +92,16 @@ export default async function HomePage({ params }: Props) {
       <Hero
         title={presentation.name}
         subtitle={presentation.title}
-        description={t("heroDescription", {
-          locations: presentation.locations,
-        })}
+        descriptionNode={
+          <>
+            <p>
+              {t("heroDescription", {
+                locations: presentation.locations,
+              })}
+            </p>
+            <p>{t("heroAudiences")}</p>
+          </>
+        }
         visualCaption={t("visualCaption")}
         visualTitle={t("visualTitle")}
         visualImages={{

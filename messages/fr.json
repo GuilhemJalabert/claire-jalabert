@@ -40,7 +40,8 @@
   },
   "Home": {
     "metaTitle": "{name} · {title} à Gan",
-    "heroDescription": "Psychologue clinicienne {locations}. Accompagnement des enfants, adolescents, adultes, couples et familles — notamment autour du Haut Potentiel Intellectuel et Créatif et du Syndrome d’Asperger.",
+    "heroDescription": "Psychologue clinicienne {locations}. Spécialisée dans l’accompagnement, le repérage et la passation de bilans adaptés pour les profils HPI, HPC, TSA, Asperger et TDAH, les troubles des apprentissages dans le cadre scolaire ou étudiant, les difficultés ou troubles alimentaires ainsi que l’épuisement professionnel et le burn-out associés à un profil HPI et/ou TSA, les hypersensibilités sensorielles, et la prévention du risque d’épuisement dans la vie quotidienne, au travail ou en milieu scolaire.",
+    "heroAudiences": "Accompagnement des enfants, adolescents, adultes, couples et familles.",
     "visualCaption": "Gan",
     "visualTitle": "Cabinet de psychologie",
     "heroAltContemplation": "Illustration contemplative — silhouette et rose sous un ciel étoilé",
@@ -77,13 +78,34 @@
   },
   "About": {
     "metaTitle": "À propos",
-    "metaDescription": "{name}, {title} {locations}. Parcours, spécialisations HPIC et Syndrome d’Asperger.",
+    "metaDescription": "{name}, {title} {locations}. Parcours, spécialisations HPI, HPC, TSA, TDAH et troubles des apprentissages.",
     "portraitAlt": "Voilier sur le Douro, Porto",
     "teachingImageAlt": "Statue contemplative face à un dôme illuminé au crépuscule, Rome"
   },
   "Accompaniments": {
     "metaTitle": "Accompagnements",
     "metaDescription": "Domaines d’accompagnement, entretiens, thérapies, médiations, bilans et évaluations — {name}, psychologue clinicienne à Gan."
+  },
+  "Comprendre": {
+    "infoTitle": "Information pédagogique",
+    "readDossier": "Lire le dossier",
+    "hubFooterBefore": "Ces dossiers éclairent des notions souvent recherchées avant une consultation. Pour les propositions concrètes du cabinet, voir",
+    "hubFooterLink": "Accompagnements",
+    "hubFooterAfter": ".",
+    "pedagogicalDossier": "Dossier pédagogique",
+    "lastUpdated": "Dernière mise à jour : {date}",
+    "disclaimerTitle": "Information pédagogique",
+    "disclaimerBody": "Ces informations ont une vocation pédagogique et ne remplacent pas une évaluation clinique ou un avis médical.",
+    "sourcesTitle": "Sources & repères",
+    "sourcesLead": "Sources institutionnelles et scientifiques ayant servi à rédiger ce dossier. Les recommandations évoluent : se référer aux documents officiels à jour.",
+    "continueReading": "Continuer la lecture",
+    "ctaTitle": "Une question sur un accompagnement ou un bilan ?",
+    "ctaBody": "Les dossiers « Comprendre » éclairent ; les pages Accompagnements et Contact permettent d’échanger concrètement.",
+    "toc": "Sommaire",
+    "sections": "Sections",
+    "tocAria": "Sommaire de la page",
+    "accompaniments": "Accompagnements",
+    "contact": "Contact"
   },
   "ContactPage": {
     "metaTitle": "Contact",

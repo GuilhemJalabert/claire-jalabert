@@ -40,7 +40,8 @@
   },
   "Home": {
     "metaTitle": "{name} · {title} in Gan",
-    "heroDescription": "Clinical psychologist {locations}. Support for children, adolescents, adults, couples and families — particularly around intellectual and creative giftedness and Asperger syndrome.",
+    "heroDescription": "Clinical psychologist {locations}. Specialised in support, identification and adapted assessments for HPI, HPC, ASD, Asperger and ADHD profiles, learning difficulties in school or student settings, eating difficulties or disorders associated with an HPI and/or ASD profile, professional exhaustion and burnout in an HPI and/or ASD profile, sensory hypersensitivities, and prevention of the risk of exhaustion in daily life, at work or in school.",
+    "heroAudiences": "Support for children, adolescents, adults, couples and families.",
     "visualCaption": "Gan",
     "visualTitle": "Psychology practice",
     "heroAltContemplation": "Contemplative illustration — silhouette and rose under a starry sky",
@@ -77,13 +78,34 @@
   },
   "About": {
     "metaTitle": "About",
-    "metaDescription": "{name}, {title} {locations}. Background, HPIC and Asperger syndrome specialisations.",
+    "metaDescription": "{name}, {title} {locations}. Background, specialisations in HPI, HPC, ASD, ADHD and learning difficulties.",
     "portraitAlt": "Sailboat on the Douro, Porto",
     "teachingImageAlt": "Contemplative statue facing an illuminated dome at dusk, Rome"
   },
   "Accompaniments": {
     "metaTitle": "Support",
     "metaDescription": "Areas of support, sessions, therapies, mediations, assessments and evaluations — {name}, clinical psychologist in Gan."
+  },
+  "Comprendre": {
+    "infoTitle": "Educational information",
+    "readDossier": "Read the guide",
+    "hubFooterBefore": "These guides shed light on notions often looked up before a consultation. For the practice’s concrete offerings, see",
+    "hubFooterLink": "Support",
+    "hubFooterAfter": ".",
+    "pedagogicalDossier": "Educational guide",
+    "lastUpdated": "Last updated: {date}",
+    "disclaimerTitle": "Educational information",
+    "disclaimerBody": "This information is educational and does not replace a clinical assessment or medical advice.",
+    "sourcesTitle": "Sources & references",
+    "sourcesLead": "Institutional and scientific sources used to write this guide. Recommendations evolve: refer to the latest official documents.",
+    "continueReading": "Continue reading",
+    "ctaTitle": "A question about support or an assessment?",
+    "ctaBody": "The Understand guides provide context; the Support and Contact pages make it possible to talk through next steps.",
+    "toc": "Contents",
+    "sections": "Sections",
+    "tocAria": "Page contents",
+    "accompaniments": "Support",
+    "contact": "Contact"
   },
   "ContactPage": {
     "metaTitle": "Contact",

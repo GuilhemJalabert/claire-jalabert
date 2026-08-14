@@ -1,3 +1,4 @@
+import { getLocale, getTranslations } from "next-intl/server"
 import { Link } from "@/i18n/navigation";
 
 import { Badge } from "@/components/ui/badge"
@@ -19,9 +20,11 @@ import type {
   EducationalSection,
 } from "@/lib/educational/types"
 
-function formatUpdatedAt(iso: string) {
+function formatUpdatedAt(iso: string, locale: string) {
+  const intlLocale =
+    locale === "en" ? "en-GB" : locale === "it" ? "it-IT" : locale === "es" ? "es-ES" : "fr-FR"
   try {
-    return new Intl.DateTimeFormat("fr-FR", {
+    return new Intl.DateTimeFormat(intlLocale, {
       day: "numeric",
       month: "long",
       year: "numeric",
@@ -67,7 +70,9 @@ type EducationalArticlePageProps = {
  * Layout commun à tous les dossiers Comprendre.
  * Dégradé narratif fixe : hero → phase-2 → phase-3 → phase-4 → phase-5.
  */
-function EducationalArticlePage({ article }: EducationalArticlePageProps) {
+async function EducationalArticlePage({ article }: EducationalArticlePageProps) {
+  const t = await getTranslations("Comprendre")
+  const locale = await getLocale()
   const updated = article.updatedAt || EDUCATIONAL_UPDATED_AT
   const { early, mid, late } = splitSections(article.sections)
 
@@ -92,10 +97,10 @@ function EducationalArticlePage({ article }: EducationalArticlePageProps) {
           <div className="mb-8 flex flex-col gap-5 sm:mb-10">
             <div className="flex flex-wrap items-center gap-3">
               <Badge variant="secondary" className="rounded-full font-normal">
-                Dossier pédagogique
+                {t("pedagogicalDossier")}
               </Badge>
               <p className="text-caption text-muted-foreground normal-case tracking-normal">
-                Dernière mise à jour : {formatUpdatedAt(updated)}
+                {t("lastUpdated", { date: formatUpdatedAt(updated, locale) })}
               </p>
             </div>
             <ArticleToc items={article.toc} />
@@ -104,8 +109,8 @@ function EducationalArticlePage({ article }: EducationalArticlePageProps) {
           <div className="mx-auto max-w-[42rem]">
             <EducationalCallout
               kind="disclaimer"
-              title="Information pédagogique"
-              body="Ces informations ont une vocation pédagogique et ne remplacent pas une évaluation clinique ou un avis médical."
+              title={t("disclaimerTitle")}
+              body={t("disclaimerBody")}
               className="mb-10"
             />
             <ArticleSectionList sections={early} />
@@ -142,12 +147,10 @@ function EducationalArticlePage({ article }: EducationalArticlePageProps) {
 
             <section id="sources" className="scroll-mt-28">
               <h2 className="text-h2 text-foreground mb-3">
-                Sources &amp; repères
+                {t("sourcesTitle")}
               </h2>
               <p className="text-small text-muted-foreground mb-6 max-w-prose text-pretty">
-                Sources institutionnelles et scientifiques ayant servi à
-                rédiger ce dossier. Les recommandations évoluent : se référer
-                aux documents officiels à jour.
+                {t("sourcesLead")}
               </p>
               <SourceList
                 sources={article.sources}
@@ -158,11 +161,15 @@ function EducationalArticlePage({ article }: EducationalArticlePageProps) {
             {article.related.length > 0 ? (
               <section className="mt-14">
                 <h2 className="text-h2 text-foreground mb-6">
-                  Continuer la lecture
+                  {t("continueReading")}
                 </h2>
                 <div className="grid gap-4 sm:grid-cols-2">
                   {article.related.map((item) => (
-                    <RelatedArticleCard key={item.href} {...item} />
+                    <RelatedArticleCard
+                      key={item.href}
+                      {...item}
+                      readLabel={t("readDossier")}
+                    />
                   ))}
                 </div>
               </section>
@@ -177,19 +184,18 @@ function EducationalArticlePage({ article }: EducationalArticlePageProps) {
           <div className="mx-auto flex max-w-[42rem] flex-col gap-4 rounded-[1.5rem] ring-1 ring-border/40 surface-glass-strong p-6 sm:flex-row sm:items-center sm:justify-between sm:p-8">
             <div className="max-w-md">
               <p className="font-display text-card-foreground text-xl tracking-tight sm:text-2xl">
-                Une question sur un accompagnement ou un bilan ?
+                {t("ctaTitle")}
               </p>
               <p className="text-small text-[color:var(--card-muted-foreground)] mt-2 text-pretty">
-                Les dossiers « Comprendre » éclairent ; les pages Accompagnements
-                et Contact permettent d’échanger concrètement.
+                {t("ctaBody")}
               </p>
             </div>
             <div className="flex flex-col gap-3 sm:flex-row">
               <Button variant="warm" asChild>
-                <Link href="/accompagnements">Accompagnements</Link>
+                <Link href="/accompagnements">{t("accompaniments")}</Link>
               </Button>
               <Button variant="secondary" asChild>
-                <Link href="/contact">Contact</Link>
+                <Link href="/contact">{t("contact")}</Link>
               </Button>
             </div>
           </div>

@@ -10,7 +10,7 @@ export const autresReperesArticle: EducationalArticle = {
     "TDAH, sensorialité, stress et difficultés scolaires : repères | Claire Jalabert",
   metaDescription:
     "TDAH, sensorialité, stress, scolarité, famille, transgénérationnel, groupes et bilans : repères pour éclairer une demande, sans se substituer à une évaluation clinique.",
-  updatedAt: "2026-08-12",
+  updatedAt: "2026-08-14",
   atmosphere: "phase-4",
   toc: [
     { id: "tdah", label: "TDAH" },
@@ -70,6 +70,10 @@ export const autresReperesArticle: EducationalArticle = {
           text: "Lorsqu’un questionnement sensoriel s’associe à des particularités de communication sociale ou d’intérêts, une exploration plus large du spectre peut être pertinente — sans conclusion automatique. La section « Sensorialité » de la page TSA (/comprendre/tsa#sensorialite) développe ce point dans le cadre de l’autisme.",
         },
         {
+          type: "p",
+          text: "Dans le quotidien, les efforts nécessaires pour s’adapter à l’environnement et aux codes attendus peuvent être particulièrement coûteux. Chez certaines personnes, cela s’accompagne d’une grande fatigabilité et d’une « batterie sociale » qui peut se réduire rapidement, augmentant la vulnérabilité lorsque les capacités d’adaptation sont épuisées.",
+        },
+        {
           type: "callout",
           kind: "takeaway",
           title: "Sensorialité et confort",
@@ -118,6 +122,14 @@ export const autresReperesArticle: EducationalArticle = {
           text: "Un bilan cognitif ou attentionnel peut éclairer certaines situations ; il n’est pas systématique. Parfois, l’enjeu est relationnel ou émotionnel davantage que psychométrique. Les ressources Eduscol et le cadre du code de l’éducation fournissent des points d’appui côté école ; la clinique apporte l’écoute du sujet.",
         },
         {
+          type: "p",
+          text: "Le travail peut d’abord être métacognitif : comprendre comment la personne réfléchit, comment elle apprend et quelles stratégies elle mobilise. Il s’agit d’identifier les difficultés ou biais rencontrés, leur manifestation dans le quotidien et les solutions déjà mises en place spontanément. Certaines stratégies peuvent être efficaces mais très coûteuses, entraînant une fatigue importante, des résultats irréguliers ou un évitement de certaines disciplines. Cette compréhension permet ensuite de rechercher des méthodes de remédiation plus adaptées, dans les apprentissages comme dans le quotidien.",
+        },
+        {
+          type: "p",
+          text: "Travail autour de la reprise de confiance en soi et de l’estime de soi.",
+        },
+        {
           type: "ul",
           items: [
             "Écoute de l’élève et de sa souffrance éventuelle",
@@ -138,7 +150,7 @@ export const autresReperesArticle: EducationalArticle = {
         },
         {
           type: "p",
-          text: "La thérapie de couple et l’accompagnement familial ne cherchent pas un coupable. Ils explorent les interactions, les attentes implicites, les blessures et les ressources. Lorsqu’un fonctionnement HPI, TSA ou TDAH est en jeu, le nommer peut clarifier certains malentendus — sans tout y réduire.",
+          text: "La thérapie de couple et l’accompagnement familial ne cherchent pas un coupable. Ils explorent les interactions, les attentes implicites, les blessures et les ressources. Comprendre les mécanismes, les besoins et les enjeux associés à un trouble neurodéveloppemental, ainsi que les dynamiques relationnelles qu’il peut entraîner, sans pour autant tout essentialiser à ce fonctionnement.",
         },
         {
           type: "p",
@@ -180,7 +192,15 @@ export const autresReperesArticle: EducationalArticle = {
         },
         {
           type: "p",
-          text: "Selon les thématiques (parentalité, haut potentiel, spectre de l’autisme, stress, etc.), le groupe permet de découvrir que certaines difficultés ne sont pas vécues seul·e. La confidentialité, le respect et la non-injonction à se « raconter » sont des conditions essentielles.",
+          text: "Selon les thématiques (parentalité, haut potentiel, spectre de l’autisme, stress, etc.), le groupe permet de découvrir que certaines difficultés ne sont pas vécues seul·e.",
+        },
+        {
+          type: "p",
+          text: "Le groupe peut également soutenir l’estime de soi, redonner une légitimité à ce qui est vécu et permettre à chacun de retrouver davantage de souveraineté dans ses choix. Il offre aussi la possibilité de partager les victoires, les trouvailles et les adaptations nouvelles qui ont permis de faire évoluer certaines situations.",
+        },
+        {
+          type: "p",
+          text: "La confidentialité, le respect et la non-injonction à se « raconter » sont des conditions essentielles.",
         },
         {
           type: "p",

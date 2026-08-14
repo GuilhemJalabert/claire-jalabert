@@ -24,7 +24,7 @@ export async function generateMetadata({
 }: PageProps): Promise<Metadata> {
   const { locale: localeParam, slug } = await params
   const locale = asAppLocale(localeParam)
-  const article = getEducationalArticle(slug)
+  const article = getEducationalArticle(slug, locale)
   if (!article) return {}
 
   return {
@@ -44,7 +44,7 @@ export default async function ComprendreArticleRoute({ params }: PageProps) {
   const { locale: localeParam, slug } = await params
   const locale = asAppLocale(localeParam)
   setRequestLocale(locale)
-  const article = getEducationalArticle(slug)
+  const article = getEducationalArticle(slug, locale)
   if (!article) notFound()
 
   return <EducationalArticlePage article={article} />

@@ -11,6 +11,7 @@ import type { EducationalRelated } from "@/lib/educational/types"
 
 type RelatedArticleCardProps = EducationalRelated & {
   className?: string
+  readLabel: string
 }
 
 function RelatedArticleCard({
@@ -18,6 +19,7 @@ function RelatedArticleCard({
   title,
   description,
   className,
+  readLabel,
 }: RelatedArticleCardProps) {
   return (
     <Card variant="glass" className={className}>
@@ -27,7 +29,7 @@ function RelatedArticleCard({
         </CardTitle>
         <CardDescription className="text-pretty">{description}</CardDescription>
         <Button variant="secondary" size="sm" asChild className="mt-1 w-fit">
-          <Link href={href}>Lire le dossier</Link>
+          <Link href={href}>{readLabel}</Link>
         </Button>
       </CardHeader>
     </Card>

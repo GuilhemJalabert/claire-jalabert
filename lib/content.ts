@@ -89,7 +89,7 @@ const fr: ContentBundle = {
   site: {
     title: "Psychologue clinicienne",
     description:
-      "Psychologue clinicienne à Gan. Consultations en présentiel (99 rue d’Ossau) ou par visioconférence. Accompagnement des enfants, adolescents, adultes, couples et familles. Haut Potentiel Intellectuel et Créatif, Syndrome d’Asperger.",
+      "Psychologue clinicienne à Gan. Consultations en présentiel (99 rue d’Ossau) ou par visioconférence. Accompagnement des enfants, adolescents, adultes, couples et familles. HPI, HPC, TSA, TDAH et troubles des apprentissages.",
   },
   contact: {
     phoneNote: "Merci de laisser un SMS",
@@ -113,24 +113,24 @@ const fr: ContentBundle = {
     locations: "à Gan",
     locationsShort: "Gan",
     homeSummary: [
-      "Claire Jalabert est psychologue clinicienne à Gan. Elle accompagne les enfants, les adolescents et les adultes, avec une spécialisation dans le Haut Potentiel Intellectuel et Créatif (HPIC) et le Syndrome d’Asperger. Les consultations se déroulent au cabinet (99 rue d’Ossau) en présentiel, ou par visioconférence.",
-      "Son parcours universitaire en psychologie clinique s’enrichit d’une activité de recherche autour du Haut Potentiel, menée en lien avec le CRFDP de l’Université de Rouen.",
-      "Avant la psychologie, elle a exercé comme professeure certifiée d’histoire-géographie.",
+      "Claire Jalabert est psychologue clinicienne à Gan. Elle est spécialisée dans l’accompagnement, le repérage et la passation de bilans adaptés autour des profils HPI, HPC, TSA, Asperger, TDAH et des troubles des apprentissages. Les consultations se déroulent au cabinet (99 rue d’Ossau) en présentiel, ou par visioconférence.",
+      "Son parcours universitaire en psychologie clinique s’enrichit d’une activité de recherche autour du Haut Potentiel, menée en lien avec le CRFDP — Université de Rouen.",
+      "Elle propose également un accompagnement et une supervision des professionnels travaillant auprès de profils neuroatypiques et des enseignants du primaire et du secondaire, un accompagnement à la parentalité, des groupes de parole, ainsi qu’une formation des parents autour du HPI et des neuroatypies.",
     ],
   },
   about: {
     heroIntro: [
-      "Claire Jalabert est psychologue clinicienne à Gan. Elle accompagne les enfants, les adolescents et les adultes, notamment autour du Haut Potentiel Intellectuel et Créatif (HPIC) et du Syndrome d’Asperger. Les consultations ont lieu au cabinet, 99 rue d’Ossau, en présentiel ou par visioconférence.",
-      "Son parcours associe la pratique clinique, la recherche universitaire et une expérience antérieure dans l’enseignement.",
+      "Claire Jalabert est psychologue clinicienne à Gan. Elle est spécialisée en recherche, en clinique et en formation autour des profils neuroatypiques : HPI, HPC, TSA, profils Asperger, TDAH et troubles des apprentissages. Les consultations ont lieu au cabinet, 99 rue d’Ossau, en présentiel ou par visioconférence.",
+      "Elle est psychologue clinicienne, professeure certifiée d’histoire-géographie et étudiante en théologie.",
     ],
     journey: {
       eyebrow: "Parcours",
       title: "Entre enseignement, psychologie et recherche",
-      lead: "Claire Jalabert a d’abord enseigné l’histoire-géographie. Son chemin s’est ensuite déployé dans la psychologie clinique, jusqu’à un travail de doctorat consacré à l’enfant à Haut Potentiel intellectuel et à la dynamique familiale.",
+      lead: "Claire Jalabert est psychologue clinicienne, professeure certifiée d’histoire-géographie et étudiante en théologie. Son chemin s’est déployé dans la psychologie clinique, jusqu’à un travail de doctorat consacré à l’enfant à Haut Potentiel intellectuel et à la dynamique familiale.",
       teachingLabel: "Enseignement",
       teaching: {
         title: "Professeure certifiée d’histoire-géographie",
-        body: "Un parcours antérieur dans l’enseignement, avant de s’orienter vers la psychologie clinique.",
+        body: "Professeure certifiée d’histoire-géographie et étudiante en théologie.",
       },
       studiesIntro:
         "En psychologie, son parcours universitaire s’est construit étape après étape :",
@@ -146,7 +146,6 @@ const fr: ContentBundle = {
         {
           degree: "Doctorante en Psychologie",
           place: "Université de Rouen",
-          lab: "EA 7675 CRFDP",
           thesis:
             "« Dynamique familiale et fonctionnement intrasubjectif de l'enfant à Haut Potentiel intellectuel »",
           direction: "Sous la direction de Mme Catherine Weissman-Arcache.",
@@ -156,17 +155,17 @@ const fr: ContentBundle = {
     specializations: {
       eyebrow: "Spécialisations",
       title: "Domaines d’accompagnement",
-      lead: "Deux spécialités structurent particulièrement son travail clinique. D’autres domaines viennent les prolonger au quotidien.",
+      lead: "Spécialisation en recherche, en clinique et en formation autour des profils neuroatypiques : HPI, HPC, TSA, profils Asperger, TDAH et troubles des apprentissages.",
       featured: [
         {
           title: "Haut Potentiel Intellectuel et Créatif",
           short: "HPIC",
-          body: "Spécialisation dans le Haut Potentiel Intellectuel et Créatif (HPIC).",
+          body: "Spécialisation en recherche, en clinique et en formation autour du Haut Potentiel Intellectuel (HPI) et du Haut Potentiel Créatif (HPC).",
         },
         {
           title: "Syndrome d’Asperger",
           short: "Asperger",
-          body: "Spécialisation dans le Syndrome d’Asperger, en lien avec la pratique clinique et la recherche au CRFDP.",
+          body: "Spécialisation en recherche, en clinique et en formation autour du TSA et des profils Asperger, en lien avec le CRFDP — Université de Rouen.",
         },
       ],
       othersLabel: "Autres domaines",
@@ -200,7 +199,7 @@ const fr: ContentBundle = {
         },
         {
           axis: "Art thérapie",
-          title: "Formation avec Marie Desaulles",
+          title: "Formation avec spécialiste",
           detail: "Artiste et art thérapeute",
           place: null,
         },
@@ -211,7 +210,7 @@ const fr: ContentBundle = {
     {
       title: "Enfants",
       description:
-        "Accompagnement adapté, notamment via des médiations (jeux, dessins, constructions…).",
+        "Accompagnement adapté, notamment via des médiations (jeux, dessins, constructions, médiation avec la nature, médiation animale).",
     },
     {
       title: "Adolescents",
@@ -221,17 +220,17 @@ const fr: ContentBundle = {
     {
       title: "Adultes",
       description:
-        "Entretiens thérapeutiques centrés sur le vécu, les émotions et les besoins spécifiques.",
+        "Entretiens thérapeutiques centrés sur le vécu, les émotions et les besoins, avec un travail autour de l’estime de soi, de la confiance en soi et de l’autonomie psychique.",
     },
     {
       title: "Couples",
       description:
-        "Thérapie de couple pour travailler la relation, ses fragilités et son équilibre.",
+        "Thérapie de couple pour travailler la relation, les besoins de chacun, les hypersensibilités éventuelles et la recherche d’un équilibre commun.",
     },
     {
       title: "Familles",
       description:
-        "Accompagnement des relations familiales, y compris médiation familiale.",
+        "Accompagnement des relations familiales et de la parentalité avec des enfants neuroatypiques.",
     },
   ],
   approach: {
@@ -258,7 +257,7 @@ const en: ContentBundle = {
   site: {
     title: "Clinical psychologist",
     description:
-      "Clinical psychologist in Gan. Consultations in person (99 rue d’Ossau) or by video. Support for children, adolescents, adults, couples and families. Intellectual and creative giftedness, Asperger syndrome.",
+      "Clinical psychologist in Gan. Consultations in person (99 rue d’Ossau) or by video. Support for children, adolescents, adults, couples and families. HPI, HPC, ASD, ADHD and learning difficulties.",
   },
   contact: {
     phoneNote: "Please leave a text message",
@@ -282,24 +281,24 @@ const en: ContentBundle = {
     locations: "in Gan",
     locationsShort: "Gan",
     homeSummary: [
-      "Claire Jalabert is a clinical psychologist in Gan. She supports children, adolescents and adults, with a specialisation in intellectual and creative giftedness (HPIC) and Asperger syndrome. Consultations take place at the practice (99 rue d’Ossau) in person, or by video.",
-      "Her academic background in clinical psychology is complemented by research on giftedness, in connection with the CRFDP at the University of Rouen.",
-      "Before psychology, she worked as a qualified history–geography teacher.",
+      "Claire Jalabert is a clinical psychologist in Gan. She specialises in support, identification and adapted assessments around HPI, HPC, ASD, Asperger, ADHD profiles and learning difficulties. Consultations take place at the practice (99 rue d’Ossau) in person, or by video.",
+      "Her academic background in clinical psychology is complemented by research on giftedness, in connection with CRFDP — University of Rouen.",
+      "She also offers support and supervision for professionals working with neurodivergent profiles and for primary and secondary teachers, parenting support, support groups, and parent training around HPI and neurodivergence.",
     ],
   },
   about: {
     heroIntro: [
-      "Claire Jalabert is a clinical psychologist in Gan. She supports children, adolescents and adults, particularly around intellectual and creative giftedness (HPIC) and Asperger syndrome. Consultations take place at the practice, 99 rue d’Ossau, in person or by video.",
-      "Her path combines clinical practice, university research and earlier experience in teaching.",
+      "Claire Jalabert is a clinical psychologist in Gan. She specialises in research, clinical practice and training around neurodivergent profiles: HPI, HPC, ASD, Asperger profiles, ADHD and learning difficulties. Consultations take place at the practice, 99 rue d’Ossau, in person or by video.",
+      "She is a clinical psychologist, a certified history–geography teacher and a theology student.",
     ],
     journey: {
       eyebrow: "Background",
       title: "Between teaching, psychology and research",
-      lead: "Claire Jalabert first taught history and geography. Her path then unfolded in clinical psychology, through to doctoral work devoted to intellectually gifted children and family dynamics.",
+      lead: "Claire Jalabert is a clinical psychologist, a certified history–geography teacher and a theology student. Her path has unfolded in clinical psychology, through to doctoral work devoted to intellectually gifted children and family dynamics.",
       teachingLabel: "Teaching",
       teaching: {
-        title: "Qualified history–geography teacher",
-        body: "An earlier career in teaching, before moving into clinical psychology.",
+        title: "Certified history–geography teacher",
+        body: "Certified history–geography teacher and theology student.",
       },
       studiesIntro:
         "In psychology, her university path was built step by step:",
@@ -315,7 +314,6 @@ const en: ContentBundle = {
         {
           degree: "Doctoral student in Psychology",
           place: "University of Rouen",
-          lab: "EA 7675 CRFDP",
           thesis:
             "“Family dynamics and the intrasubjective functioning of the intellectually gifted child”",
           direction: "Supervised by Mrs Catherine Weissman-Arcache.",
@@ -325,17 +323,17 @@ const en: ContentBundle = {
     specializations: {
       eyebrow: "Specialisations",
       title: "Areas of support",
-      lead: "Two specialities particularly structure her clinical work. Other areas extend them in day-to-day practice.",
+      lead: "Specialisation in research, clinical practice and training around neurodivergent profiles: HPI, HPC, ASD, Asperger profiles, ADHD and learning difficulties.",
       featured: [
         {
           title: "Intellectual and creative giftedness",
           short: "HPIC",
-          body: "Specialisation in intellectual and creative giftedness (HPIC).",
+          body: "Specialisation in research, clinical practice and training around intellectual giftedness (HPI) and creative giftedness (HPC).",
         },
         {
           title: "Asperger syndrome",
           short: "Asperger",
-          body: "Specialisation in Asperger syndrome, linked to clinical practice and research at the CRFDP.",
+          body: "Specialisation in research, clinical practice and training around ASD and Asperger profiles, in connection with CRFDP — University of Rouen.",
         },
       ],
       othersLabel: "Other areas",
@@ -369,7 +367,7 @@ const en: ContentBundle = {
         },
         {
           axis: "Art therapy",
-          title: "Training with Marie Desaulles",
+          title: "Training with a specialist",
           detail: "Artist and art therapist",
           place: null,
         },
@@ -380,7 +378,7 @@ const en: ContentBundle = {
     {
       title: "Children",
       description:
-        "Adapted support, including through mediations (play, drawing, construction…).",
+        "Adapted support, including through mediations (play, drawing, construction, nature-based mediation, animal-assisted mediation).",
     },
     {
       title: "Adolescents",
@@ -390,17 +388,17 @@ const en: ContentBundle = {
     {
       title: "Adults",
       description:
-        "Therapeutic sessions centred on lived experience, emotions and specific needs.",
+        "Therapeutic sessions centred on lived experience, emotions and needs, with work on self-esteem, self-confidence and psychic autonomy.",
     },
     {
       title: "Couples",
       description:
-        "Couple therapy to work on the relationship, its vulnerabilities and its balance.",
+        "Couple therapy to work on the relationship, each partner’s needs, possible sensory hypersensitivities and the search for a shared balance.",
     },
     {
       title: "Families",
       description:
-        "Support for family relationships, including family mediation.",
+        "Support for family relationships and for parenting with neurodivergent children.",
     },
   ],
   approach: {
@@ -427,7 +425,7 @@ const it: ContentBundle = {
   site: {
     title: "Psicologa clinica",
     description:
-      "Psicologa clinica a Gan. Consultazioni in presenza (99 rue d’Ossau) o in videoconsulto. Sostegno a bambini, adolescenti, adulti, coppie e famiglie. Alto potenziale intellettivo e creativo, sindrome di Asperger.",
+      "Psicologa clinica a Gan. Consultazioni in presenza (99 rue d’Ossau) o in videoconsulto. Sostegno a bambini, adolescenti, adulti, coppie e famiglie. HPI, HPC, TEA, ADHD e disturbi degli apprendimenti.",
   },
   contact: {
     phoneNote: "Si prega di lasciare un SMS",
@@ -451,24 +449,24 @@ const it: ContentBundle = {
     locations: "a Gan",
     locationsShort: "Gan",
     homeSummary: [
-      "Claire Jalabert è psicologa clinica a Gan. Accompagna bambini, adolescenti e adulti, con una specializzazione nell’alto potenziale intellettivo e creativo (HPIC) e nella sindrome di Asperger. Le consultazioni si svolgono nello studio (99 rue d’Ossau) in presenza, o in videoconsulto.",
-      "Il suo percorso universitario in psicologia clinica si arricchisce di un’attività di ricerca sull’alto potenziale, in collegamento con il CRFDP dell’Université de Rouen.",
-      "Prima della psicologia, ha esercitato come insegnante abilitata di storia e geografia.",
+      "Claire Jalabert è psicologa clinica a Gan. È specializzata nell’accompagnamento, nell’individuazione e nella somministrazione di valutazioni adattate intorno ai profili HPI, HPC, TEA, Asperger, ADHD e ai disturbi degli apprendimenti. Le consultazioni si svolgono nello studio (99 rue d’Ossau) in presenza, o in videoconsulto.",
+      "Il suo percorso universitario in psicologia clinica si arricchisce di un’attività di ricerca sull’alto potenziale, in collegamento con il CRFDP — Université de Rouen.",
+      "Propone inoltre un accompagnamento e una supervisione dei professionisti che lavorano con profili neuroatipici e degli insegnanti della scuola primaria e secondaria, un accompagnamento alla genitorialità, gruppi di parola, nonché una formazione dei genitori intorno all’HPI e alle neuroatipie.",
     ],
   },
   about: {
     heroIntro: [
-      "Claire Jalabert è psicologa clinica a Gan. Accompagna bambini, adolescenti e adulti, in particolare intorno all’alto potenziale intellettivo e creativo (HPIC) e alla sindrome di Asperger. Le consultazioni hanno luogo nello studio, 99 rue d’Ossau, in presenza o in videoconsulto.",
-      "Il suo percorso unisce pratica clinica, ricerca universitaria e una precedente esperienza nell’insegnamento.",
+      "Claire Jalabert è psicologa clinica a Gan. È specializzata in ricerca, in clinica e in formazione intorno ai profili neuroatipici: HPI, HPC, TEA, profili Asperger, ADHD e disturbi degli apprendimenti. Le consultazioni hanno luogo nello studio, 99 rue d’Ossau, in presenza o in videoconsulto.",
+      "È psicologa clinica, professoressa abilitata di storia e geografia e studentessa di teologia.",
     ],
     journey: {
       eyebrow: "Percorso",
       title: "Tra insegnamento, psicologia e ricerca",
-      lead: "Claire Jalabert ha dapprima insegnato storia e geografia. Il suo cammino si è poi sviluppato nella psicologia clinica, fino a un lavoro di dottorato dedicato al bambino ad alto potenziale intellettivo e alla dinamica familiare.",
+      lead: "Claire Jalabert è psicologa clinica, professoressa abilitata di storia e geografia e studentessa di teologia. Il suo cammino si è sviluppato nella psicologia clinica, fino a un lavoro di dottorato dedicato al bambino ad alto potenziale intellettivo e alla dinamica familiare.",
       teachingLabel: "Insegnamento",
       teaching: {
-        title: "Insegnante abilitata di storia e geografia",
-        body: "Un percorso precedente nell’insegnamento, prima di orientarsi verso la psicologia clinica.",
+        title: "Professoressa abilitata di storia e geografia",
+        body: "Professoressa abilitata di storia e geografia e studentessa di teologia.",
       },
       studiesIntro:
         "In psicologia, il suo percorso universitario si è costruito passo dopo passo:",
@@ -484,7 +482,6 @@ const it: ContentBundle = {
         {
           degree: "Dottoranda in Psicologia",
           place: "Université de Rouen",
-          lab: "EA 7675 CRFDP",
           thesis:
             "« Dinamiche familiari e funzionamento intrasoggettivo del bambino ad alto potenziale intellettivo »",
           direction: "Sotto la direzione della Sig.ra Catherine Weissman-Arcache.",
@@ -494,17 +491,17 @@ const it: ContentBundle = {
     specializations: {
       eyebrow: "Specializzazioni",
       title: "Ambiti di accompagnamento",
-      lead: "Due specialità strutturano in particolare il suo lavoro clinico. Altri ambiti le prolungano nella pratica quotidiana.",
+      lead: "Specializzazione in ricerca, in clinica e in formazione intorno ai profili neuroatipici: HPI, HPC, TEA, profili Asperger, ADHD e disturbi degli apprendimenti.",
       featured: [
         {
           title: "Alto potenziale intellettivo e creativo",
           short: "HPIC",
-          body: "Specializzazione nell’alto potenziale intellettivo e creativo (HPIC).",
+          body: "Specializzazione in ricerca, in clinica e in formazione intorno all’alto potenziale intellettivo (HPI) e all’alto potenziale creativo (HPC).",
         },
         {
           title: "Sindrome di Asperger",
           short: "Asperger",
-          body: "Specializzazione nella sindrome di Asperger, in collegamento con la pratica clinica e la ricerca presso il CRFDP.",
+          body: "Specializzazione in ricerca, in clinica e in formazione intorno al TEA e ai profili Asperger, in collegamento con il CRFDP — Université de Rouen.",
         },
       ],
       othersLabel: "Altri ambiti",
@@ -538,7 +535,7 @@ const it: ContentBundle = {
         },
         {
           axis: "Arteterapia",
-          title: "Formazione con Marie Desaulles",
+          title: "Formazione con una specialista",
           detail: "Artista e arteterapeuta",
           place: null,
         },
@@ -549,7 +546,7 @@ const it: ContentBundle = {
     {
       title: "Bambini",
       description:
-        "Accompagnamento adattato, anche attraverso mediazioni (gioco, disegno, costruzioni…).",
+        "Accompagnamento adattato, anche attraverso mediazioni (gioco, disegno, costruzioni, mediazione con la natura, mediazione animale).",
     },
     {
       title: "Adolescenti",
@@ -559,17 +556,17 @@ const it: ContentBundle = {
     {
       title: "Adulti",
       description:
-        "Colloqui terapeutici centrati sul vissuto, sulle emozioni e sui bisogni specifici.",
+        "Colloqui terapeutici centrati sul vissuto, sulle emozioni e sui bisogni, con un lavoro intorno all’autostima, alla fiducia in sé e all’autonomia psichica.",
     },
     {
       title: "Coppie",
       description:
-        "Terapia di coppia per lavorare sulla relazione, sulle sue fragilità e sul suo equilibrio.",
+        "Terapia di coppia per lavorare sulla relazione, sui bisogni di ciascuno, sulle ipersensibilità eventuali e sulla ricerca di un equilibrio comune.",
     },
     {
       title: "Famiglie",
       description:
-        "Accompagnamento delle relazioni familiari, inclusa la mediazione familiare.",
+        "Accompagnamento delle relazioni familiari e della genitorialità con bambini neuroatipici.",
     },
   ],
   approach: {
@@ -596,7 +593,7 @@ const es: ContentBundle = {
   site: {
     title: "Psicóloga clínica",
     description:
-      "Psicóloga clínica en Gan. Consultas presenciales (99 rue d’Ossau) o por videoconsulta. Acompañamiento de niños, adolescentes, adultos, parejas y familias. Alto potencial intelectual y creativo, síndrome de Asperger.",
+      "Psicóloga clínica en Gan. Consultas presenciales (99 rue d’Ossau) o por videoconsulta. Acompañamiento de niños, adolescentes, adultos, parejas y familias. HPI, HPC, TEA, TDAH y trastornos de los aprendizajes.",
   },
   contact: {
     phoneNote: "Por favor, deje un SMS",
@@ -620,24 +617,24 @@ const es: ContentBundle = {
     locations: "en Gan",
     locationsShort: "Gan",
     homeSummary: [
-      "Claire Jalabert es psicóloga clínica en Gan. Acompaña a niños, adolescentes y adultos, con una especialización en el alto potencial intelectual y creativo (HPIC) y el síndrome de Asperger. Las consultas se realizan en el gabinete (99 rue d’Ossau) de forma presencial, o por videoconsulta.",
-      "Su recorrido universitario en psicología clínica se enriquece con una actividad de investigación sobre el alto potencial, en vínculo con el CRFDP de la Université de Rouen.",
-      "Antes de la psicología, ejerció como profesora habilitada de historia y geografía.",
+      "Claire Jalabert es psicóloga clínica en Gan. Está especializada en el acompañamiento, la identificación y la administración de evaluaciones adaptadas en torno a los perfiles HPI, HPC, TEA, Asperger, TDAH y los trastornos de los aprendizajes. Las consultas se realizan en el gabinete (99 rue d’Ossau) de forma presencial, o por videoconsulta.",
+      "Su recorrido universitario en psicología clínica se enriquece con una actividad de investigación sobre el alto potencial, en vínculo con el CRFDP — Université de Rouen.",
+      "Propone también un acompañamiento y una supervisión de los profesionales que trabajan con perfiles neuroatípicos y de los docentes de primaria y secundaria, un acompañamiento a la parentalidad, grupos de palabra, así como una formación de los padres en torno al HPI y a las neuroatipias.",
     ],
   },
   about: {
     heroIntro: [
-      "Claire Jalabert es psicóloga clínica en Gan. Acompaña a niños, adolescentes y adultos, en particular en torno al alto potencial intelectual y creativo (HPIC) y al síndrome de Asperger. Las consultas tienen lugar en el gabinete, 99 rue d’Ossau, presencialmente o por videoconsulta.",
-      "Su recorrido une la práctica clínica, la investigación universitaria y una experiencia previa en la enseñanza.",
+      "Claire Jalabert es psicóloga clínica en Gan. Está especializada en investigación, en clínica y en formación en torno a los perfiles neuroatípicos: HPI, HPC, TEA, perfiles Asperger, TDAH y trastornos de los aprendizajes. Las consultas tienen lugar en el gabinete, 99 rue d’Ossau, presencialmente o por videoconsulta.",
+      "Es psicóloga clínica, profesora certificada de historia y geografía y estudiante de teología.",
     ],
     journey: {
       eyebrow: "Recorrido",
       title: "Entre enseñanza, psicología e investigación",
-      lead: "Claire Jalabert enseñó primero historia y geografía. Su camino se desplegó después en la psicología clínica, hasta un trabajo de doctorado dedicado al niño de alto potencial intelectual y a la dinámica familiar.",
+      lead: "Claire Jalabert es psicóloga clínica, profesora certificada de historia y geografía y estudiante de teología. Su camino se ha desplegado en la psicología clínica, hasta un trabajo de doctorado dedicado al niño de alto potencial intelectual y a la dinámica familiar.",
       teachingLabel: "Enseñanza",
       teaching: {
-        title: "Profesora habilitada de historia y geografía",
-        body: "Un recorrido anterior en la enseñanza, antes de orientarse hacia la psicología clínica.",
+        title: "Profesora certificada de historia y geografía",
+        body: "Profesora certificada de historia y geografía y estudiante de teología.",
       },
       studiesIntro:
         "En psicología, su recorrido universitario se construyó paso a paso:",
@@ -653,7 +650,6 @@ const es: ContentBundle = {
         {
           degree: "Doctoranda en Psicología",
           place: "Université de Rouen",
-          lab: "EA 7675 CRFDP",
           thesis:
             "« Dinámica familiar y funcionamiento intrasubjetivo del niño de alto potencial intelectual »",
           direction: "Bajo la dirección de la Sra. Catherine Weissman-Arcache.",
@@ -663,17 +659,17 @@ const es: ContentBundle = {
     specializations: {
       eyebrow: "Especializaciones",
       title: "Ámbitos de acompañamiento",
-      lead: "Dos especialidades estructuran en particular su trabajo clínico. Otros ámbitos las prolongan en la práctica cotidiana.",
+      lead: "Especialización en investigación, en clínica y en formación en torno a los perfiles neuroatípicos: HPI, HPC, TEA, perfiles Asperger, TDAH y trastornos de los aprendizajes.",
       featured: [
         {
           title: "Alto potencial intelectual y creativo",
           short: "HPIC",
-          body: "Especialización en el alto potencial intelectual y creativo (HPIC).",
+          body: "Especialización en investigación, en clínica y en formación en torno al alto potencial intelectual (HPI) y al alto potencial creativo (HPC).",
         },
         {
           title: "Síndrome de Asperger",
           short: "Asperger",
-          body: "Especialización en el síndrome de Asperger, en vínculo con la práctica clínica y la investigación en el CRFDP.",
+          body: "Especialización en investigación, en clínica y en formación en torno al TEA y a los perfiles Asperger, en vínculo con el CRFDP — Université de Rouen.",
         },
       ],
       othersLabel: "Otros ámbitos",
@@ -707,7 +703,7 @@ const es: ContentBundle = {
         },
         {
           axis: "Arteterapia",
-          title: "Formación con Marie Desaulles",
+          title: "Formación con especialista",
           detail: "Artista y arteterapeuta",
           place: null,
         },
@@ -718,7 +714,7 @@ const es: ContentBundle = {
     {
       title: "Niños",
       description:
-        "Acompañamiento adaptado, también a través de mediaciones (juego, dibujo, construcciones…).",
+        "Acompañamiento adaptado, también a través de mediaciones (juego, dibujo, construcciones, mediación con la naturaleza, mediación animal).",
     },
     {
       title: "Adolescentes",
@@ -728,17 +724,17 @@ const es: ContentBundle = {
     {
       title: "Adultos",
       description:
-        "Entrevistas terapéuticas centradas en lo vivido, las emociones y las necesidades específicas.",
+        "Entrevistas terapéuticas centradas en lo vivido, las emociones y las necesidades, con un trabajo en torno a la autoestima, la confianza en uno mismo y la autonomía psíquica.",
     },
     {
       title: "Parejas",
       description:
-        "Terapia de pareja para trabajar la relación, sus fragilidades y su equilibrio.",
+        "Terapia de pareja para trabajar la relación, las necesidades de cada uno, las hipersensibilidades eventuales y la búsqueda de un equilibrio común.",
     },
     {
       title: "Familias",
       description:
-        "Acompañamiento de las relaciones familiares, incluida la mediación familiar.",
+        "Acompañamiento de las relaciones familiares y de la parentalidad con niños neuroatípicos.",
     },
   ],
   approach: {

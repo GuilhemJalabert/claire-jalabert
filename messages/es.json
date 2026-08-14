@@ -40,7 +40,8 @@
   },
   "Home": {
     "metaTitle": "{name} · {title} en Gan",
-    "heroDescription": "Psicóloga clínica {locations}. Acompañamiento de niños, adolescentes, adultos, parejas y familias — en particular en torno al alto potencial intelectual y creativo y al síndrome de Asperger.",
+    "heroDescription": "Psicóloga clínica {locations}. Especializada en el acompañamiento, la identificación y la administración de evaluaciones adaptadas para los perfiles HPI, HPC, TEA, Asperger y TDAH, los trastornos de los aprendizajes en el marco escolar o universitario, las dificultades o trastornos alimentarios asociados a un perfil HPI y/o TEA, el agotamiento profesional y el burnout en un perfil HPI y/o TEA, las hipersensibilidades sensoriales, y la prevención del riesgo de agotamiento en la vida cotidiana, en el trabajo o en el medio escolar.",
+    "heroAudiences": "Acompañamiento de niños, adolescentes, adultos, parejas y familias.",
     "visualCaption": "Gan",
     "visualTitle": "Consulta de psicología",
     "heroAltContemplation": "Ilustración contemplativa — silueta y rosa bajo un cielo estrellado",
@@ -77,13 +78,34 @@
   },
   "About": {
     "metaTitle": "Quién soy",
-    "metaDescription": "{name}, {title} {locations}. Recorrido, especializaciones HPIC y síndrome de Asperger.",
+    "metaDescription": "{name}, {title} {locations}. Recorrido, especializaciones HPI, HPC, TEA, TDAH y trastornos de los aprendizajes.",
     "portraitAlt": "Velero en el Duero, Oporto",
     "teachingImageAlt": "Estatua contemplativa frente a una cúpula iluminada al crepúsculo, Roma"
   },
   "Accompaniments": {
     "metaTitle": "Acompañamientos",
     "metaDescription": "Ámbitos de acompañamiento, entrevistas, terapias, mediaciones, evaluaciones y balances — {name}, psicóloga clínica en Gan."
+  },
+  "Comprendre": {
+    "infoTitle": "Información pedagógica",
+    "readDossier": "Leer el dossier",
+    "hubFooterBefore": "Estos dossiers aclaran nociones a menudo buscadas antes de una consulta. Para las propuestas concretas de la consulta, ver",
+    "hubFooterLink": "Acompañamientos",
+    "hubFooterAfter": ".",
+    "pedagogicalDossier": "Dossier pedagógico",
+    "lastUpdated": "Última actualización: {date}",
+    "disclaimerTitle": "Información pedagógica",
+    "disclaimerBody": "Esta información tiene una vocación pedagógica y no sustituye una evaluación clínica ni un dictamen médico.",
+    "sourcesTitle": "Fuentes y referentes",
+    "sourcesLead": "Fuentes institucionales y científicas utilizadas para redactar este dossier. Las recomendaciones evolucionan: consultar los documentos oficiales actualizados.",
+    "continueReading": "Seguir leyendo",
+    "ctaTitle": "¿Una pregunta sobre un acompañamiento o una evaluación?",
+    "ctaBody": "Los dossiers « Comprender » iluminan; las páginas Acompañamientos y Contacto permiten intercambiar de forma concreta.",
+    "toc": "Sumario",
+    "sections": "Secciones",
+    "tocAria": "Sumario de la página",
+    "accompaniments": "Acompañamientos",
+    "contact": "Contacto"
   },
   "ContactPage": {
     "metaTitle": "Contacto",

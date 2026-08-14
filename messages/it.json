@@ -40,7 +40,8 @@
   },
   "Home": {
     "metaTitle": "{name} · {title} a Gan",
-    "heroDescription": "Psicologa clinica {locations}. Accompagnamento di bambini, adolescenti, adulti, coppie e famiglie — in particolare intorno all’alto potenziale intellettivo e creativo e alla sindrome di Asperger.",
+    "heroDescription": "Psicologa clinica {locations}. Specializzata nell’accompagnamento, nell’individuazione e nella somministrazione di valutazioni adattate per i profili HPI, HPC, TEA, Asperger e ADHD, i disturbi degli apprendimenti in ambito scolastico o universitario, le difficoltà o i disturbi alimentari associati a un profilo HPI e/o TEA, l’esaurimento professionale e il burnout in un profilo HPI e/o TEA, le ipersensibilità sensoriali, e la prevenzione del rischio di esaurimento nella vita quotidiana, al lavoro o in ambito scolastico.",
+    "heroAudiences": "Accompagnamento di bambini, adolescenti, adulti, coppie e famiglie.",
     "visualCaption": "Gan",
     "visualTitle": "Studio di psicologia",
     "heroAltContemplation": "Illustrazione contemplativa — silhouette e rosa sotto un cielo stellato",
@@ -77,13 +78,34 @@
   },
   "About": {
     "metaTitle": "Chi sono",
-    "metaDescription": "{name}, {title} {locations}. Percorso, specializzazioni HPIC e sindrome di Asperger.",
+    "metaDescription": "{name}, {title} {locations}. Percorso, specializzazioni HPI, HPC, TEA, ADHD e disturbi degli apprendimenti.",
     "portraitAlt": "Veliero sul Douro, Porto",
     "teachingImageAlt": "Statua contemplativa di fronte a una cupola illuminata al crepuscolo, Roma"
   },
   "Accompaniments": {
     "metaTitle": "Accompagnamenti",
     "metaDescription": "Ambiti di accompagnamento, colloqui, terapie, mediazioni, valutazioni e bilanci — {name}, psicologa clinica a Gan."
+  },
+  "Comprendre": {
+    "infoTitle": "Informazione pedagogica",
+    "readDossier": "Leggere il dossier",
+    "hubFooterBefore": "Questi dossier chiariscono nozioni spesso cercate prima di una consultazione. Per le proposte concrete dello studio, vedere",
+    "hubFooterLink": "Accompagnamenti",
+    "hubFooterAfter": ".",
+    "pedagogicalDossier": "Dossier pedagogico",
+    "lastUpdated": "Ultimo aggiornamento: {date}",
+    "disclaimerTitle": "Informazione pedagogica",
+    "disclaimerBody": "Queste informazioni hanno una vocazione pedagogica e non sostituiscono una valutazione clinica o un parere medico.",
+    "sourcesTitle": "Fonti e riferimenti",
+    "sourcesLead": "Fonti istituzionali e scientifiche utilizzate per redigere questo dossier. Le raccomandazioni evolvono: fare riferimento ai documenti ufficiali aggiornati.",
+    "continueReading": "Continuare la lettura",
+    "ctaTitle": "Una domanda su un accompagnamento o una valutazione?",
+    "ctaBody": "I dossier « Comprendere » illuminano; le pagine Accompagnamenti e Contatti permettono di scambiare in concreto.",
+    "toc": "Sommario",
+    "sections": "Sezioni",
+    "tocAria": "Sommario della pagina",
+    "accompaniments": "Accompagnamenti",
+    "contact": "Contatti"
   },
   "ContactPage": {
     "metaTitle": "Contatti",

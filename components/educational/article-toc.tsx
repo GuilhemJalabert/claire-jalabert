@@ -1,6 +1,7 @@
 "use client"
 
 import { ListIcon } from "lucide-react"
+import { useTranslations } from "next-intl"
 
 import { Button } from "@/components/ui/button"
 import {
@@ -22,14 +23,16 @@ function TocLinks({
   items,
   onNavigate,
   variant = "list",
+  ariaLabel,
 }: {
   items: EducationalTocItem[]
   onNavigate?: () => void
   variant?: "list" | "chips"
+  ariaLabel: string
 }) {
   if (variant === "chips") {
     return (
-      <nav aria-label="Sommaire de la page">
+      <nav aria-label={ariaLabel}>
         <ul className="flex flex-wrap gap-2">
           {items.map((item) => (
             <li key={item.id}>
@@ -48,7 +51,7 @@ function TocLinks({
   }
 
   return (
-    <nav aria-label="Sommaire de la page">
+    <nav aria-label={ariaLabel}>
       <ol className="flex flex-col gap-1.5">
         {items.map((item, index) => (
           <li key={item.id}>
@@ -70,33 +73,35 @@ function TocLinks({
 }
 
 function ArticleToc({ items, className }: ArticleTocProps) {
+  const t = useTranslations("Comprendre")
+
   return (
     <div className={cn("flex flex-col gap-3", className)}>
       <div className="flex items-center justify-between gap-3 lg:hidden">
-        <p className="text-caption text-muted-foreground">Sommaire</p>
+        <p className="text-caption text-muted-foreground">{t("toc")}</p>
         <Sheet>
           <SheetTrigger asChild>
             <Button variant="outline" size="sm">
               <ListIcon data-icon="inline-start" />
-              Sections
+              {t("sections")}
             </Button>
           </SheetTrigger>
           <SheetContent side="left" className="w-[min(100%,20rem)] bg-background">
             <SheetHeader>
               <SheetTitle className="font-display text-left text-xl tracking-tight">
-                Sommaire
+                {t("toc")}
               </SheetTitle>
             </SheetHeader>
             <div className="mt-6">
-              <TocLinks items={items} />
+              <TocLinks items={items} ariaLabel={t("tocAria")} />
             </div>
           </SheetContent>
         </Sheet>
       </div>
 
       <div className="hidden lg:block">
-        <p className="text-caption text-muted-foreground mb-3">Sommaire</p>
-        <TocLinks items={items} variant="chips" />
+        <p className="text-caption text-muted-foreground mb-3">{t("toc")}</p>
+        <TocLinks items={items} variant="chips" ariaLabel={t("tocAria")} />
       </div>
     </div>
   )
