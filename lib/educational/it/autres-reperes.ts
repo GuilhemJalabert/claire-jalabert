@@ -7,7 +7,7 @@ export const autresReperesArticle: EducationalArticle = {
   description:
     "Riferimenti pedagogici su ADHD, sensorialità, stress, problematiche scolastiche, famiglia, approccio transgenerazionale, gruppi di confronto e valutazioni — per situare una domanda di accompagnamento.",
   metaTitle:
-    "ADHD, sensorialità, stress e difficoltà scolastiche: riferimenti | Claire Jalabert",
+    "Altri riferimenti e accompagnamenti | Claire Jalabert",
   metaDescription:
     "ADHD, sensorialità, stress, scuola, famiglia, transgenerazionale, gruppi e valutazioni: riferimenti per chiarire una domanda, senza sostituirsi a una valutazione clinica.",
   updatedAt: "2026-08-14",

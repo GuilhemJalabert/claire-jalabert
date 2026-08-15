@@ -79,7 +79,7 @@ const fr: PricingBundle = {
     body: "Les séances sont à régler le jour même du rendez-vous. En cas de règlement en attente, le secrétariat ne pourra pas fixer de nouveau rendez-vous tant que les séances dues n’auront pas été régularisées, afin d’assurer une gestion comptable claire.",
   },
   page: {
-    metaTitle: "Tarifs et modalités",
+    metaTitle: "Tarifs | Claire Jalabert",
     metaDescription:
       "Tarifs des consultations et modalités de rendez-vous — Claire Jalabert, psychologue clinicienne à Gan.",
     heroTitle: "Tarifs & modalités",
@@ -136,7 +136,7 @@ const en: PricingBundle = {
     body: "Sessions are to be paid on the day of the appointment. If payment is outstanding, the practice will not be able to schedule a new appointment until outstanding sessions have been settled, to ensure clear accounting.",
   },
   page: {
-    metaTitle: "Fees and practical details",
+    metaTitle: "Fees | Claire Jalabert",
     metaDescription:
       "Consultation fees and appointment arrangements — Claire Jalabert, clinical psychologist in Gan.",
     heroTitle: "Fees & practical details",
@@ -193,7 +193,7 @@ const it: PricingBundle = {
     body: "Le sessioni vanno pagate il giorno stesso dell’appuntamento. In caso di pagamento in sospeso, lo studio non potrà fissare un nuovo appuntamento finché le sessioni dovute non saranno state saldate, per garantire una contabilità chiara.",
   },
   page: {
-    metaTitle: "Tariffe e informazioni pratiche",
+    metaTitle: "Tariffe | Claire Jalabert",
     metaDescription:
       "Tariffe delle consultazioni e modalità degli appuntamenti — Claire Jalabert, psicologa clinica a Gan.",
     heroTitle: "Tariffe e informazioni pratiche",
@@ -250,7 +250,7 @@ const es: PricingBundle = {
     body: "Las sesiones se pagan el mismo día de la cita. Si hay un pago pendiente, la consulta no podrá fijar una nueva cita hasta que las sesiones debidas hayan sido regularizadas, para garantizar una contabilidad clara.",
   },
   page: {
-    metaTitle: "Tarifas e información práctica",
+    metaTitle: "Tarifas | Claire Jalabert",
     metaDescription:
       "Tarifas de las consultas y modalidades de cita — Claire Jalabert, psicóloga clínica en Gan.",
     heroTitle: "Tarifas e información práctica",

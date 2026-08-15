@@ -17,7 +17,7 @@ import { SectionHeading } from "@/components/sections/section-heading";
 import { FadeIn } from "@/components/motion/fade-in";
 import { SoftHalo } from "@/components/decor/soft-halo";
 import { Starfield } from "@/components/decor/starfield";
-import { languageAlternates } from "@/i18n/metadata";
+import { absoluteTitle, absoluteUrl, languageAlternates } from "@/i18n/metadata";
 import { asAppLocale } from "@/i18n/routing";
 import { contactFacts, getContent } from "@/lib/content";
 import { getAccompaniments } from "@/lib/accompagnements";
@@ -28,11 +28,25 @@ type Props = { params: Promise<{ locale: string }> };
 export async function generateMetadata({ params }: Props): Promise<Metadata> {
   const locale = asAppLocale((await params).locale);
   const pricing = getPricing(locale);
+  const title = pricing.page.metaTitle;
+  const description = pricing.page.metaDescription;
+  const url = absoluteUrl(locale, "/tarifs");
 
   return {
-    title: pricing.page.metaTitle,
-    description: pricing.page.metaDescription,
+    title: absoluteTitle(title),
+    description,
     alternates: languageAlternates(locale, "/tarifs"),
+    openGraph: {
+      title,
+      description,
+      url,
+      type: "website",
+    },
+    twitter: {
+      card: "summary_large_image",
+      title,
+      description,
+    },
   };
 }
 

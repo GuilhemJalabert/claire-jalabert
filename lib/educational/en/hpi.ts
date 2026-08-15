@@ -7,7 +7,7 @@ export const hpiArticle: EducationalArticle = {
   description:
     "Guidance on high intellectual potential: definition, tests, schooling, diversity of pathways, children and adults, HPIC formulation, links with ASD and ADHD, and the role of assessment.",
   metaTitle:
-    "High Intellectual Potential (HPI): Understanding and Assessment | Claire Jalabert",
+    "Understanding intellectual giftedness (HPI) | Claire Jalabert",
   metaDescription:
     "Educational page on HPI and the HPIC formulation: tests, school success, diversity, creativity, possible links with ASD and ADHD. Informational content, not diagnostic.",
   updatedAt: "2026-08-12",

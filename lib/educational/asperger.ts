@@ -7,7 +7,7 @@ export const aspergerArticle: EducationalArticle = {
   description:
     "Comprendre le syndrome d’Asperger : histoire du terme, caractéristiques, communication, intérêts, sensorialité, femmes, âges de la vie, liens avec le HPI, et place actuelle dans le spectre de l’autisme.",
   metaTitle:
-    "Syndrome d’Asperger : comprendre le terme et les profils concernés | Claire Jalabert",
+    "Comprendre le syndrome d’Asperger | Claire Jalabert",
   metaDescription:
     "Repères pédagogiques sur le syndrome d’Asperger : pourquoi le langage a évolué, caractéristiques, camouflage, et inscription dans le TSA. Contenu informatif, non diagnostique.",
   updatedAt: "2026-08-12",

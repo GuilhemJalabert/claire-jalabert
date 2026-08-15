@@ -39,7 +39,7 @@
     "switchTheme": "Switch to {theme} mode"
   },
   "Home": {
-    "metaTitle": "{name} · {title} in Gan",
+    "metaTitle": "{name} | {title} in Gan",
     "heroDescription": "Clinical psychologist {locations}. Specialised in support, identification and adapted assessments for HPI, HPC, ASD, Asperger and ADHD profiles, learning difficulties in school or student settings, eating difficulties or disorders associated with an HPI and/or ASD profile, professional exhaustion and burnout in an HPI and/or ASD profile, sensory hypersensitivities, and prevention of the risk of exhaustion in daily life, at work or in school.",
     "heroAudiences": "Support for children, adolescents, adults, couples and families.",
     "visualCaption": "Gan",
@@ -77,14 +77,14 @@
     "approachTitle": "The spirit of the sessions"
   },
   "About": {
-    "metaTitle": "About",
-    "metaDescription": "{name}, {title} {locations}. Background, specialisations in HPI, HPC, ASD, ADHD and learning difficulties.",
+    "metaTitle": "About | Claire Jalabert, clinical psychologist",
+    "metaDescription": "Background, training and specialisations of Claire Jalabert, clinical psychologist in Gan — HPI, HPC, ASD, ADHD and learning difficulties.",
     "portraitAlt": "Sailboat on the Douro, Porto",
     "teachingImageAlt": "Contemplative statue facing an illuminated dome at dusk, Rome"
   },
   "Accompaniments": {
-    "metaTitle": "Support",
-    "metaDescription": "Areas of support, sessions, therapies, mediations, assessments and evaluations — {name}, clinical psychologist in Gan."
+    "metaTitle": "Support | Claire Jalabert",
+    "metaDescription": "Sessions, therapies, mediations, assessments and evaluations offered at the practice — Claire Jalabert, clinical psychologist in Gan."
   },
   "Comprendre": {
     "infoTitle": "Educational information",
@@ -108,8 +108,8 @@
     "contact": "Contact"
   },
   "ContactPage": {
-    "metaTitle": "Contact",
-    "metaDescription": "Contact Claire Jalabert — {address}. Phone and email.",
+    "metaTitle": "Contact | Claire Jalabert",
+    "metaDescription": "Book an appointment with Claire Jalabert — practice at {address}. Phone (text preferred) and email.",
     "eyebrow": "Contact",
     "title": "Book an appointment",
     "description": "Consultations take place at the Gan practice, in person or by video."

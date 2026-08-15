@@ -1,7 +1,7 @@
 import type { Metadata } from "next"
 import { getTranslations, setRequestLocale } from "next-intl/server"
 import { Link } from "@/i18n/navigation";
-import { languageAlternates } from "@/i18n/metadata"
+import { absoluteTitle, absoluteUrl, languageAlternates } from "@/i18n/metadata"
 import { asAppLocale } from "@/i18n/routing"
 
 import { Badge } from "@/components/ui/badge"
@@ -20,22 +20,28 @@ import { Starfield } from "@/components/decor/starfield"
 import { FadeIn } from "@/components/motion/fade-in"
 import { EducationalCallout } from "@/components/educational/callout"
 import { getEducationalHub } from "@/lib/educational"
-import { siteConfig } from "@/lib/site"
 
 type Props = { params: Promise<{ locale: string }> }
 
 export async function generateMetadata({ params }: Props): Promise<Metadata> {
   const locale = asAppLocale((await params).locale)
   const hub = getEducationalHub(locale)
+  const url = absoluteUrl(locale, "/comprendre")
 
   return {
-    title: hub.metaTitle,
+    title: absoluteTitle(hub.metaTitle),
     description: hub.metaDescription,
     alternates: languageAlternates(locale, "/comprendre"),
     openGraph: {
       title: hub.metaTitle,
       description: hub.metaDescription,
-      url: `${siteConfig.url}/comprendre`,
+      url,
+      type: "website",
+    },
+    twitter: {
+      card: "summary_large_image",
+      title: hub.metaTitle,
+      description: hub.metaDescription,
     },
   }
 }

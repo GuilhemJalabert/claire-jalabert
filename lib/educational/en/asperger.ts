@@ -7,7 +7,7 @@ export const aspergerArticle: EducationalArticle = {
   description:
     "Understanding Asperger syndrome: history of the term, characteristics, communication, interests, sensory processing, women, life stages, links with HPI, and its current place within the autism spectrum.",
   metaTitle:
-    "Asperger syndrome: understanding the term and the profiles concerned | Claire Jalabert",
+    "Understanding Asperger syndrome | Claire Jalabert",
   metaDescription:
     "Educational overview of Asperger syndrome: why terminology has evolved, characteristics, camouflaging, and place within ASD. Informational content, not diagnostic.",
   updatedAt: "2026-08-12",

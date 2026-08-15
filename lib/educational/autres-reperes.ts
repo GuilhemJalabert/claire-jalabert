@@ -7,7 +7,7 @@ export const autresReperesArticle: EducationalArticle = {
   description:
     "Repères pédagogiques sur le TDAH, la sensorialité, le stress, les problématiques scolaires, la famille, l’approche transgénérationnelle, les groupes de parole et les bilans — pour situer une demande d’accompagnement.",
   metaTitle:
-    "TDAH, sensorialité, stress et difficultés scolaires : repères | Claire Jalabert",
+    "Autres repères et accompagnements | Claire Jalabert",
   metaDescription:
     "TDAH, sensorialité, stress, scolarité, famille, transgénérationnel, groupes et bilans : repères pour éclairer une demande, sans se substituer à une évaluation clinique.",
   updatedAt: "2026-08-14",

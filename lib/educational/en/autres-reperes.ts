@@ -7,7 +7,7 @@ export const autresReperesArticle: EducationalArticle = {
   description:
     "Educational reference points on ADHD, sensory processing, stress, school-related issues, family, the transgenerational approach, support groups, and assessments — to help situate a request for support.",
   metaTitle:
-    "ADHD, sensory processing, stress and school difficulties: reference points | Claire Jalabert",
+    "Other markers and support | Claire Jalabert",
   metaDescription:
     "ADHD, sensory processing, stress, school, family, transgenerational, groups and assessments: reference points to clarify a request, without replacing a clinical evaluation.",
   updatedAt: "2026-08-14",

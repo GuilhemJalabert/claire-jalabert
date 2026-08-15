@@ -39,7 +39,7 @@
     "switchTheme": "Passer en mode {theme}"
   },
   "Home": {
-    "metaTitle": "{name} · {title} à Gan",
+    "metaTitle": "{name} | {title} à Gan",
     "heroDescription": "Psychologue clinicienne {locations}. Spécialisée dans l’accompagnement, le repérage et la passation de bilans adaptés pour les profils HPI, HPC, TSA, Asperger et TDAH, les troubles des apprentissages dans le cadre scolaire ou étudiant, les difficultés ou troubles alimentaires ainsi que l’épuisement professionnel et le burn-out associés à un profil HPI et/ou TSA, les hypersensibilités sensorielles, et la prévention du risque d’épuisement dans la vie quotidienne, au travail ou en milieu scolaire.",
     "heroAudiences": "Accompagnement des enfants, adolescents, adultes, couples et familles.",
     "visualCaption": "Gan",
@@ -77,14 +77,14 @@
     "approachTitle": "L’esprit des entretiens"
   },
   "About": {
-    "metaTitle": "À propos",
-    "metaDescription": "{name}, {title} {locations}. Parcours, spécialisations HPI, HPC, TSA, TDAH et troubles des apprentissages.",
+    "metaTitle": "À propos | Claire Jalabert, psychologue clinicienne",
+    "metaDescription": "Parcours, formations et spécialisations de Claire Jalabert, psychologue clinicienne à Gan — HPI, HPC, TSA, TDAH et troubles des apprentissages.",
     "portraitAlt": "Voilier sur le Douro, Porto",
     "teachingImageAlt": "Statue contemplative face à un dôme illuminé au crépuscule, Rome"
   },
   "Accompaniments": {
-    "metaTitle": "Accompagnements",
-    "metaDescription": "Domaines d’accompagnement, entretiens, thérapies, médiations, bilans et évaluations — {name}, psychologue clinicienne à Gan."
+    "metaTitle": "Accompagnements | Claire Jalabert",
+    "metaDescription": "Entretiens, thérapies, médiations, bilans et évaluations proposés au cabinet — Claire Jalabert, psychologue clinicienne à Gan."
   },
   "Comprendre": {
     "infoTitle": "Information pédagogique",
@@ -108,8 +108,8 @@
     "contact": "Contact"
   },
   "ContactPage": {
-    "metaTitle": "Contact",
-    "metaDescription": "Contacter Claire Jalabert — {address}. Téléphone et e-mail.",
+    "metaTitle": "Contact | Claire Jalabert",
+    "metaDescription": "Prendre rendez-vous avec Claire Jalabert — cabinet au {address}. Téléphone (SMS de préférence) et e-mail.",
     "eyebrow": "Contact",
     "title": "Prendre rendez-vous",
     "description": "Les consultations se déroulent au cabinet de Gan, en présentiel ou par visioconférence."

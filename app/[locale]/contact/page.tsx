@@ -11,7 +11,7 @@ import { SectionHeading } from "@/components/sections/section-heading";
 import { CabinetMap } from "@/components/sections/cabinet-map";
 import { DirectionsButton } from "@/components/sections/directions-button";
 import { FadeIn } from "@/components/motion/fade-in";
-import { languageAlternates } from "@/i18n/metadata";
+import { absoluteTitle, absoluteUrl, languageAlternates } from "@/i18n/metadata";
 import { asAppLocale } from "@/i18n/routing";
 import { contactFacts, getContent } from "@/lib/content";
 import { getAccompaniments } from "@/lib/accompagnements";
@@ -21,13 +21,27 @@ type Props = { params: Promise<{ locale: string }> };
 export async function generateMetadata({ params }: Props): Promise<Metadata> {
   const locale = asAppLocale((await params).locale);
   const t = await getTranslations({ locale, namespace: "ContactPage" });
+  const title = t("metaTitle");
+  const description = t("metaDescription", {
+    address: contactFacts.address.full,
+  });
+  const url = absoluteUrl(locale, "/contact");
 
   return {
-    title: t("metaTitle"),
-    description: t("metaDescription", {
-      address: contactFacts.address.full,
-    }),
+    title: absoluteTitle(title),
+    description,
     alternates: languageAlternates(locale, "/contact"),
+    openGraph: {
+      title,
+      description,
+      url,
+      type: "website",
+    },
+    twitter: {
+      card: "summary_large_image",
+      title,
+      description,
+    },
   };
 }
 

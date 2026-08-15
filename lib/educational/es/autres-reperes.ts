@@ -7,7 +7,7 @@ export const autresReperesArticle: EducationalArticle = {
   description:
     "Referentes pedagógicos sobre el TDAH, la sensorialidad, el estrés, las dificultades escolares, la familia, el enfoque transgeneracional, los grupos de apoyo y las evaluaciones — para situar una demanda de acompañamiento.",
   metaTitle:
-    "TDAH, sensorialidad, estrés y dificultades escolares: referentes | Claire Jalabert",
+    "Otros referentes y acompañamientos | Claire Jalabert",
   metaDescription:
     "TDAH, sensorialidad, estrés, escolaridad, familia, transgeneracional, grupos y evaluaciones: referentes para aclarar una demanda, sin sustituir una evaluación clínica.",
   updatedAt: "2026-08-14",

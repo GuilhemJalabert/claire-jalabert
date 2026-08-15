@@ -39,7 +39,7 @@
     "switchTheme": "Pasar al modo {theme}"
   },
   "Home": {
-    "metaTitle": "{name} · {title} en Gan",
+    "metaTitle": "{name} | {title} en Gan",
     "heroDescription": "Psicóloga clínica {locations}. Especializada en el acompañamiento, la identificación y la administración de evaluaciones adaptadas para los perfiles HPI, HPC, TEA, Asperger y TDAH, los trastornos de los aprendizajes en el marco escolar o universitario, las dificultades o trastornos alimentarios asociados a un perfil HPI y/o TEA, el agotamiento profesional y el burnout en un perfil HPI y/o TEA, las hipersensibilidades sensoriales, y la prevención del riesgo de agotamiento en la vida cotidiana, en el trabajo o en el medio escolar.",
     "heroAudiences": "Acompañamiento de niños, adolescentes, adultos, parejas y familias.",
     "visualCaption": "Gan",
@@ -77,14 +77,14 @@
     "approachTitle": "El espíritu de las entrevistas"
   },
   "About": {
-    "metaTitle": "Quién soy",
-    "metaDescription": "{name}, {title} {locations}. Recorrido, especializaciones HPI, HPC, TEA, TDAH y trastornos de los aprendizajes.",
+    "metaTitle": "Quién soy | Claire Jalabert, psicóloga clínica",
+    "metaDescription": "Recorrido, formación y especializaciones de Claire Jalabert, psicóloga clínica en Gan — HPI, HPC, TEA, TDAH y trastornos de los aprendizajes.",
     "portraitAlt": "Velero en el Duero, Oporto",
     "teachingImageAlt": "Estatua contemplativa frente a una cúpula iluminada al crepúsculo, Roma"
   },
   "Accompaniments": {
-    "metaTitle": "Acompañamientos",
-    "metaDescription": "Ámbitos de acompañamiento, entrevistas, terapias, mediaciones, evaluaciones y balances — {name}, psicóloga clínica en Gan."
+    "metaTitle": "Acompañamientos | Claire Jalabert",
+    "metaDescription": "Entrevistas, terapias, mediaciones, evaluaciones y balances propuestos en la consulta — Claire Jalabert, psicóloga clínica en Gan."
   },
   "Comprendre": {
     "infoTitle": "Información pedagógica",
@@ -108,8 +108,8 @@
     "contact": "Contacto"
   },
   "ContactPage": {
-    "metaTitle": "Contacto",
-    "metaDescription": "Contactar a Claire Jalabert — {address}. Teléfono y correo electrónico.",
+    "metaTitle": "Contacto | Claire Jalabert",
+    "metaDescription": "Pedir cita con Claire Jalabert — consulta en {address}. Teléfono (SMS preferible) y correo electrónico.",
     "eyebrow": "Contacto",
     "title": "Pedir cita",
     "description": "Las consultas se realizan en el gabinete de Gan, presencialmente o por videoconsulta."

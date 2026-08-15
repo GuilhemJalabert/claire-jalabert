@@ -24,7 +24,7 @@ import { OrbitLine } from "@/components/decor/orbit-line";
 import { SoftHalo } from "@/components/decor/soft-halo";
 import { Starfield } from "@/components/decor/starfield";
 import { cn } from "@/lib/utils";
-import { languageAlternates } from "@/i18n/metadata";
+import { absoluteTitle, absoluteUrl, languageAlternates } from "@/i18n/metadata";
 import { asAppLocale } from "@/i18n/routing";
 import { getContent } from "@/lib/content";
 import { getAccompaniments } from "@/lib/accompagnements";
@@ -40,15 +40,21 @@ export async function generateMetadata({ params }: Props): Promise<Metadata> {
     name: siteConfig.name,
     title: presentation.title,
   });
+  const url = absoluteUrl(locale, "/");
 
   return {
-    title: {
-      absolute: title,
-    },
+    title: absoluteTitle(title),
     description: site.description,
     alternates: languageAlternates(locale, "/"),
     openGraph: {
-      title: `${siteConfig.name} · ${presentation.title}`,
+      title,
+      description: site.description,
+      url,
+      type: "website",
+    },
+    twitter: {
+      card: "summary_large_image",
+      title,
       description: site.description,
     },
   };

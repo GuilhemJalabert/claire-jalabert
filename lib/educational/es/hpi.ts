@@ -7,7 +7,7 @@ export const hpiArticle: EducationalArticle = {
   description:
     "Referentes sobre el alto potencial intelectual: definición, pruebas, escolaridad, diversidad de trayectorias, infancia y edad adulta, formulación HPIC, vínculos con TEA y TDAH, y papel de la evaluación.",
   metaTitle:
-    "Alto potencial intelectual (HPI): comprender y evaluar | Claire Jalabert",
+    "Comprender el alto potencial intelectual | Claire Jalabert",
   metaDescription:
     "Página pedagógica sobre el HPI y la formulación HPIC: pruebas, éxito escolar, diversidad, creatividad, posibles vínculos con TEA y TDAH. Contenido informativo, no diagnóstico.",
   updatedAt: "2026-08-12",

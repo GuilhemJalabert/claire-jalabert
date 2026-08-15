@@ -21,7 +21,7 @@ import { PhotoFrame } from "@/components/sections/photo-frame";
 import { FadeIn } from "@/components/motion/fade-in";
 import { SoftHalo } from "@/components/decor/soft-halo";
 import { Star } from "@/components/decor/star";
-import { languageAlternates } from "@/i18n/metadata";
+import { absoluteTitle, absoluteUrl, languageAlternates } from "@/i18n/metadata";
 import { asAppLocale } from "@/i18n/routing";
 import { getContent } from "@/lib/content";
 import { getAccompaniments } from "@/lib/accompagnements";
@@ -33,15 +33,29 @@ export async function generateMetadata({ params }: Props): Promise<Metadata> {
   const locale = asAppLocale((await params).locale);
   const t = await getTranslations({ locale, namespace: "About" });
   const { presentation } = getContent(locale);
+  const title = t("metaTitle");
+  const description = t("metaDescription", {
+    name: siteConfig.name,
+    title: presentation.title,
+    locations: presentation.locations,
+  });
+  const url = absoluteUrl(locale, "/a-propos");
 
   return {
-    title: t("metaTitle"),
-    description: t("metaDescription", {
-      name: siteConfig.name,
-      title: presentation.title,
-      locations: presentation.locations,
-    }),
+    title: absoluteTitle(title),
+    description,
     alternates: languageAlternates(locale, "/a-propos"),
+    openGraph: {
+      title,
+      description,
+      url,
+      type: "website",
+    },
+    twitter: {
+      card: "summary_large_image",
+      title,
+      description,
+    },
   };
 }
 

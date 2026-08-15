@@ -6,7 +6,7 @@ export const educationalHubEs = {
   eyebrow: "Referentes pedagógicos",
   description:
     "Páginas de referencia para comprender mejor el trastorno del espectro autista, el síndrome de Asperger, el alto potencial intelectual y otros referentes útiles para el acompañamiento — sin sustituir una evaluación clínica.",
-  metaTitle: "Comprender — TEA, Asperger, HPI | Claire Jalabert",
+  metaTitle: "Comprender las neuroatipias | Claire Jalabert",
   metaDescription:
     "Referentes pedagógicos sobre el TEA, el síndrome de Asperger, el alto potencial intelectual y otras temáticas. Contenido informativo, no diagnóstico.",
   lead: "Estos textos pretenden aclarar, matizar y orientar. No sustituyen una entrevista clínica ni un proceso diagnóstico médico.",

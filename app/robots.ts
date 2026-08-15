@@ -1,14 +1,14 @@
 import type { MetadataRoute } from "next";
 
-import { siteConfig } from "@/lib/site";
+import { SITE_URL } from "@/lib/site";
 
 export default function robots(): MetadataRoute.Robots {
   return {
     rules: {
       userAgent: "*",
-      // Indexation désactivée tant que le contenu définitif n’est pas prêt.
-      disallow: "/",
+      allow: "/",
     },
-    sitemap: `${siteConfig.url}/sitemap.xml`,
+    sitemap: `${SITE_URL}/sitemap.xml`,
+    host: SITE_URL,
   };
 }

@@ -7,7 +7,7 @@ export const tsaArticle: EducationalArticle = {
   description:
     "Comprendre le trouble du spectre de l’autisme : domaines cliniques, sensorialité, parcours selon les âges, évaluation, outils et orientations — sans se substituer à une démarche diagnostique.",
   metaTitle:
-    "Trouble du spectre de l’autisme (TSA) : comprendre, repérer, évaluer | Claire Jalabert",
+    "Comprendre le trouble du spectre de l’autisme | Claire Jalabert",
   metaDescription:
     "Dossier pédagogique sur le TSA : domaines, sensorialité, enfant, adolescence, adulte, femmes et camouflage, causes, diagnostic, ADI-R, RAADS-R. Contenu informatif, non diagnostique.",
   updatedAt: "2026-08-12",

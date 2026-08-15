@@ -7,7 +7,7 @@ export const tsaArticle: EducationalArticle = {
   description:
     "Comprender el trastorno del espectro autista: ámbitos clínicos, sensorialidad, recorridos según las edades, evaluación, herramientas y orientaciones — sin sustituir un proceso diagnóstico.",
   metaTitle:
-    "Trastorno del espectro autista (TEA): comprender, identificar, evaluar | Claire Jalabert",
+    "Comprender el trastorno del espectro autista | Claire Jalabert",
   metaDescription:
     "Dossier pedagógico sobre el TEA: ámbitos, sensorialidad, infancia, adolescencia, adulto, mujeres y camuflaje, causas, diagnóstico, ADI-R, RAADS-R. Contenido informativo, no diagnóstico.",
   updatedAt: "2026-08-12",

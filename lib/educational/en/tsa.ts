@@ -7,7 +7,7 @@ export const tsaArticle: EducationalArticle = {
   description:
     "Understanding autism spectrum disorder: clinical domains, sensory processing, pathways across the lifespan, assessment, tools and signposting — without substituting for a diagnostic process.",
   metaTitle:
-    "Autism spectrum disorder (ASD): understanding, identifying and assessing | Claire Jalabert",
+    "Understanding autism spectrum disorder | Claire Jalabert",
   metaDescription:
     "Educational overview of ASD: domains, sensory processing, childhood, adolescence, adulthood, women and camouflage, causes, diagnosis, ADI-R, RAADS-R. Informative, non-diagnostic content.",
   updatedAt: "2026-08-12",

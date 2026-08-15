@@ -3,13 +3,12 @@ import { notFound } from "next/navigation"
 import { setRequestLocale } from "next-intl/server"
 
 import { EducationalArticlePage } from "@/components/educational/article-page"
-import { languageAlternates } from "@/i18n/metadata"
+import { absoluteTitle, absoluteUrl, languageAlternates, type AppHref } from "@/i18n/metadata"
 import { asAppLocale } from "@/i18n/routing"
 import {
   educationalArticles,
   getEducationalArticle,
 } from "@/lib/educational"
-import { siteConfig } from "@/lib/site"
 
 type PageProps = {
   params: Promise<{ locale: string; slug: string }>
@@ -27,15 +26,23 @@ export async function generateMetadata({
   const article = getEducationalArticle(slug, locale)
   if (!article) return {}
 
+  const href = `/comprendre/${article.slug}` as AppHref
+  const url = absoluteUrl(locale, href)
+
   return {
-    title: article.metaTitle,
+    title: absoluteTitle(article.metaTitle),
     description: article.metaDescription,
-    alternates: languageAlternates(locale, `/comprendre/${article.slug}`),
+    alternates: languageAlternates(locale, href),
     openGraph: {
       title: article.metaTitle,
       description: article.metaDescription,
-      url: `${siteConfig.url}/comprendre/${article.slug}`,
+      url,
       type: "article",
+    },
+    twitter: {
+      card: "summary_large_image",
+      title: article.metaTitle,
+      description: article.metaDescription,
     },
   }
 }

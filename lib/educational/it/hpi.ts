@@ -7,7 +7,7 @@ export const hpiArticle: EducationalArticle = {
   description:
     "Riferimenti sull’alto potenziale intellettivo: definizione, test, scolarità, diversità dei percorsi, bambino e adulto, formulazione HPIC, legami con TEA e ADHD, e ruolo della valutazione.",
   metaTitle:
-    "Alto potenziale intellettivo (HPI): comprendere e valutare | Claire Jalabert",
+    "Comprendere l’alto potenziale intellettivo | Claire Jalabert",
   metaDescription:
     "Pagina pedagogica sull’HPI e la formulazione HPIC: test, successo scolastico, diversità, creatività, possibili legami con TEA e ADHD. Contenuto informativo, non diagnostico.",
   updatedAt: "2026-08-12",

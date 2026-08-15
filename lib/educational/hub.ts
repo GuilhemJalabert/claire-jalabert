@@ -11,7 +11,7 @@ export const educationalHub = {
   eyebrow: "Repères pédagogiques",
   description:
     "Des pages de référence pour mieux saisir le trouble du spectre de l’autisme, le syndrome d’Asperger, le haut potentiel intellectuel, et d’autres repères utiles à l’accompagnement — sans se substituer à une évaluation clinique.",
-  metaTitle: "Comprendre — TSA, Asperger, HPI | Claire Jalabert",
+  metaTitle: "Comprendre les neuroatypies | Claire Jalabert",
   metaDescription:
     "Repères pédagogiques sur le TSA, le syndrome d’Asperger, le haut potentiel intellectuel et d’autres thématiques. Contenu informatif, non diagnostique.",
   lead: "Ces textes visent à éclairer, à nuancer et à orienter. Ils ne remplacent pas un entretien clinique ni une démarche diagnostique médicale.",

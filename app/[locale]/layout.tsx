@@ -6,11 +6,12 @@ import { notFound } from "next/navigation";
 import { Footer } from "@/components/layout/footer";
 import { Navbar } from "@/components/layout/navbar";
 import { ThemeProvider } from "@/components/theme/theme-provider";
+import { JsonLd } from "@/components/seo/json-ld";
 import { fontDisplay, fontSans } from "@/lib/fonts";
 import { languageAlternates, openGraphLocale } from "@/i18n/metadata";
 import { asAppLocale, routing } from "@/i18n/routing";
 import { getContent } from "@/lib/content";
-import { siteConfig } from "@/lib/site";
+import { SITE_URL, siteConfig } from "@/lib/site";
 import { cn } from "@/lib/utils";
 
 import "../globals.css";
@@ -31,10 +32,10 @@ export async function generateMetadata({
   const { site } = getContent(locale);
 
   return {
-    metadataBase: new URL(siteConfig.url),
+    metadataBase: new URL(SITE_URL),
     title: {
-      default: `${siteConfig.name} · ${site.title}`,
-      template: `%s · ${siteConfig.name}`,
+      default: `${siteConfig.name} | ${site.title}`,
+      template: `%s | ${siteConfig.name}`,
     },
     description: site.description,
     applicationName: siteConfig.name,
@@ -44,19 +45,18 @@ export async function generateMetadata({
     openGraph: {
       type: "website",
       locale: openGraphLocale(locale),
-      url: siteConfig.url,
       siteName: siteConfig.name,
-      title: `${siteConfig.name} · ${site.title}`,
+      title: `${siteConfig.name} | ${site.title}`,
       description: site.description,
     },
     twitter: {
       card: "summary_large_image",
-      title: `${siteConfig.name} · ${site.title}`,
+      title: `${siteConfig.name} | ${site.title}`,
       description: site.description,
     },
     robots: {
-      index: false,
-      follow: false,
+      index: true,
+      follow: true,
     },
   };
 }
@@ -81,6 +81,7 @@ export default async function LocaleLayout({
       suppressHydrationWarning
     >
       <body className="flex min-h-full flex-col font-sans">
+        <JsonLd />
         <NextIntlClientProvider messages={messages}>
           <ThemeProvider>
             <Navbar />

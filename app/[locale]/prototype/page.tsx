@@ -1,5 +1,7 @@
 import type { Metadata } from "next";
 import { Link } from "@/i18n/navigation";
+import { absoluteTitle, absoluteUrl } from "@/i18n/metadata";
+import { asAppLocale } from "@/i18n/routing";
 
 import { Badge } from "@/components/ui/badge";
 import { Button } from "@/components/ui/button";
@@ -24,11 +26,20 @@ import { SoftHalo } from "@/components/decor/soft-halo";
 import { Star } from "@/components/decor/star";
 import { Starfield } from "@/components/decor/starfield";
 
-export const metadata: Metadata = {
-  title: "Prototype accueil",
-  description: "Maquette éditoriale — Contemplation ↔ Lumière.",
-  robots: { index: false, follow: false },
-};
+type Props = { params: Promise<{ locale: string }> };
+
+export async function generateMetadata({ params }: Props): Promise<Metadata> {
+  const locale = asAppLocale((await params).locale);
+  return {
+    title: absoluteTitle("Prototype — référence design"),
+    description:
+      "Maquette éditoriale interne — Contemplation ↔ Lumière. Non indexée.",
+    robots: { index: false, follow: false },
+    alternates: {
+      canonical: absoluteUrl(locale, "/prototype"),
+    },
+  };
+}
 
 const accompaniments = [
   {

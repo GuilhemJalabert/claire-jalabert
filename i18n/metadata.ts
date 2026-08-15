@@ -2,17 +2,25 @@ import type { Metadata } from "next";
 
 import { getPathname } from "@/i18n/navigation";
 import { routing, type AppLocale } from "@/i18n/routing";
-import { siteConfig } from "@/lib/site";
+import { SITE_URL } from "@/lib/site";
 
 type AppHref = Parameters<typeof getPathname>[0]["href"];
 
-function absoluteUrl(locale: AppLocale, href: AppHref) {
-  return `${siteConfig.url}${getPathname({ locale, href })}`;
+function hasAppLocale(value: string): value is AppLocale {
+  return routing.locales.includes(value as AppLocale);
 }
 
+function absoluteUrl(locale: AppLocale, href: AppHref) {
+  return `${SITE_URL}${getPathname({ locale, href })}`;
+}
+
+/**
+ * Canonical = URL de la page courante (propre à la langue).
+ * languages = équivalents réciproques FR / EN / IT / ES + x-default → FR.
+ */
 function languageAlternates(
   locale: string,
-  href: AppHref
+  href: AppHref,
 ): NonNullable<Metadata["alternates"]> {
   const languages: Record<string, string> = {};
   for (const loc of routing.locales) {
@@ -27,10 +35,6 @@ function languageAlternates(
   };
 }
 
-function hasAppLocale(value: string): value is AppLocale {
-  return routing.locales.includes(value as AppLocale);
-}
-
 function openGraphLocale(locale: string) {
   if (locale === "en") return "en_US";
   if (locale === "it") return "it_IT";
@@ -38,5 +42,15 @@ function openGraphLocale(locale: string) {
   return "fr_FR";
 }
 
-export { languageAlternates, openGraphLocale, absoluteUrl };
+/** Titre complet (évite le template layout qui doublonnerait le nom). */
+function absoluteTitle(title: string): Metadata["title"] {
+  return { absolute: title };
+}
+
+export {
+  languageAlternates,
+  openGraphLocale,
+  absoluteUrl,
+  absoluteTitle,
+};
 export type { AppHref };

@@ -6,7 +6,7 @@ export const educationalHubEn = {
   eyebrow: "Educational markers",
   description:
     "Reference pages to better grasp autism spectrum disorder, Asperger syndrome, intellectual giftedness, and other markers useful for support — without replacing a clinical assessment.",
-  metaTitle: "Understand — ASD, Asperger, HPI | Claire Jalabert",
+  metaTitle: "Understand neurodivergence | Claire Jalabert",
   metaDescription:
     "Educational markers on ASD, Asperger syndrome, intellectual giftedness and other themes. Informative content, not diagnostic.",
   lead: "These texts aim to clarify, nuance and orient. They do not replace a clinical interview or a medical diagnostic process.",

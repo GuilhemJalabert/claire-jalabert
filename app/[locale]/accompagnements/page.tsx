@@ -22,7 +22,7 @@ import { SoftHalo } from "@/components/decor/soft-halo";
 import { Star } from "@/components/decor/star";
 import { Starfield } from "@/components/decor/starfield";
 import { ExpertiseCard } from "@/components/sections/expertise-card";
-import { languageAlternates } from "@/i18n/metadata";
+import { absoluteTitle, absoluteUrl, languageAlternates } from "@/i18n/metadata";
 import { asAppLocale } from "@/i18n/routing";
 import { getAccompaniments } from "@/lib/accompagnements";
 import { cn } from "@/lib/utils";
@@ -33,11 +33,25 @@ type Props = { params: Promise<{ locale: string }> };
 export async function generateMetadata({ params }: Props): Promise<Metadata> {
   const locale = asAppLocale((await params).locale);
   const t = await getTranslations({ locale, namespace: "Accompaniments" });
+  const title = t("metaTitle");
+  const description = t("metaDescription", { name: siteConfig.name });
+  const url = absoluteUrl(locale, "/accompagnements");
 
   return {
-    title: t("metaTitle"),
-    description: t("metaDescription", { name: siteConfig.name }),
+    title: absoluteTitle(title),
+    description,
     alternates: languageAlternates(locale, "/accompagnements"),
+    openGraph: {
+      title,
+      description,
+      url,
+      type: "website",
+    },
+    twitter: {
+      card: "summary_large_image",
+      title,
+      description,
+    },
   };
 }
 
